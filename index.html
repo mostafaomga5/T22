@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>T2 | حلول التسويق الرقمي</title>
+  <meta name="description" content="T2 شركة تسويق رقمي متكاملة: سوشيال ميديا، مواقع، فيديوهات بالذكاء الاصطناعي، إعلانات، وإدارة صفحات.">
+  <meta name="theme-color" content="#14213d">
+  <link rel="icon" href="logo.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<!-- Country picker -->
+<div class="modal" id="country-modal" hidden role="dialog" aria-modal="true" aria-labelledby="country-title">
+  <div class="modal-box">
+    <h2 id="country-title" data-i="country_title"></h2>
+    <p data-i="country_lead"></p>
+    <select id="country-select" aria-label="country"></select>
+    <button class="btn primary" id="country-go" type="button" data-i="country_go"></button>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="T2"><img src="logo.png" alt="T2"></a>
+    <nav class="nav" id="nav" aria-label="main">
+      <a href="#services" data-i="nav_services"></a>
+      <a href="#portfolio" data-i="nav_portfolio"></a>
+      <a href="#all" data-i="nav_all"></a>
+      <a href="#quote" data-i="nav_quote"></a>
+    </nav>
+    <div class="header-actions">
+      <button class="chip" id="btn-country" type="button"></button>
+      <button class="chip" id="btn-lang" type="button"></button>
+      <button class="menu-btn" id="btn-menu" type="button" aria-label="menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <h1 data-i="hero_title"></h1>
+        <p class="lead" data-i="hero_lead"></p>
+        <div class="cta-row">
+          <a class="btn primary" href="#quote" data-i="hero_cta"></a>
+          <a class="btn ghost" href="#portfolio" data-i="hero_secondary"></a>
+        </div>
+      </div>
+      <div class="hero-logo">
+        <div class="logo-3d" id="logo-3d"><img src="logo.png" alt="T2"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <h2 data-i="services_title"></h2>
+      <div class="grid" id="services-grid"></div>
+    </div>
+  </section>
+
+  <section id="portfolio" style="background:#fbfaf6">
+    <div class="wrap">
+      <h2 data-i="portfolio_title"></h2>
+      <p class="section-lead" data-i="portfolio_lead"></p>
+      <div id="portfolio-wrap"></div>
+    </div>
+  </section>
+
+  <section id="all">
+    <div class="wrap">
+      <h2 data-i="all_title"></h2>
+      <div class="groups" id="groups"></div>
+    </div>
+  </section>
+
+  <section id="quote" class="quote">
+    <div class="wrap">
+      <h2 data-i="quote_title"></h2>
+      <p class="section-lead" data-i="quote_lead"></p>
+      <form class="form" id="quote-form" novalidate>
+        <div class="row">
+          <div>
+            <label for="pkg" data-i="f_pkg"></label>
+            <select id="pkg">
+              <option value="basic" data-i="pkg_basic"></option>
+              <option value="pro" data-i="pkg_pro"></option>
+              <option value="full" data-i="pkg_full"></option>
+            </select>
+          </div>
+          <div>
+            <label for="svc" data-i="f_svc"></label>
+            <select id="svc"></select>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="name" data-i="f_name"></label>
+            <input id="name" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="biz" data-i="f_biz"></label>
+            <input id="biz" autocomplete="organization">
+          </div>
+        </div>
+        <label for="phone" data-i="f_phone"></label>
+        <input id="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required>
+        <label for="notes" data-i="f_notes"></label>
+        <textarea id="notes"></textarea>
+        <p class="err" id="form-err"></p>
+        <button class="btn primary" type="submit" data-i="f_submit"></button>
+        <p class="note" data-i="f_note"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© T2 · <span data-i="footer_rights"></span></span>
+    <a href="https://wa.me/201090960743" target="_blank" rel="noopener" data-i="footer_contact"></a>
+  </div>
+</footer>
+
+<!-- Video player -->
+<div class="modal" id="video-modal" hidden role="dialog" aria-modal="true">
+  <div class="player">
+    <button class="close" id="video-close" type="button" aria-label="close">✕</button>
+    <video id="video-player" controls playsinline></video>
+    <p class="msg" id="video-msg" hidden></p>
+  </div>
+</div>
+
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
