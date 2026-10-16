@@ -1,17 +1,14 @@
 (function () {
-  const { BASE_AR, BASE_EN, DIALECTS, COUNTRIES } = window.T2_I18N;
+  const { PACKS, COUNTRIES } = window.T2_I18N;
 
   // ---------- Contact numbers ----------
-  // Default number used for every country unless a country has its own number below.
-  // Format: international, digits only, no + and no 00.
+  // Default number for all countries. Put a country's own number in WA_BY_COUNTRY (digits, intl format, no + or 00).
   const WA_DEFAULT = "201090960743";
   const WA_BY_COUNTRY = {
-    SA: "", // Saudi number (empty = use default)
+    SA: "", // Saudi number
     AE: "", // UAE number
-    // add others here, e.g. KW: "965xxxxxxxx"
   };
 
-  // ---------- Flags ----------
   const FLAGS = {
     SA: "🇸🇦", EG: "🇪🇬", AE: "🇦🇪", KW: "🇰🇼", QA: "🇶🇦", BH: "🇧🇭", OM: "🇴🇲",
     JO: "🇯🇴", LB: "🇱🇧", SY: "🇸🇾", PS: "🇵🇸", IQ: "🇮🇶", YE: "🇾🇪", MA: "🇲🇦",
@@ -26,13 +23,15 @@
   let lang = localStorage.getItem("t2_lang") || "ar";
   let country = localStorage.getItem("t2_country") || null;
   if (!COUNTRIES.some(c => c.c === country)) country = null;
+  let selected = [];
+  try { selected = JSON.parse(localStorage.getItem("t2_sel") || "[]"); } catch (e) { selected = []; }
+  if (!Array.isArray(selected)) selected = [];
 
-  // ---------- Strings: language + dialect, applied globally ----------
+  // ---------- Strings: language + dialect ----------
   function strings() {
-    if (lang === "en") return BASE_EN;
+    if (lang === "en") return PACKS.EN;
     const c = COUNTRIES.find(x => x.c === country);
-    const dialect = c ? DIALECTS[c.pack] : null;
-    return Object.assign({}, BASE_AR, dialect || {});
+    return PACKS[c ? c.pack : "MSA"] || PACKS.MSA;
   }
   const t = (k) => strings()[k];
   const countryObj = (code) => COUNTRIES.find(x => x.c === code);
@@ -42,18 +41,33 @@
   };
   const waNumber = () => (country && WA_BY_COUNTRY[country]) || WA_DEFAULT;
 
+  // ---------- Service selection ----------
+  // ids: "c0".."c4" for core services, "g{group}_{item}" for the full list
+  function labelFor(id) {
+    const s = strings();
+    if (id[0] === "c") return s["s" + (Number(id.slice(1)) + 1) + "_t"];
+    const [g, i] = id.slice(1).split("_").map(Number);
+    return s.groups[g] ? s.groups[g].i[i] : id;
+  }
+  function saveSelection() { localStorage.setItem("t2_sel", JSON.stringify(selected)); }
+  function toggle(id) {
+    const idx = selected.indexOf(id);
+    if (idx >= 0) selected.splice(idx, 1); else selected.push(id);
+    saveSelection();
+    syncSelection();
+  }
+  function isOn(id) { return selected.indexOf(id) >= 0; }
+
   // ---------- Apply everything ----------
   function applyText() {
     const s = strings();
     document.documentElement.lang = lang === "en" ? "en" : "ar";
     document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
     document.title = lang === "en" ? "T2 | Digital Marketing Agency" : "T2 | حلول التسويق الرقمي";
-
     document.querySelectorAll("[data-i]").forEach(el => {
       const v = s[el.getAttribute("data-i")];
       if (typeof v === "string") el.textContent = v;
     });
-
     document.getElementById("btn-lang").textContent = s.btn_lang;
     document.getElementById("footer-wa").href = "https://wa.me/" + waNumber();
     document.getElementById("video-close").setAttribute("aria-label", s.close);
@@ -72,15 +86,37 @@
       </li>`).join("");
   }
 
-  function renderServices() {
+  function renderCoreList() {
     const s = strings();
-    document.getElementById("services-grid").innerHTML = [1, 2, 3, 4, 5].map(i => `
-      <article class="card">
-        <span class="num">0${i}</span>
-        <h3>${s["s" + i + "_t"]}</h3>
-        <p>${s["s" + i + "_d"]}</p>
-      </article>`).join("");
-    bindCardTilt();
+    document.getElementById("services-list").innerHTML = [0, 1, 2, 3, 4].map(i => {
+      const id = "c" + i;
+      return `
+      <li class="pick tilt" data-id="${id}">
+        <label>
+          <input type="checkbox" class="sr" value="${id}" ${isOn(id) ? "checked" : ""}>
+          <span class="pick-num">0${i + 1}</span>
+          <span class="pick-body"><h3>${s["s" + (i + 1) + "_t"]}</h3><p>${s["s" + (i + 1) + "_d"]}</p></span>
+          <span class="tick" aria-hidden="true">✓</span>
+        </label>
+      </li>`;
+    }).join("");
+  }
+
+  function renderAllList() {
+    const s = strings();
+    document.getElementById("groups").innerHTML = s.groups.map((g, gi) => `
+      <div class="group tilt">
+        <h3>${g.t}</h3>
+        <ul class="chk">
+          ${g.i.map((item, ii) => {
+            const id = "g" + gi + "_" + ii;
+            return `<li><label class="chk-row ${isOn(id) ? "on" : ""}">
+              <input type="checkbox" class="sr" value="${id}" ${isOn(id) ? "checked" : ""}>
+              <span class="box" aria-hidden="true">✓</span><span>${item}</span>
+            </label></li>`;
+          }).join("")}
+        </ul>
+      </div>`).join("");
   }
 
   function renderPortfolio() {
@@ -88,13 +124,12 @@
     const wrap = document.getElementById("portfolio-wrap");
     wrap.innerHTML = SVC_IDS.map((id, idx) => {
       const cards = Array.from({ length: VIDEOS_PER_SERVICE }, (_, n) => `
-        <button class="vcard" type="button" data-src="videos/${id}/${n + 1}.mp4">
+        <button class="vcard tilt" type="button" data-src="videos/${id}/${n + 1}.mp4">
           <video preload="metadata" muted playsinline src="videos/${id}/${n + 1}.mp4"></video>
           <span class="play"><span>▶</span><span class="tag">${n + 1}</span></span>
         </button>`).join("");
       return `<div class="pf-service"><h3>${s.svc_names[idx]}</h3><div class="videos">${cards}</div></div>`;
     }).join("");
-
     wrap.querySelectorAll(".vcard video").forEach(v => {
       v.addEventListener("error", () => {
         v.parentElement.querySelector(".tag").textContent = strings().portfolio_soon;
@@ -104,28 +139,42 @@
     wrap.querySelectorAll(".vcard").forEach(btn => btn.addEventListener("click", () => openVideo(btn)));
   }
 
-  function renderGroups() {
+  // Updates checkboxes, summary, order bar, and tilt bindings without rebuilding lists unnecessarily
+  function syncSelection() {
     const s = strings();
-    document.getElementById("groups").innerHTML = s.groups.map(g => `
-      <div class="group"><h3>${g.t}</h3><ul>${g.i.map(x => `<li>${x}</li>`).join("")}</ul></div>`).join("");
-  }
+    document.querySelectorAll('input[type="checkbox"][value]').forEach(cb => {
+      cb.checked = isOn(cb.value);
+      const row = cb.closest(".chk-row");
+      if (row) row.classList.toggle("on", cb.checked);
+      const pick = cb.closest(".pick");
+      if (pick) pick.classList.toggle("on", cb.checked);
+    });
 
-  function renderServiceOptions() {
-    const s = strings();
-    const sel = document.getElementById("svc");
-    const current = sel.value || "0";
-    sel.innerHTML = s.svc_names.map((n, i) => `<option value="${i}">${n}</option>`).join("");
-    sel.value = current;
+    const summary = document.getElementById("sel-summary");
+    summary.innerHTML = selected.length
+      ? `<p class="sel-title">${s.f_selected} (${selected.length})</p><ul>${selected.map(id => `<li>${labelFor(id)}</li>`).join("")}</ul>`
+      : `<p class="sel-title">${s.f_selected}</p><p class="sel-empty">${s.f_none}</p>`;
+
+    const bar = document.getElementById("order-bar");
+    bar.hidden = selected.length === 0;
+    document.getElementById("order-count").textContent = `${selected.length} ${s.order_count}`;
+    document.getElementById("order-go").textContent = s.order_go;
   }
 
   function renderAll() {
     applyText();
     renderDropdown();
-    renderServices();
+    renderCoreList();
+    renderAllList();
     renderPortfolio();
-    renderGroups();
-    renderServiceOptions();
+    syncSelection();
+    bindTilt();
   }
+
+  // Event delegation for selection (survives re-renders)
+  document.addEventListener("change", (e) => {
+    if (e.target.matches('input[type="checkbox"][value]')) toggle(e.target.value);
+  });
 
   // ---------- Country dropdown (no overlay) ----------
   const cdd = document.getElementById("cdd");
@@ -155,7 +204,6 @@
     renderAll();
     cddBtn.focus();
   }
-
   cddBtn.addEventListener("click", () => (cdd.classList.contains("open") ? closeDD() : openDD()));
   cddList.addEventListener("click", (e) => {
     const li = e.target.closest("li");
@@ -169,7 +217,7 @@
       if (!isOpen) { openDD(); return; }
       if (e.key === "ArrowDown") { activeIdx = (activeIdx + 1) % COUNTRIES.length; highlight(); }
       else if (e.key === "ArrowUp") { activeIdx = (activeIdx - 1 + COUNTRIES.length) % COUNTRIES.length; highlight(); }
-      else { chooseCountry(COUNTRIES[activeIdx].c); }
+      else chooseCountry(COUNTRIES[activeIdx].c);
     }
   });
   document.addEventListener("pointerdown", (e) => { if (!cdd.contains(e.target)) closeDD(); });
@@ -219,24 +267,27 @@
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const s = strings();
+    const err = form.querySelector(".err");
     const name = document.getElementById("name").value.trim();
     const phone = document.getElementById("phone").value.replace(/[^\d+]/g, "");
-    const err = form.querySelector(".err");
+
     if (!name || phone.replace(/\D/g, "").length < 8) {
-      err.textContent = s.f_err;
-      err.style.display = "block";
-      return;
+      err.textContent = s.f_err; err.style.display = "block"; return;
+    }
+    if (selected.length === 0) {
+      err.textContent = s.f_err_svc; err.style.display = "block"; return;
     }
     err.style.display = "none";
 
     const pkgSel = document.getElementById("pkg");
-    const svcSel = document.getElementById("svc");
     const biz = document.getElementById("biz").value.trim() || "-";
     const notes = document.getElementById("notes").value.trim() || "-";
     const lines = [
       s.wa_header, "",
       `*${s.wa_pkg}:* ${pkgSel.options[pkgSel.selectedIndex].textContent}`,
-      `*${s.wa_svc}:* ${svcSel.options[svcSel.selectedIndex].textContent}`,
+      `*${s.wa_svc}:*`,
+      ...selected.map(id => `• ${labelFor(id)}`),
+      "",
       `*${s.wa_name}:* ${name}`,
       `*${s.wa_biz}:* ${biz}`,
       `*${s.wa_phone}:* ${phone}`,
@@ -246,31 +297,38 @@
     window.open("https://wa.me/" + waNumber() + "?text=" + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
   });
 
-  // ---------- 3D: service cards tilt ----------
-  function bindCardTilt() {
+  // ---------- 3D hover: tilt + light follow on hover ----------
+  function bindTilt() {
     if (reduce) return;
-    document.querySelectorAll(".card").forEach(card => {
-      card.addEventListener("pointermove", (e) => {
-        const r = card.getBoundingClientRect();
+    document.querySelectorAll(".tilt").forEach(el => {
+      if (el.dataset.tilt) return;
+      el.dataset.tilt = "1";
+      el.addEventListener("pointermove", (e) => {
+        const r = el.getBoundingClientRect();
         const x = (e.clientX - r.left) / r.width - 0.5;
         const y = (e.clientY - r.top) / r.height - 0.5;
-        card.style.transform = `rotateX(${-y * 10}deg) rotateY(${x * 12}deg) translateZ(18px)`;
-        card.style.boxShadow = "0 26px 50px rgba(20,33,61,.18)";
+        el.style.transform = `perspective(900px) rotateX(${-y * 12}deg) rotateY(${x * 14}deg) translateZ(18px)`;
+        el.style.setProperty("--mx", (x + 0.5) * 100 + "%");
+        el.style.setProperty("--my", (y + 0.5) * 100 + "%");
+        el.style.boxShadow = "0 28px 55px rgba(20,33,61,.22)";
       });
-      card.addEventListener("pointerleave", () => { card.style.transform = ""; card.style.boxShadow = ""; });
+      el.addEventListener("pointerleave", () => {
+        el.style.transform = "";
+        el.style.boxShadow = "";
+      });
     });
   }
 
-  // ---------- 3D: hero logo (extruded layers, real depth) ----------
+  // ---------- 3D: hero logo ----------
   function heroLogo() {
     const box = document.getElementById("hero-3d");
     if (!box || !window.THREE) return;
-
     const W = box.clientWidth || 400, H = box.clientHeight || 400;
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(W, H);
-    box.querySelector("img.fallback").remove();
+    const fb = box.querySelector("img.fallback");
+    if (fb) fb.remove();
     box.appendChild(renderer.domElement);
 
     const scene = new THREE.Scene();
@@ -304,7 +362,6 @@
       tx = ((e.clientY - (r.top + r.height / 2)) / r.height) * 0.6;
     });
     hero.addEventListener("pointerleave", () => { tx = 0; ty = 0; });
-
     window.addEventListener("resize", () => {
       const w = box.clientWidth || W, h = box.clientHeight || H;
       renderer.setSize(w, h);
@@ -334,7 +391,6 @@
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 300);
     camera.position.z = 45;
-
     const count = 320;
     const pos = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
@@ -346,7 +402,6 @@
     geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
     const points = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0xc9a227, size: 0.35, transparent: true, opacity: 0.7 }));
     scene.add(points);
-
     function resize() {
       renderer.setSize(window.innerWidth, window.innerHeight, false);
       camera.aspect = window.innerWidth / window.innerHeight;
@@ -354,7 +409,6 @@
     }
     window.addEventListener("resize", resize);
     resize();
-
     let scrollY = 0;
     window.addEventListener("scroll", () => { scrollY = window.scrollY; }, { passive: true });
     (function loop() {
