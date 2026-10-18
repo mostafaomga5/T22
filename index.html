@@ -1,162 +1,756 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>T2 | حلول التسويق الرقمي</title>
-  <meta name="description" content="T2 شركة تسويق رقمي متكاملة: سوشيال ميديا، مواقع، فيديوهات بالذكاء الاصطناعي، إعلانات، وإدارة صفحات.">
-  <meta name="theme-color" content="#14213d">
-  <link rel="icon" href="logo.png">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-  <style>
-    .cdd { position: relative; }
-    .cdd-btn { display:flex; align-items:center; gap:8px; padding:8px 14px; min-width:150px; border:1px solid var(--line); background:#fff; border-radius:999px; font:inherit; font-size:14px; color:var(--navy); cursor:pointer; justify-content:space-between; }
-    .cdd-btn:hover, .cdd-btn:focus-visible { border-color:var(--gold); outline:none; }
-    .cdd-btn .flag { font-size:18px; line-height:1; }
-    .cdd-btn .label { flex:1; text-align:start; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-    .cdd-btn .caret { font-size:10px; color:var(--muted); transition:transform .2s; }
-    .cdd.open .cdd-btn .caret { transform:rotate(180deg); }
-    .cdd-btn.pulse { animation:pulse 1.8s infinite; }
-    @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(201,162,39,.55)} 70%{box-shadow:0 0 0 10px rgba(201,162,39,0)} 100%{box-shadow:0 0 0 0 rgba(201,162,39,0)} }
-    .cdd-list { position:absolute; top:calc(100% + 10px); inset-inline-end:0; width:min(260px,86vw); max-height:340px; overflow:auto; margin:0; padding:8px; list-style:none; background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:0 18px 40px rgba(20,33,61,.18); z-index:60; opacity:0; transform:translateY(-6px); pointer-events:none; transition:opacity .2s, transform .2s; }
-    .cdd.open .cdd-list { opacity:1; transform:none; pointer-events:auto; }
-    .cdd-list li { display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:10px; cursor:pointer; color:var(--ink); }
-    .cdd-list li .flag { font-size:20px; line-height:1; }
-    .cdd-list li.active, .cdd-list li:hover { background:#f4f1e8; }
-    .cdd-list li[aria-selected="true"] { color:var(--navy); font-weight:700; }
-    .cdd-list li[aria-selected="true"]::after { content:"✓"; margin-inline-start:auto; color:var(--gold); }
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    .hero-3d { width:min(460px,80vw); aspect-ratio:1; position:relative; }
-    .hero-3d canvas { width:100% !important; height:100% !important; display:block; }
-    .hero-3d img.fallback { width:100%; height:100%; object-fit:contain; animation:float 6s ease-in-out infinite; }
-    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
-    @media (max-width:900px) { .hero-3d { width:min(320px,72vw); } }
+  <!-- العنوان والوصف الأساسي (SEO) -->
+  <title>T2 | حلول التسويق الرقمي المتكاملة والذكاء الاصطناعي</title>
+  <meta name="description" content="T2 شركة تسويق رقمي متكاملة: إدارة سوشيال ميديا، تصميم وتطوير مواقع، إنتاج فيديوهات بالذكاء الاصطناعي، حملات إعلانية ممولة، وبناء الهوية الرقمية.">
+  <meta name="keywords" content="T2, تسويق رقمي, سوشيال ميديا, تصميم مواقع, فيديوهات بالذكاء الاصطناعي, إعلانات ممولة, إدارة صفحات, وكالة تسويق">
+  <meta name="author" content="T2 Digital Marketing Agency">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#14213d">
+
+  <!-- Open Graph / Social Media (لمعاينة احترافية عند مشاركة الرابط على واتساب وفيسبوك) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_AR">
+  <meta property="og:site_name" content="T2 Digital Marketing">
+  <meta property="og:title" content="T2 | حلول التسويق الرقمي المتكاملة">
+  <meta property="og:description" content="نحوّل حضورك الرقمي إلى نتائج حقيقية ومبيعات مستدامة عبر أحدث حلول التسويق والذكاء الاصطناعي.">
+  <meta property="og:image" content="logo.png">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="T2 | حلول التسويق الرقمي المتكاملة">
+  <meta name="twitter:description" content="شركة تسويق رقمي متكاملة: سوشيال ميديا، مواقع، فيديوهات بالذكاء الاصطناعي، وإعلانات ممولة.">
+  <meta name="twitter:image" content="logo.png">
+
+  <!-- الأيقونات والروابط المسبقة لتحسين السرعة (Performance) -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="preload" as="image" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- ملف التنسيقات الأساسي -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- مكتبة Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+
+  <!-- بيانات منظمة لمحركات البحث (Google Schema.org JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "T2 Digital Marketing",
+    "description": "شركة تسويق رقمي متكاملة: سوشيال ميديا، مواقع، فيديوهات بالذكاء الاصطناعي، إعلانات، وإدارة صفحات.",
+    "logo": "logo.png",
+    "telephone": "+201090960743",
+    "url": "https://wa.me/201090960743",
+    "sameAs": [
+      "https://wa.me/201090960743"
+    ]
+  }
+  </script>
+
+  <!-- طبقة تحسينات التصميم الاحترافي (Clean & Modern UI Enhancements) -->
+  <style>
+    :root {
+      --navy-fallback: var(--navy, #14213d);
+      --gold-fallback: var(--gold, #c9a227);
+      --gold-light: rgba(201, 162, 39, 0.14);
+      --line-fallback: var(--line, #e5e7eb);
+      --ink-fallback: var(--ink, #1f2937);
+      --muted-fallback: var(--muted, #6b7280);
+      --surface-glass: rgba(255, 255, 255, 0.86);
+      --shadow-sm: 0 4px 14px rgba(20, 33, 61, 0.05);
+      --shadow-md: 0 12px 32px rgba(20, 33, 61, 0.08);
+      --shadow-lg: 0 24px 54px rgba(20, 33, 61, 0.14);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 88px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      overflow-x: hidden;
+      selection-background-color: var(--gold-fallback);
+    }
+
+    ::selection {
+      background: var(--gold-fallback);
+      color: #fff;
+    }
+
+    /* شريط تقدم القراءة العلوي */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      inset-inline-start: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--navy-fallback), var(--gold-fallback));
+      z-index: 9999;
+      transition: width 0.1s ease-out;
+    }
+
+    /* رابط تخطي المحتوى لدعم الوصولية Accessibility */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      inset-inline-start: 16px;
+      background: var(--navy-fallback);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      z-index: 10000;
+      text-decoration: none;
+      font-weight: 700;
+      transition: top 0.2s;
+    }
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    /* تحسين الهيدر الزجاجي (Glassmorphism Header) */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: var(--surface-glass);
+      border-bottom: 1px solid rgba(20, 33, 61, 0.08);
+      transition: var(--transition-smooth);
+    }
+    .site-header.scrolled {
+      box-shadow: var(--shadow-sm);
+      background: rgba(255, 255, 255, 0.94);
+    }
+
+    .brand img {
+      transition: transform 0.3s ease;
+    }
+    .brand:hover img {
+      transform: scale(1.05);
+    }
+
+    .nav a {
+      position: relative;
+      font-weight: 600;
+      transition: color 0.25s ease;
+    }
+    .nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      inset-inline-start: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold-fallback);
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+    .nav a:hover::after,
+    .nav a:focus-visible::after {
+      width: 100%;
+    }
+
+    /* القائمة المنسدلة للدول (Country Dropdown) */
+    .cdd { position: relative; }
+    .cdd-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      min-width: 150px;
+      border: 1px solid var(--line-fallback);
+      background: #fff;
+      border-radius: 999px;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy-fallback);
+      cursor: pointer;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(20, 33, 61, 0.04);
+      transition: var(--transition-smooth);
+    }
+    .cdd-btn:hover,
+    .cdd-btn:focus-visible {
+      border-color: var(--gold-fallback);
+      box-shadow: 0 4px 12px rgba(201, 162, 39, 0.15);
+      outline: none;
+    }
+    .cdd-btn .flag { font-size: 18px; line-height: 1; }
+    .cdd-btn .label {
+      flex: 1;
+      text-align: start;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .cdd-btn .caret {
+      font-size: 10px;
+      color: var(--muted-fallback);
+      transition: transform 0.25s ease;
+    }
+    .cdd.open .cdd-btn .caret { transform: rotate(180deg); }
+    .cdd-btn.pulse { animation: pulse 1.8s infinite; }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.55); }
+      70% { box-shadow: 0 0 0 10px rgba(201, 162, 39, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0); }
+    }
+
+    .cdd-list {
+      position: absolute;
+      top: calc(100% + 10px);
+      inset-inline-end: 0;
+      width: min(260px, 86vw);
+      max-height: 340px;
+      overflow: auto;
+      margin: 0;
+      padding: 8px;
+      list-style: none;
+      background: #fff;
+      border: 1px solid var(--line-fallback);
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+      z-index: 60;
+      opacity: 0;
+      transform: translateY(-8px) scale(0.98);
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .cdd.open .cdd-list {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+    .cdd-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      color: var(--ink-fallback);
+      transition: background 0.15s ease;
+    }
+    .cdd-list li .flag { font-size: 20px; line-height: 1; }
+    .cdd-list li.active,
+    .cdd-list li:hover { background: #f4f1e8; }
+    .cdd-list li[aria-selected="true"] {
+      color: var(--navy-fallback);
+      font-weight: 700;
+      background: rgba(201, 162, 39, 0.1);
+    }
+    .cdd-list li[aria-selected="true"]::after {
+      content: "✓";
+      margin-inline-start: auto;
+      color: var(--gold-fallback);
+      font-weight: 800;
+    }
+
+    /* تحسين قسم الـ Hero والـ 3D */
+    .hero {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      margin-bottom: 16px;
+      border-radius: 999px;
+      background: var(--gold-light);
+      border: 1px solid rgba(201, 162, 39, 0.35);
+      color: var(--navy-fallback);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .hero-badge .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold-fallback);
+      box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.25);
+    }
+
+    .hero-3d {
+      width: min(460px, 80vw);
+      aspect-ratio: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-3d::before {
+      content: "";
+      position: absolute;
+      inset: 10%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201, 162, 39, 0.22) 0%, rgba(20, 33, 61, 0) 70%);
+      filter: blur(25px);
+      z-index: -1;
+      pointer-events: none;
+    }
+    .hero-3d canvas {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+    }
+    .hero-3d img.fallback {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      animation: float 6s ease-in-out infinite;
+      filter: drop-shadow(0 20px 30px rgba(20, 33, 61, 0.15));
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+    @media (max-width: 900px) {
+      .hero-3d { width: min(320px, 72vw); margin-inline: auto; }
+    }
+
+    /* شريط الإحصائيات والثقة (Trust Metrics Strip) */
+    .stats-strip {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(20, 33, 61, 0.08);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .stat-num {
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 800;
+      color: var(--navy-fallback);
+      line-height: 1.2;
+    }
+    .stat-num span {
+      color: var(--gold-fallback);
+    }
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted-fallback);
+      font-weight: 500;
+    }
+
+    /* تحسين الأزرار (Buttons Micro-interactions) */
+    .btn {
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn.primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(20, 33, 61, 0.22);
+    }
+    .btn.ghost:hover {
+      transform: translateY(-2px);
+      border-color: var(--gold-fallback);
+    }
+
+    /* تحسين رؤوس الأقسام (Section Headers) */
+    .section-head {
+      margin-bottom: 32px;
+    }
+    .section-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--gold-fallback);
+      background: var(--gold-light);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    /* تحسين نموذج طلب السعر (Quote Form Upgrade) */
+    .form {
+      background: #fff;
+      padding: clamp(22px, 4vw, 38px);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line-fallback);
+      box-shadow: var(--shadow-md);
+    }
+    .form input,
+    .form select,
+    .form textarea {
+      width: 100%;
+      border: 1px solid var(--line-fallback);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font: inherit;
+      background: #fcfcfd;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .form input:focus,
+    .form select:focus,
+    .form textarea:focus {
+      outline: none;
+      background: #fff;
+      border-color: var(--gold-fallback);
+      box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.14);
+    }
+    .form label {
+      display: block;
+      font-weight: 700;
+      margin-top: 14px;
+      margin-bottom: 6px;
+      color: var(--navy-fallback);
+    }
+    .form textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    /* شريط الطلب العائم (Floating Order Bar) */
+    .order-bar {
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* نافذة الفيديو المنبثقة (Video Modal) */
+    .modal {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    /* تأثيرات الظهور عند التمرير (Scroll Reveal) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* زر الصعود للأعلى العائم */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      inset-inline-start: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--navy-fallback);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 45;
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: var(--transition-smooth);
+      font-size: 18px;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .back-to-top:hover {
+      background: var(--gold-fallback);
+      color: var(--navy-fallback);
+      transform: translateY(-3px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
   </style>
 </head>
 <body>
+
+<!-- شريط تقدم التمرير العلوي -->
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+<!-- رابط تخطي إلى المحتوى الرئيسي (معايير الوصولية العالمية) -->
+<a href="#main-content" class="skip-link">تخطي إلى المحتوى الرئيسي</a>
+
+<!-- خلفية الـ Canvas التفاعلية -->
 <canvas id="bg" aria-hidden="true"></canvas>
 
-<header class="site-header">
+<!-- الهيدر الرئيسي -->
+<header class="site-header" id="site-header">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="T2"><img src="logo.png" alt="T2"></a>
-    <nav class="nav" id="nav" aria-label="main">
-      <a href="#services" data-i="nav_services"></a>
-      <a href="#portfolio" data-i="nav_portfolio"></a>
-      <a href="#all" data-i="nav_all"></a>
-      <a href="#quote" data-i="nav_quote"></a>
+    <a class="brand" href="#top" aria-label="T2 الصفحة الرئيسية">
+      <img src="logo.png" alt="T2 شعار شركة التسويق الرقمي" width="48" height="48" fetchpriority="high">
+    </a>
+
+    <nav class="nav" id="nav" aria-label="القائمة الرئيسية">
+      <a href="#services" data-i="nav_services">خدماتنا</a>
+      <a href="#portfolio" data-i="nav_portfolio">أعمالنا</a>
+      <a href="#all" data-i="nav_all">كل الحلول</a>
+      <a href="#quote" data-i="nav_quote">اطلب عرض سعر</a>
     </nav>
+
     <div class="header-actions">
+      <!-- اختيار الدولة / العملة -->
       <div class="cdd" id="cdd">
         <button class="cdd-btn" id="cdd-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="cdd-list">
-          <span class="flag">🌍</span><span class="label"></span><span class="caret">▼</span>
+          <span class="flag" aria-hidden="true">🌍</span>
+          <span class="label">اختر الدولة</span>
+          <span class="caret" aria-hidden="true">▼</span>
         </button>
-        <ul class="cdd-list" id="cdd-list" role="listbox"></ul>
+        <ul class="cdd-list" id="cdd-list" role="listbox" aria-label="قائمة الدول"></ul>
       </div>
-      <button class="chip" id="btn-lang" type="button"></button>
-      <button class="menu-btn" id="btn-menu" type="button" aria-label="menu" aria-expanded="false">☰</button>
+
+      <!-- زر تبديل اللغة -->
+      <button class="chip" id="btn-lang" type="button" aria-label="تغيير اللغة">EN</button>
+
+      <!-- زر القائمة للموبايل -->
+      <button class="menu-btn" id="btn-menu" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="nav">☰</button>
     </div>
   </div>
 </header>
 
-<main>
+<!-- المحتوى الرئيسي -->
+<main id="main-content">
+
+  <!-- القسم الافتتاحي (Hero Section) -->
   <section class="hero" id="top">
     <div class="wrap">
-      <div>
-        <h1 data-i="hero_title"></h1>
-        <p class="lead" data-i="hero_lead"></p>
+      <div class="hero-content reveal visible">
+        <div class="hero-badge">
+          <span class="dot" aria-hidden="true"></span>
+          <span>T2 Digital Agency · شريكك للنمو الرقمي</span>
+        </div>
+
+        <h1 data-i="hero_title">نصنع حضورك الرقمي ونضاعف مبيعاتك باحترافية</h1>
+        <p class="lead" data-i="hero_lead">
+          منظومة تسويق رقمي متكاملة تجمع بين الإبداع، الإعلانات الممولة الدقيقة، وتطوير المواقع وإنتاج الفيديوهات بالذكاء الاصطناعي.
+        </p>
+
         <div class="cta-row">
-          <a class="btn primary" href="#quote" data-i="hero_cta"></a>
-          <a class="btn ghost" href="#portfolio" data-i="hero_secondary"></a>
+          <a class="btn primary" href="#quote" data-i="hero_cta">ابدأ مشروعك الآن</a>
+          <a class="btn ghost" href="#portfolio" data-i="hero_secondary">شاهد سابقة أعمالنا</a>
+        </div>
+
+        <!-- مؤشرات الثقة السريعة -->
+        <div class="stats-strip" aria-label="إحصائيات الشركة">
+          <div class="stat-item">
+            <span class="stat-num"><span>+</span>150</span>
+            <span class="stat-label">مشروع وحملة ناجحة</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num"><span>%</span>98</span>
+            <span class="stat-label">نسبة رضا العملاء</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">AI <span>&</span> Web</span>
+            <span class="stat-label">أحدث تقنيات التسويق</span>
+          </div>
         </div>
       </div>
-      <div class="hero-logo">
-        <div class="hero-3d" id="hero-3d"><img class="fallback" src="logo.png" alt="T2"></div>
+
+      <div class="hero-logo reveal visible">
+        <div class="hero-3d" id="hero-3d">
+          <img class="fallback" src="logo.png" alt="شعار T2 ثلاثي الأبعاد" width="420" height="420">
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="services">
+  <!-- قسم اختيار الخدمات السريعة (Services Section) -->
+  <section id="services" class="reveal">
     <div class="wrap">
-      <h2 data-i="services_title"></h2>
-      <p class="section-lead" data-i="services_lead"></p>
-      <ul class="pick-list" id="services-list"></ul>
+      <div class="section-head">
+        <span class="section-tag">Solutions · الحلول</span>
+        <h2 data-i="services_title">اختر الخدمات التي يحتاجها مشروعك</h2>
+        <p class="section-lead" data-i="services_lead">حدد الخدمات المطلوبة لبناء باقتك المخصصة فوراً وبكل سهولة.</p>
+      </div>
+      <ul class="pick-list" id="services-list" aria-live="polite"></ul>
     </div>
   </section>
 
-  <section id="portfolio" style="background:#fbfaf6">
+  <!-- قسم سابقة الأعمال (Portfolio Section) -->
+  <section id="portfolio" class="reveal" style="background:#fbfaf6">
     <div class="wrap">
-      <h2 data-i="portfolio_title"></h2>
-      <p class="section-lead" data-i="portfolio_lead"></p>
-      <div id="portfolio-wrap"></div>
+      <div class="section-head">
+        <span class="section-tag">Portfolio · الإنجازات</span>
+        <h2 data-i="portfolio_title">نماذج من أعمالنا الإبداعية</h2>
+        <p class="section-lead" data-i="portfolio_lead">جودة تنفيذ عالية تضمن لعلامتك التجارية التميز وسط المنافسين.</p>
+      </div>
+      <div id="portfolio-wrap" aria-live="polite"></div>
     </div>
   </section>
 
-  <section id="all">
+  <!-- قسم جميع الخدمات التفصيلية (All Services Groups) -->
+  <section id="all" class="reveal">
     <div class="wrap">
-      <h2 data-i="all_title"></h2>
-      <p class="section-lead" data-i="all_lead"></p>
+      <div class="section-head">
+        <span class="section-tag">Full Catalog · الدليل الكامل</span>
+        <h2 data-i="all_title">جميع خدمات وحلول T2 الرقمية</h2>
+        <p class="section-lead" data-i="all_lead">استكشف كافة الأقسام والخدمات المتخصصة التي نقدمها لتطوير أعمالك.</p>
+      </div>
       <div class="groups" id="groups"></div>
     </div>
   </section>
 
-  <section id="quote" class="quote">
+  <!-- قسم طلب عرض السعر (Quote Section) -->
+  <section id="quote" class="quote reveal">
     <div class="wrap">
-      <h2 data-i="quote_title"></h2>
-      <p class="section-lead" data-i="quote_lead"></p>
+      <div class="section-head">
+        <span class="section-tag">Get a Quote · ابدأ الآن</span>
+        <h2 data-i="quote_title">احصل على خطة وعرض سعر مخصص</h2>
+        <p class="section-lead" data-i="quote_lead">أكمل بياناتك وسيتواصل معك فريقنا فوراً عبر واتساب بالتفاصيل الكاملة.</p>
+      </div>
+
       <form class="form" id="quote-form" novalidate>
-        <div class="sel-summary" id="sel-summary"></div>
-        <label for="pkg" data-i="f_pkg"></label>
-        <select id="pkg">
-          <option value="basic" data-i="pkg_basic"></option>
-          <option value="pro" data-i="pkg_pro"></option>
-          <option value="full" data-i="pkg_full"></option>
+        <!-- ملخص الخدمات المختارة -->
+        <div class="sel-summary" id="sel-summary" aria-live="polite"></div>
+
+        <label for="pkg" data-i="f_pkg">اختر مستوى الباقة</label>
+        <select id="pkg" name="package">
+          <option value="basic" data-i="pkg_basic">الباقة الأساسية (Basic)</option>
+          <option value="pro" data-i="pkg_pro">الباقة الاحترافية (Pro)</option>
+          <option value="full" data-i="pkg_full">الباقة الشاملة المتكاملة (Full)</option>
         </select>
+
         <div class="row">
           <div>
-            <label for="name" data-i="f_name"></label>
-            <input id="name" autocomplete="name" required>
+            <label for="name" data-i="f_name">الاسم الكريم *</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="مثال: أحمد محمد" required>
           </div>
           <div>
-            <label for="biz" data-i="f_biz"></label>
-            <input id="biz" autocomplete="organization">
+            <label for="biz" data-i="f_biz">اسم الشركة أو النشاط التجاري</label>
+            <input id="biz" name="business" type="text" autocomplete="organization" placeholder="مثال: متجر أو شركة...">
           </div>
         </div>
-        <label for="phone" data-i="f_phone"></label>
-        <input id="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required>
-        <label for="notes" data-i="f_notes"></label>
-        <textarea id="notes"></textarea>
-        <p class="err" id="form-err"></p>
-        <button class="btn primary" type="submit" data-i="f_submit"></button>
-        <p class="note" data-i="f_note"></p>
+
+        <label for="phone" data-i="f_phone">رقم الهاتف / واتساب *</label>
+        <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" placeholder="+20 10X XXX XXXX" required>
+
+        <label for="notes" data-i="f_notes">تفاصيل إضافية أو ملاحظات حول مشروعك</label>
+        <textarea id="notes" name="notes" placeholder="اكتب أي تفاصيل تساعدنا على فهم أهدافك التسويقية بشكل أفضل..."></textarea>
+
+        <p class="err" id="form-err" role="alert" aria-live="assertive"></p>
+
+        <button class="btn primary" type="submit" data-i="f_submit">إرسال الطلب عبر واتساب</button>
+        <p class="note" data-i="f_note">🔒 بياناتك آمنة تماماً وسيتم توجيهك مباشرة إلى محادثة واتساب الرسمية الخاصة بنا.</p>
       </form>
     </div>
   </section>
+
 </main>
 
-<div class="order-bar" id="order-bar" hidden>
+<!-- شريط الطلب السفلي العائم -->
+<div class="order-bar" id="order-bar" hidden role="region" aria-label="ملخص الطلب السريع">
   <span id="order-count"></span>
-  <a class="btn primary" id="order-go" href="#quote" data-i="order_go"></a>
+  <a class="btn primary" id="order-go" href="#quote" data-i="order_go">متابعة الطلب</a>
 </div>
 
+<!-- زر الصعود للأعلى -->
+<button class="back-to-top" id="back-to-top" type="button" aria-label="العودة إلى أعلى الصفحة" title="العودة للأعلى">↑</button>
+
+<!-- الفوتر (Footer) -->
 <footer>
   <div class="wrap">
-    <span>© T2 · <span data-i="footer_rights"></span></span>
-    <a id="footer-wa" href="https://wa.me/201090960743" target="_blank" rel="noopener" data-i="footer_contact"></a>
+    <span>© <span id="year">2026</span> T2 · <span data-i="footer_rights">جميع الحقوق محفوظة</span></span>
+    <a id="footer-wa" href="https://wa.me/201090960743" target="_blank" rel="noopener noreferrer" data-i="footer_contact">تواصل معنا عبر واتساب</a>
   </div>
 </footer>
 
-<div class="modal" id="video-modal" hidden role="dialog" aria-modal="true">
+<!-- نافذة عرض الفيديو (Video Modal) -->
+<div class="modal" id="video-modal" hidden role="dialog" aria-modal="true" aria-label="مشغل الفيديو">
   <div class="player">
-    <button class="close" id="video-close" type="button" aria-label="close">✕</button>
-    <video id="video-player" controls playsinline></video>
+    <button class="close" id="video-close" type="button" aria-label="إغلاق الفيديو">✕</button>
+    <video id="video-player" controls playsinline preload="metadata"></video>
     <p class="msg" id="video-msg" hidden></p>
   </div>
 </div>
 
+<!-- ملفات الجافاسكريبت الأساسية الخاصة بالموقع -->
 <script src="i18n.js" defer></script>
 <script src="app.js" defer></script>
+
+<!-- سكريبت خفيف لتحسين تجربة المستخدم (Scroll Progress + Reveal Animations + Sticky Header) -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const header = document.getElementById('site-header');
+    const progressBar = document.getElementById('scroll-progress');
+    const backToTop = document.getElementById('back-to-top');
+    const yearEl = document.getElementById('year');
+
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+
+    // تحديث شريط التقدم والهيدر وزر الصعود للأعلى عند التمرير
+    const onScroll = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+      if (progressBar) progressBar.style.width = progress + '%';
+      if (header) header.classList.toggle('scrolled', scrollTop > 20);
+      if (backToTop) backToTop.classList.toggle('show', scrollTop > 450);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    if (backToTop) {
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // تحريك العناصر بسلاسة عند الظهور على الشاشة (Intersection Observer)
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
+    }
+  });
+</script>
 </body>
 </html>
