@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * T2 DIGITAL MARKETING AGENCY — SMART CULTURAL ASSETS & ZERO-CACHE ENGINE (app.js)
+ * T2 DIGITAL MARKETING AGENCY — LARGE STAGE & SMART ASSET ENGINE (app.js)
  * ============================================================================
  */
 (function () {
@@ -16,47 +16,44 @@
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // ============================================================================
-  // 🌟 دليل إضافة صور أي دولة جديدة (COUNTRY_ASSETS) 🌟
-  // لإضافة أي دولة جديدة مستقبلاً (مثل مصر EG أو الكويت KW):
-  // فقط انسخ بلوك SA أو AE بالأسفل وحط كود الدولة وأسماء الصور المرفوعة في GitHub
+  // 🌟 دليل الصور والستيكرات الكبيرة (دعم شامل باللغة العربية والإنجليزية والامتدادات) 🌟
   // ============================================================================
   const COUNTRY_ASSETS = {
     SA: {
       bgCandidates: ["السعودية-خلفية.png", "السعودية-خلفية.webp", "saudi-bg.png"],
       characterCandidates: ["السعودية-شخصية.png", "السعودية-شخصية.webp", "saudi-character.png"],
-      orbitStickers: [
-        { candidates: ["السعودية-ستيكر-01.png", "saudi-sticker-01.png"], title: "هوية السوق السعودي 🇸🇦" },
-        { candidates: ["السعودية-ستيكر-02.png", "saudi-sticker-02.png"], title: "نمو المبيعات بالمملكة" },
-        { candidates: ["السعودية-ستيكر-03.png", "saudi-sticker-03.png"], title: "تصدر التريند السعودي" }
+      sideStickers: [
+        { candidates: ["السعودية-ستيكر-01.png", "saudi-sticker-01.png"], title: "هوية السوق السعودي" },
+        { candidates: ["السعودية-ستيكر-02.png", "saudi-sticker-02.png"], title: "نمو المبيعات" },
+        { candidates: ["السعودية-ستيكر-03.png", "saudi-sticker-03.png"], title: "تريند المملكة" }
       ],
       serviceIcons: [
-        ["السعودية-ستيكر-04.png", "saudi-sticker-04.png"], // كارت 1: سوشيال ميديا
-        ["السعودية-ستيكر-01.png", "saudi-sticker-01.png"], // كارت 2: مواقع ومتاجر
-        ["السعودية-ستيكر-05.png", "saudi-sticker-05.png"], // كارت 3: فيديوهات الذكاء الاصطناعي
-        ["السعودية-ستيكر-02.png", "saudi-sticker-02.png"], // كارت 4: إعلانات ممولة
-        ["السعودية-ستيكر-03.png", "saudi-sticker-03.png"]  // كارت 5: إدارة الحسابات
+        ["السعودية-ستيكر-04.png", "saudi-sticker-04.png"],
+        ["السعودية-ستيكر-01.png", "saudi-sticker-01.png"],
+        ["السعودية-ستيكر-05.png", "saudi-sticker-05.png"],
+        ["السعودية-ستيكر-02.png", "saudi-sticker-02.png"],
+        ["السعودية-ستيكر-03.png", "saudi-sticker-03.png"]
       ]
     },
     AE: {
       bgCandidates: ["الإمارات-خلفية.webp", "الامارات-خلفية.webp", "uae-bg.webp"],
       characterCandidates: ["الإمارات-شخصية.webp", "الامارات-شخصية.webp", "uae-character.webp"],
-      orbitStickers: [
-        { candidates: ["الإمارات-ستيكر-01.webp", "الامارات-ستيكر-01.webp", "uae-sticker-01.webp"], title: "أبراج وميديا دبي 🇦🇪" },
-        { candidates: ["الإمارات-ستيكر-02.webp", "الامارات-ستيكر-02.webp", "uae-sticker-02.webp"], title: "تراث وفخامة الإمارات" },
-        { candidates: ["الإمارات-ستيكر-03.webp", "الامارات-ستيكر-03.webp", "uae-sticker-03.webp"], title: "نخلة الجميرا والتميز" },
-        { candidates: ["الإمارات-ستيكر-06.webp", "الامارات-ستيكر-06.webp", "uae-sticker-06.webp"], title: "مضاعفة الأرباح والعائد" }
+      sideStickers: [
+        { candidates: ["الإمارات-ستيكر-01.webp", "الامارات-ستيكر-01.webp", "uae-sticker-01.webp"], title: "أبراج دبي" },
+        { candidates: ["الإمارات-ستيكر-02.webp", "الامارات-ستيكر-02.webp", "uae-sticker-02.webp"], title: "فخامة التراث" },
+        { candidates: ["الإمارات-ستيكر-06.webp", "الامارات-ستيكر-06.webp", "uae-sticker-06.webp"], title: "مضاعفة الأرباح" }
       ],
       serviceIcons: [
-        ["الإمارات-ستيكر-04.webp", "الامارات-ستيكر-04.webp", "uae-sticker-04.webp"], // كارت 1: سوشيال ميديا
-        ["الإمارات-ستيكر-01.webp", "الامارات-ستيكر-01.webp", "uae-sticker-01.webp"], // كارت 2: مواقع ومتاجر
-        ["الإمارات-ستيكر-05.webp", "الامارات-ستيكر-05.webp", "uae-sticker-05.webp"], // كارت 3: فيديوهات AI
-        ["الإمارات-ستيكر-06.webp", "الامارات-ستيكر-06.webp", "uae-sticker-06.webp"], // كارت 4: إعلانات ممولة
-        ["الإمارات-ستيكر-03.webp", "الامارات-ستيكر-03.webp", "uae-sticker-03.webp"]  // كارت 5: إدارة الصفحات
+        ["الإمارات-ستيكر-04.webp", "الامارات-ستيكر-04.webp", "uae-sticker-04.webp"],
+        ["الإمارات-ستيكر-01.webp", "الامارات-ستيكر-01.webp", "uae-sticker-01.webp"],
+        ["الإمارات-ستيكر-05.webp", "الامارات-ستيكر-05.webp", "uae-sticker-05.webp"],
+        ["الإمارات-ستيكر-06.webp", "الامارات-ستيكر-06.webp", "uae-sticker-06.webp"],
+        ["الإمارات-ستيكر-03.webp", "الامارات-ستيكر-03.webp", "uae-sticker-03.webp"]
       ]
     }
   };
 
-  // دالة ذكية لتجربة مسارات الصورة (بالهمزة أو بدون همزة أو بالإنجليزي) وعرض أول مسار شغال على السيرفر
+  // نظام تتبع وإيجاد أصح مسار للصورة على سيرفر GitHub
   window.__t2FallbackImg = function (imgEl) {
     const list = (imgEl.getAttribute("data-srcs") || "").split("|").filter(Boolean);
     const idx = Number(imgEl.getAttribute("data-idx") || "0") + 1;
@@ -64,7 +61,7 @@
       imgEl.setAttribute("data-idx", String(idx));
       imgEl.src = list[idx];
     } else {
-      const parent = imgEl.closest(".sticker-node, .character-node, .showcase-card");
+      const parent = imgEl.closest(".side-sticker-card, .side-character-card, .showcase-card");
       if (parent) parent.style.display = "none";
     }
   };
@@ -91,7 +88,6 @@
     OTHER: "+XX XXX XXX XXXX"
   };
 
-  // ---------- مسح أي اختيارات قديمة معلقة ----------
   try {
     localStorage.removeItem("t2_sel");
     localStorage.removeItem("t2_country");
@@ -147,19 +143,18 @@
     return selected.indexOf(id) >= 0;
   }
 
-  // ---------- عرض الصور والستيكرات والخلفية الخاصة بالدولة ----------
+  // ---------- عرض الصور الضخمة في مسرح الجانب والشريط تحت الهيرو ----------
   function renderCountryVisualAssets() {
-    const orbit = document.getElementById("country-stickers-orbit");
+    const podium = document.getElementById("side-stickers-podium");
     const strip = document.getElementById("country-showcase-strip");
     const stripInner = document.getElementById("showcase-inner");
     const companion = document.getElementById("floating-companion");
     const heroBg = document.getElementById("hero-country-bg");
 
-    if (!orbit) return;
+    if (!podium) return;
 
     const assets = country && COUNTRY_ASSETS[country];
 
-    // تحديث خلفية الهيرو (مثل الإمارات-خلفية.webp)
     if (heroBg) {
       if (assets && assets.bgCandidates && assets.bgCandidates.length) {
         const bgImg = new Image();
@@ -186,41 +181,39 @@
 
     if (!assets) {
       const vibe = (country && COUNTRY_VIBES[country]) || COUNTRY_VIBES.DEFAULT;
-      orbit.innerHTML = `
-        <div class="float-badge sticker-pos-0">🎬 <span>Reels & TikTok</span></div>
-        <div class="float-badge sticker-pos-1">📈 <span>ROAS +480%</span></div>
-        <div class="float-badge sticker-pos-2">🤖 <span>AI Video</span></div>
-        <div class="float-badge sticker-pos-3"><span>${vibe ? vibe.floatBadge : "🚀 Top Trend"}</span></div>
+      podium.innerHTML = `
+        <div class="side-sticker-card side-pos-0">🎬 <span>Reels & TikTok</span></div>
+        <div class="side-sticker-card side-pos-1">📈 <span>ROAS +480%</span></div>
+        <div class="side-sticker-card side-pos-2"><span>${vibe ? vibe.floatBadge : "🚀 Top Trend"}</span></div>
       `;
       if (strip) strip.hidden = true;
       if (companion) companion.hidden = true;
       return;
     }
 
-    // بناء الستيكرات المدارية حول اللوجو
-    const stickerNodes = assets.orbitStickers
-      .slice(0, 3)
+    // بناء الستيكرات الكبيرة البارزة في الجانب
+    const stickerCards = assets.sideStickers
       .map(
         (st, i) => `
-      <div class="sticker-node sticker-pos-${i}">
+      <div class="side-sticker-card side-pos-${i}">
         ${buildSmartImgTag(st.candidates, st.title)}
+        <span>${st.title}</span>
       </div>`
       )
       .join("");
 
-    // بناء كارت الشخصية (السعودية-شخصية.png / الإمارات-شخصية.webp)
-    const charNode = assets.characterCandidates
-      ? `<div class="character-node">
+    // بناء الشخصية الرئيسية الضخمة
+    const charCard = assets.characterCandidates
+      ? `<div class="side-character-card">
            ${buildSmartImgTag(assets.characterCandidates, "المستشار الرقمي")}
          </div>`
       : "";
 
-    orbit.innerHTML = stickerNodes + charNode;
+    podium.innerHTML = stickerCards + charCard;
 
-    // شريط استعراض مجسمات الدولة تحت الهيرو
     if (strip && stripInner) {
       strip.hidden = false;
-      stripInner.innerHTML = assets.orbitStickers
+      stripInner.innerHTML = assets.sideStickers
         .map(
           (st) => `
         <div class="showcase-card">
@@ -231,14 +224,12 @@
         .join("");
     }
 
-    // المستشار الرقمي العائم في زاوية الشاشة
     if (companion && assets.characterCandidates) {
       companion.hidden = false;
       companion.innerHTML = buildSmartImgTag(assets.characterCandidates, "");
     }
   }
 
-  // ---------- عجلة الدول ثلاثية الأبعاد عند الدخول ----------
   function initCountryWheelGate() {
     const gate = document.getElementById("country-gate");
     const wheelRing = document.getElementById("wheel-ring");
@@ -347,7 +338,7 @@
     renderCountryVisualAssets();
   }
 
-  // ---------- بناء كروت الخدمات الأساسية بأيقونات الـ 3D المرفوعة للدولة ----------
+  // ---------- كروت الخدمات الأساسية بأيقونات 3D ضخمة مخصصة للدولة ----------
   function renderCoreList() {
     const s = strings();
     const listEl = document.getElementById("services-list");
@@ -661,8 +652,8 @@
       return;
     }
 
-    const W = box.clientWidth || 360;
-    const H = box.clientHeight || 360;
+    const W = box.clientWidth || 320;
+    const H = box.clientHeight || 320;
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(W, H);
 
