@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * T2 DIGITAL MARKETING AGENCY — 3D INTERACTIVE ENGINE & ZERO-CACHE STATE (app.js)
+ * T2 DIGITAL MARKETING AGENCY — SMART CULTURAL ASSETS & ZERO-CACHE ENGINE (app.js)
  * ============================================================================
  */
 (function () {
@@ -14,6 +14,67 @@
   const SVC_ICONS = ["📱", "💻", "🤖", "📈", "⚡"];
   const VIDEOS_PER_SERVICE = 3;
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ============================================================================
+  // 🌟 دليل إضافة صور أي دولة جديدة (COUNTRY_ASSETS) 🌟
+  // لإضافة أي دولة جديدة مستقبلاً (مثل مصر EG أو الكويت KW):
+  // فقط انسخ بلوك SA أو AE بالأسفل وحط كود الدولة وأسماء الصور المرفوعة في GitHub
+  // ============================================================================
+  const COUNTRY_ASSETS = {
+    SA: {
+      bgCandidates: ["السعودية-خلفية.png", "السعودية-خلفية.webp", "saudi-bg.png"],
+      characterCandidates: ["السعودية-شخصية.png", "السعودية-شخصية.webp", "saudi-character.png"],
+      orbitStickers: [
+        { candidates: ["السعودية-ستيكر-01.png", "saudi-sticker-01.png"], title: "هوية السوق السعودي 🇸🇦" },
+        { candidates: ["السعودية-ستيكر-02.png", "saudi-sticker-02.png"], title: "نمو المبيعات بالمملكة" },
+        { candidates: ["السعودية-ستيكر-03.png", "saudi-sticker-03.png"], title: "تصدر التريند السعودي" }
+      ],
+      serviceIcons: [
+        ["السعودية-ستيكر-04.png", "saudi-sticker-04.png"], // كارت 1: سوشيال ميديا
+        ["السعودية-ستيكر-01.png", "saudi-sticker-01.png"], // كارت 2: مواقع ومتاجر
+        ["السعودية-ستيكر-05.png", "saudi-sticker-05.png"], // كارت 3: فيديوهات الذكاء الاصطناعي
+        ["السعودية-ستيكر-02.png", "saudi-sticker-02.png"], // كارت 4: إعلانات ممولة
+        ["السعودية-ستيكر-03.png", "saudi-sticker-03.png"]  // كارت 5: إدارة الحسابات
+      ]
+    },
+    AE: {
+      bgCandidates: ["الإمارات-خلفية.webp", "الامارات-خلفية.webp", "uae-bg.webp"],
+      characterCandidates: ["الإمارات-شخصية.webp", "الامارات-شخصية.webp", "uae-character.webp"],
+      orbitStickers: [
+        { candidates: ["الإمارات-ستيكر-01.webp", "الامارات-ستيكر-01.webp", "uae-sticker-01.webp"], title: "أبراج وميديا دبي 🇦🇪" },
+        { candidates: ["الإمارات-ستيكر-02.webp", "الامارات-ستيكر-02.webp", "uae-sticker-02.webp"], title: "تراث وفخامة الإمارات" },
+        { candidates: ["الإمارات-ستيكر-03.webp", "الامارات-ستيكر-03.webp", "uae-sticker-03.webp"], title: "نخلة الجميرا والتميز" },
+        { candidates: ["الإمارات-ستيكر-06.webp", "الامارات-ستيكر-06.webp", "uae-sticker-06.webp"], title: "مضاعفة الأرباح والعائد" }
+      ],
+      serviceIcons: [
+        ["الإمارات-ستيكر-04.webp", "الامارات-ستيكر-04.webp", "uae-sticker-04.webp"], // كارت 1: سوشيال ميديا
+        ["الإمارات-ستيكر-01.webp", "الامارات-ستيكر-01.webp", "uae-sticker-01.webp"], // كارت 2: مواقع ومتاجر
+        ["الإمارات-ستيكر-05.webp", "الامارات-ستيكر-05.webp", "uae-sticker-05.webp"], // كارت 3: فيديوهات AI
+        ["الإمارات-ستيكر-06.webp", "الامارات-ستيكر-06.webp", "uae-sticker-06.webp"], // كارت 4: إعلانات ممولة
+        ["الإمارات-ستيكر-03.webp", "الامارات-ستيكر-03.webp", "uae-sticker-03.webp"]  // كارت 5: إدارة الصفحات
+      ]
+    }
+  };
+
+  // دالة ذكية لتجربة مسارات الصورة (بالهمزة أو بدون همزة أو بالإنجليزي) وعرض أول مسار شغال على السيرفر
+  window.__t2FallbackImg = function (imgEl) {
+    const list = (imgEl.getAttribute("data-srcs") || "").split("|").filter(Boolean);
+    const idx = Number(imgEl.getAttribute("data-idx") || "0") + 1;
+    if (idx < list.length) {
+      imgEl.setAttribute("data-idx", String(idx));
+      imgEl.src = list[idx];
+    } else {
+      const parent = imgEl.closest(".sticker-node, .character-node, .showcase-card");
+      if (parent) parent.style.display = "none";
+    }
+  };
+
+  function buildSmartImgTag(candidates, altText) {
+    if (!candidates || !candidates.length) return "";
+    const first = candidates[0];
+    const joined = candidates.join("|");
+    return `<img src="${first}" data-srcs="${joined}" data-idx="0" alt="${altText || ""}" onerror="window.__t2FallbackImg(this)">`;
+  }
 
   const PHONE_META = {
     SA: "+966 5X XXX XXXX",
@@ -30,7 +91,7 @@
     OTHER: "+XX XXX XXX XXXX"
   };
 
-  // ---------- 1. مسح أي ذاكرة قديمة معلقة عشان يبدأ الموقع من جديد دائماً ----------
+  // ---------- مسح أي اختيارات قديمة معلقة ----------
   try {
     localStorage.removeItem("t2_sel");
     localStorage.removeItem("t2_country");
@@ -42,7 +103,6 @@
   let country = null;
   let selected = [];
 
-  // ---------- 2. دالة تصفير الاختيارات والنماذج بالكامل ----------
   function resetAllSelectionsAndForm() {
     selected = [];
     const form = document.getElementById("quote-form");
@@ -58,12 +118,8 @@
     syncSelection();
   }
 
-  // ضمان التصفير حتى لو المتصفح رجع للصفحة بزر الـ Back (bfcache)
-  window.addEventListener("pageshow", () => {
-    resetAllSelectionsAndForm();
-  });
+  window.addEventListener("pageshow", resetAllSelectionsAndForm);
 
-  // ---------- 3. جلب النصوص واللهجة الصحيحة بدون أي تضارب ----------
   function strings() {
     if (lang === "en") return PACKS.EN || {};
     const cObj = COUNTRIES.find((x) => x.c === country);
@@ -72,10 +128,6 @@
   }
 
   const countryObj = (code) => COUNTRIES.find((x) => x.c === code);
-  const countryName = (code) => {
-    const c = countryObj(code);
-    return c ? (lang === "en" ? c.en : c.ar) : "";
-  };
 
   function labelFor(id) {
     const s = strings();
@@ -95,7 +147,98 @@
     return selected.indexOf(id) >= 0;
   }
 
-  // ---------- 4. بناء عجلة الدول ثلاثية الأبعاد (3D Country Wheel Gate) ----------
+  // ---------- عرض الصور والستيكرات والخلفية الخاصة بالدولة ----------
+  function renderCountryVisualAssets() {
+    const orbit = document.getElementById("country-stickers-orbit");
+    const strip = document.getElementById("country-showcase-strip");
+    const stripInner = document.getElementById("showcase-inner");
+    const companion = document.getElementById("floating-companion");
+    const heroBg = document.getElementById("hero-country-bg");
+
+    if (!orbit) return;
+
+    const assets = country && COUNTRY_ASSETS[country];
+
+    // تحديث خلفية الهيرو (مثل الإمارات-خلفية.webp)
+    if (heroBg) {
+      if (assets && assets.bgCandidates && assets.bgCandidates.length) {
+        const bgImg = new Image();
+        let bgIdx = 0;
+        const tryLoadBg = () => {
+          if (bgIdx >= assets.bgCandidates.length) {
+            heroBg.style.backgroundImage = "none";
+            return;
+          }
+          bgImg.src = assets.bgCandidates[bgIdx];
+        };
+        bgImg.onload = () => {
+          heroBg.style.backgroundImage = `url("${bgImg.src}")`;
+        };
+        bgImg.onerror = () => {
+          bgIdx++;
+          tryLoadBg();
+        };
+        tryLoadBg();
+      } else {
+        heroBg.style.backgroundImage = "none";
+      }
+    }
+
+    if (!assets) {
+      const vibe = (country && COUNTRY_VIBES[country]) || COUNTRY_VIBES.DEFAULT;
+      orbit.innerHTML = `
+        <div class="float-badge sticker-pos-0">🎬 <span>Reels & TikTok</span></div>
+        <div class="float-badge sticker-pos-1">📈 <span>ROAS +480%</span></div>
+        <div class="float-badge sticker-pos-2">🤖 <span>AI Video</span></div>
+        <div class="float-badge sticker-pos-3"><span>${vibe ? vibe.floatBadge : "🚀 Top Trend"}</span></div>
+      `;
+      if (strip) strip.hidden = true;
+      if (companion) companion.hidden = true;
+      return;
+    }
+
+    // بناء الستيكرات المدارية حول اللوجو
+    const stickerNodes = assets.orbitStickers
+      .slice(0, 3)
+      .map(
+        (st, i) => `
+      <div class="sticker-node sticker-pos-${i}">
+        ${buildSmartImgTag(st.candidates, st.title)}
+      </div>`
+      )
+      .join("");
+
+    // بناء كارت الشخصية (السعودية-شخصية.png / الإمارات-شخصية.webp)
+    const charNode = assets.characterCandidates
+      ? `<div class="character-node">
+           ${buildSmartImgTag(assets.characterCandidates, "المستشار الرقمي")}
+         </div>`
+      : "";
+
+    orbit.innerHTML = stickerNodes + charNode;
+
+    // شريط استعراض مجسمات الدولة تحت الهيرو
+    if (strip && stripInner) {
+      strip.hidden = false;
+      stripInner.innerHTML = assets.orbitStickers
+        .map(
+          (st) => `
+        <div class="showcase-card">
+          ${buildSmartImgTag(st.candidates, st.title)}
+          <span>${st.title}</span>
+        </div>`
+        )
+        .join("");
+    }
+
+    // المستشار الرقمي العائم في زاوية الشاشة
+    if (companion && assets.characterCandidates) {
+      companion.hidden = false;
+      companion.innerHTML = buildSmartImgTag(assets.characterCandidates, "");
+    }
+  }
+
+  // ---------- عجلة الدول ثلاثية الأبعاد عند الدخول ----------
   function initCountryWheelGate() {
     const gate = document.getElementById("country-gate");
     const wheelRing = document.getElementById("wheel-ring");
@@ -106,24 +249,22 @@
 
     if (!gate || !grid) return;
 
-    // توزيع أعلام الدول على محيط العجلة الدوارة
     if (wheelRing) {
       const wheelCountries = COUNTRIES.slice(0, 10);
-      const radius = 68;
+      const radius = 64;
       wheelRing.innerHTML = wheelCountries
         .map((c, idx) => {
           const angle = (idx / wheelCountries.length) * Math.PI * 2;
           const x = Math.cos(angle) * radius;
           const y = Math.sin(angle) * radius;
-          return `<span class="wheel-flag-node" style="transform: translate(calc(-50% + ${x.toFixed(1)}px), calc(-50% + ${y.toFixed(1)}px))">${c.flag}</span>`;
+          return `<span class="wheel-flag-node" style="transform: translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)">${c.flag}</span>`;
         })
         .join("");
     }
 
-    // بناء أزرار الدول
     grid.innerHTML = COUNTRIES.map(
       (c) => `
-      <button type="button" class="gate-country-btn ${c.c === country ? "selected" : ""}" data-code="${c.c}">
+      <button type="button" class="gate-country-btn" data-code="${c.c}">
         <span class="flag">${c.flag}</span>
         <span>${c.ar}</span>
       </button>`
@@ -139,21 +280,23 @@
         centerIcon.textContent = chosen.flag;
         centerIcon.style.transform = "scale(1.22)";
       }
-      if (wheelRing) {
-        wheelRing.classList.add("spinning-fast");
-      }
+      if (wheelRing) wheelRing.classList.add("spinning-fast");
 
       setTimeout(() => {
-        selectCountryAndTransform(code, "ar");
+        country = code;
+        lang = "ar";
+        renderAll();
         gate.classList.add("hidden");
         if (wheelRing) wheelRing.classList.remove("spinning-fast");
         if (centerIcon) centerIcon.style.transform = "";
-      }, 360);
+      }, 320);
     });
 
     if (enBtn) {
       enBtn.addEventListener("click", () => {
-        selectCountryAndTransform(country || "OTHER", "en");
+        country = country || "OTHER";
+        lang = "en";
+        renderAll();
         gate.classList.add("hidden");
       });
     }
@@ -165,13 +308,6 @@
     }
   }
 
-  function selectCountryAndTransform(code, targetLang) {
-    country = code;
-    if (targetLang) lang = targetLang;
-    renderAll();
-  }
-
-  // ---------- 5. تحديث النصوص والهوية المحلية المتجاوبة مع الدولة ----------
   function applyTextAndCulture() {
     const s = strings();
     const isEn = lang === "en";
@@ -185,33 +321,21 @@
       if (typeof s[key] === "string") el.textContent = s[key];
     });
 
-    // تحديث زر الدولة في الهيدر
     const flagEl = document.getElementById("current-flag");
     const labelEl = document.getElementById("current-country-label");
     if (flagEl) flagEl.textContent = cObj ? cObj.flag : "🌍";
     if (labelEl) {
-      labelEl.textContent = cObj
-        ? isEn
-          ? cObj.en
-          : cObj.ar
-        : s.country_pick;
+      labelEl.textContent = cObj ? (isEn ? cObj.en : cObj.ar) : s.country_pick;
     }
 
-    // تحديث شريط الهوية المحلية والأيقونات الخاصة بكل دولة
     const vibeBar = document.getElementById("country-vibe-bar");
-    const floatBadge = document.getElementById("country-float-badge");
     const vibe = (country && COUNTRY_VIBES[country]) || COUNTRY_VIBES.DEFAULT;
-
     if (vibeBar && vibe) {
       vibeBar.innerHTML = vibe.chips
         .map((chipText) => `<span class="vibe-chip">${chipText}</span>`)
         .join("");
     }
-    if (floatBadge && vibe) {
-      floatBadge.innerHTML = `<span>${vibe.floatBadge}</span>`;
-    }
 
-    // تحديث مفتاح الهاتف
     const phoneInput = document.getElementById("phone");
     if (phoneInput) {
       phoneInput.placeholder = PHONE_META[country] || PHONE_META.EG;
@@ -219,22 +343,31 @@
 
     const langBtn = document.getElementById("btn-lang");
     if (langBtn && s.btn_lang) langBtn.textContent = s.btn_lang;
+
+    renderCountryVisualAssets();
   }
 
-  // ---------- 6. بناء كروت الخدمات الـ 3D ----------
+  // ---------- بناء كروت الخدمات الأساسية بأيقونات الـ 3D المرفوعة للدولة ----------
   function renderCoreList() {
     const s = strings();
     const listEl = document.getElementById("services-list");
     if (!listEl) return;
 
+    const assets = country && COUNTRY_ASSETS[country];
+
     listEl.innerHTML = [0, 1, 2, 3, 4]
       .map((i) => {
         const id = "c" + i;
+        const customIconCandidates = assets && assets.serviceIcons && assets.serviceIcons[i];
+        const iconContent = customIconCandidates
+          ? buildSmartImgTag(customIconCandidates, s["s" + (i + 1) + "_t"])
+          : SVC_ICONS[i];
+
         return `
-      <li class="pick tilt ${isOn(id) ? "on" : ""}" data-id="${id}">
+      <li class="pick ${isOn(id) ? "on" : ""}" data-id="${id}">
         <label>
           <input type="checkbox" class="sr" value="${id}" ${isOn(id) ? "checked" : ""}>
-          <span class="pick-icon-box">${SVC_ICONS[i]}</span>
+          <span class="pick-icon-box">${iconContent}</span>
           <span class="pick-body">
             <h3>${s["s" + (i + 1) + "_t"] || ""}</h3>
             <p>${s["s" + (i + 1) + "_d"] || ""}</p>
@@ -254,7 +387,7 @@
     groupsEl.innerHTML = s.groups
       .map(
         (g, gi) => `
-      <div class="group tilt">
+      <div class="group">
         <h3>${g.t}</h3>
         <ul class="chk">
           ${g.i
@@ -275,7 +408,6 @@
       .join("");
   }
 
-  // ---------- 7. بناء البورتفوليو ثلاثي الأبعاد ----------
   function renderPortfolio() {
     const s = strings();
     const wrap = document.getElementById("portfolio-wrap");
@@ -287,7 +419,7 @@
       const cards = Array.from(
         { length: VIDEOS_PER_SERVICE },
         (_, n) => `
-        <button class="vcard tilt" type="button" data-src="videos/${id}/${n + 1}.mp4" aria-label="${s.svc_names[idx]} ${n + 1}">
+        <button class="vcard" type="button" data-src="videos/${id}/${n + 1}.mp4" aria-label="${s.svc_names[idx]} ${n + 1}">
           <video preload="metadata" muted playsinline loop src="videos/${id}/${n + 1}.mp4"></video>
           <span class="play">
             <span class="play-icon">${SVC_ICONS[idx]}</span>
@@ -317,9 +449,7 @@
 
       if (video) {
         video.addEventListener("loadedmetadata", () => {
-          if (video.videoWidth > video.videoHeight) {
-            card.classList.add("landscape");
-          }
+          if (video.videoWidth > video.videoHeight) card.classList.add("landscape");
         });
         video.addEventListener("error", markSoon, true);
       }
@@ -366,7 +496,6 @@
     renderAllList();
     renderPortfolio();
     syncSelection();
-    bindTilt();
   }
 
   document.addEventListener("change", (e) => {
@@ -375,14 +504,12 @@
     }
   });
 
-  // أزرار مسح الاختيارات الفوري
   const clearBtn = document.getElementById("clear-sel-btn");
   if (clearBtn) clearBtn.addEventListener("click", resetAllSelectionsAndForm);
 
   const orderResetBtn = document.getElementById("order-reset");
   if (orderResetBtn) orderResetBtn.addEventListener("click", resetAllSelectionsAndForm);
 
-  // تبديل اللغة
   const btnLang = document.getElementById("btn-lang");
   if (btnLang) {
     btnLang.addEventListener("click", () => {
@@ -391,7 +518,7 @@
     });
   }
 
-  // ---------- 8. إرسال رسالة واتساب منسقة بالبراويز والفواصل + تصفير الموقع بعدها ----------
+  // ---------- إرسال رسالة واتساب بالبراويز والفواصل + تصفير الموقع ----------
   const form = document.getElementById("quote-form");
   if (form) {
     form.addEventListener("submit", (e) => {
@@ -481,14 +608,12 @@
         "noopener"
       );
 
-      // تصفير جميع الاختيارات والحقول فوراً بعد الطلب عشان يرجع الموقع من جديد
       setTimeout(() => {
         resetAllSelectionsAndForm();
       }, 400);
     });
   }
 
-  // ---------- 9. مشغل الفيديو والموبايل منيو ----------
   const videoModal = document.getElementById("video-modal");
   const player = document.getElementById("video-player");
 
@@ -517,29 +642,14 @@
       const open = nav.classList.toggle("open");
       menuBtn.setAttribute("aria-expanded", String(open));
     });
+    nav.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", () => {
+        nav.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+      })
+    );
   }
 
-  // ---------- 10. حركات الـ 3D للكروت مع الماوس والـ Scroll ----------
-  function bindTilt() {
-    if (reduce || window.matchMedia("(hover: none)").matches) return;
-    document.querySelectorAll(".tilt").forEach((el) => {
-      if (el.dataset.tiltBound) return;
-      el.dataset.tiltBound = "1";
-
-      el.addEventListener("pointermove", (e) => {
-        const r = el.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - 0.5;
-        const y = (e.clientY - r.top) / r.height - 0.5;
-        el.style.transform = `perspective(1000px) rotateX(${(-y * 12).toFixed(2)}deg) rotateY(${(x * 14).toFixed(2)}deg) translateZ(16px)`;
-      });
-
-      el.addEventListener("pointerleave", () => {
-        el.style.transform = "";
-      });
-    });
-  }
-
-  // ---------- 11. مجسم الـ 3D الرئيسي في الهيرو (Three.js) ----------
   function heroLogo() {
     const box = document.getElementById("hero-3d");
     if (!box || !window.THREE) return;
@@ -551,8 +661,8 @@
       return;
     }
 
-    const W = box.clientWidth || 420;
-    const H = box.clientHeight || 420;
+    const W = box.clientWidth || 360;
+    const H = box.clientHeight || 360;
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(W, H);
 
@@ -572,27 +682,20 @@
     const group = new THREE.Group();
     scene.add(group);
 
-    // حلقتان مداريتان ثلاثيتا الأبعاد تدلان على التفاعل الرقمي والسوشيال ميديا
-    const ringGeo1 = new THREE.TorusGeometry(2.25, 0.022, 16, 100);
+    const ringGeo1 = new THREE.TorusGeometry(2.15, 0.022, 16, 100);
     const ringMat1 = new THREE.MeshStandardMaterial({ color: 0xc9a227, metalness: 0.85, roughness: 0.2 });
     const ring1 = new THREE.Mesh(ringGeo1, ringMat1);
     ring1.rotation.x = Math.PI * 0.35;
     scene.add(ring1);
-
-    const ringGeo2 = new THREE.TorusGeometry(2.55, 0.014, 16, 100);
-    const ringMat2 = new THREE.MeshStandardMaterial({ color: 0x14213d, metalness: 0.7, roughness: 0.3 });
-    const ring2 = new THREE.Mesh(ringGeo2, ringMat2);
-    ring2.rotation.y = Math.PI * 0.28;
-    scene.add(ring2);
 
     new THREE.TextureLoader().load("logo.png", (tex) => {
       const fb = box.querySelector("img.fallback");
       if (fb) fb.remove();
       box.appendChild(renderer.domElement);
 
-      const geo = new THREE.PlaneGeometry(3.3, 3.3);
-      const layers = 24;
-      const depth = 0.3;
+      const geo = new THREE.PlaneGeometry(3.1, 3.1);
+      const layers = 22;
+      const depth = 0.28;
 
       for (let i = 0; i < layers; i++) {
         const isEdge = i === 0 || i === layers - 1;
@@ -614,16 +717,14 @@
     (function loop() {
       requestAnimationFrame(loop);
       const t = clock.getElapsedTime();
-      group.rotation.y = Math.sin(t * 0.8) * 0.28;
-      group.rotation.x = Math.cos(t * 0.6) * 0.12;
-      group.position.y = Math.sin(t * 1.3) * 0.14;
+      group.rotation.y = Math.sin(t * 0.8) * 0.26;
+      group.rotation.x = Math.cos(t * 0.6) * 0.1;
+      group.position.y = Math.sin(t * 1.3) * 0.12;
       ring1.rotation.z = t * 0.3;
-      ring2.rotation.x = -t * 0.22;
       renderer.render(scene, camera);
     })();
   }
 
-  // ---------- 12. التشغيل الأولي ----------
   document.addEventListener("DOMContentLoaded", () => {
     resetAllSelectionsAndForm();
     initCountryWheelGate();
