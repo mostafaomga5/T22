@@ -1,807 +1,483 @@
+/**
+ * ============================================================================
+ * T2 DIGITAL MARKETING AGENCY — AUTHENTIC MULTI-DIALECT & CULTURE ENGINE (i18n.js)
+ * ============================================================================
+ */
 (function () {
   "use strict";
 
-  const { PACKS, COUNTRIES } = window.T2_I18N || { PACKS: { MSA: {} }, COUNTRIES: [] };
-  const WA_DEFAULT = "201090960743";
-  const WA_BY_COUNTRY = { SA: "", AE: "", EG: "201090960743" };
-  const PHONE_META = {
-    SA: "+966 5X XXX XXXX", AE: "+971 5X XXX XXXX", EG: "+20 10X XXX XXXX",
-    KW: "+965 XXXX XXXX", QA: "+974 XXXX XXXX", BH: "+973 XXXX XXXX", OM: "+968 XXXX XXXX",
-    JO: "+962 7X XXX XXXX", LB: "+961 XX XXX XXX", SY: "+963 9XX XXX XXX", PS: "+970 59X XXX XXX",
-    IQ: "+964 7XX XXX XXXX", YE: "+967 7XX XXX XXX", MA: "+212 6XX-XXXXXX",
-    DZ: "+213 5XX XX XX XX", TN: "+216 XX XXX XXX", LY: "+218 9X-XXXXXXX",
-    SD: "+249 9X XXX XXXX", OTHER: "+XX XXX XXX XXXX"
+  // 1. الفصحى (Modern Standard Arabic)
+  const MSA = {
+    nav_services: "خدماتنا",
+    nav_portfolio: "أعمالنا",
+    nav_all: "كل الحلول",
+    nav_quote: "اطلب عرض سعر",
+    btn_lang: "English",
+    hero_badge: "T2 Digital Agency · شريكك الاستراتيجي للنمو الرقمي",
+    hero_title: "نصنع حضورك الرقمي ونضاعف مبيعاتك باحترافية",
+    hero_lead: "منظومة تسويق رقمي متكاملة تجمع بين إدارة السوشيال ميديا، تطوير المواقع، فيديوهات الذكاء الاصطناعي، والحملات الإعلانية الممولة في مكان واحد.",
+    hero_cta: "ابدأ مشروعك الآن",
+    hero_secondary: "شاهد سابقة أعمالنا",
+    stat_1: "حملة ومشروع ناجح",
+    stat_2: "متوسط مضاعفة المبيعات",
+    stat_3: "أحدث تقنيات الميديا",
+    services_title: "خدماتنا الأساسية",
+    services_lead: "اضغط على الكروت ثلاثية الأبعاد لتحديد الخدمات التي يحتاجها مشروعك الآن.",
+    s1_t: "إدارة السوشيال ميديا",
+    s1_d: "خطة محتوى شهرية، تصميمات احترافية، تصوير ومونتاج ريلز، وإدارة كاملة للتعليقات والرسائل.",
+    s2_t: "إنشاء وتطوير المواقع والمتاجر",
+    s2_d: "مواقع ومتاجر إلكترونية سريعة ومتجاوبة مع الجوال بمعايير عالمية وتجربة مستخدم تضاعف المبيعات.",
+    s3_t: "فيديوهات الذكاء الاصطناعي (AI)",
+    s3_d: "إنتاج إعلانات وفيديوهات تسويقية سينمائية بالذكاء الاصطناعي بسرعة قياسية وجودة مبهرة.",
+    s4_t: "إعلانات ممولة عالية العائد",
+    s4_d: "إدارة حملات إعلانية مدروسة على ميتا وتيك توك وسناب شات وجوجل مع تقارير أداء دقيقة.",
+    s5_t: "إدارة وتشغيل الصفحات والمنصات",
+    s5_d: "تشغيل يومي شامل لحساباتك يشمل النشر والردود وتنظيم الحملات والتقارير الدورية.",
+    portfolio_title: "نماذج من أعمالنا الإبداعية",
+    portfolio_lead: "شاهد نماذج من فيديوهات وإبداعات كل قسم واختر المستوى الذي يليق بعلامتك التجارية.",
+    portfolio_soon: "عرض تفاعلي · قريباً",
+    close: "إغلاق",
+    all_title: "دليل خدمات وحلول T2 الشامل",
+    all_lead: "حدد كافة الخدمات الفرعية التي يحتاجها مشروعك من القائمة ليصلك عرض سعر مفصل.",
+    quote_title: "احصل على خطتك وعرض السعر الآن",
+    quote_lead: "اختر الباقة، وحدد الخدمات، وأكمل بياناتك ليصلك عرضنا المنسق عبر واتساب مباشرة.",
+    f_pkg: "اختر مستوى الباقة",
+    f_name: "الاسم الكريم *",
+    f_biz: "اسم الشركة أو النشاط التجاري",
+    f_phone: "رقم الواتساب *",
+    f_notes: "تفاصيل إضافية أو ملاحظات حول مشروعك",
+    f_selected: "الخدمات المختارة في طلبك",
+    f_none: "لم تختر أي خدمة بعد — اضغط على الخدمات من الأعلى لإضافتها",
+    f_clear: "🔄 مسح الاختيارات والبدء من جديد",
+    pkg_basic: "الباقة الأساسية للانطلاق (Basic)",
+    pkg_pro: "الباقة الاحترافية للنمو (Pro)",
+    pkg_full: "الباقة الشاملة المتكاملة (Full VIP)",
+    f_submit: "إرسال الطلب المنسق عبر واتساب",
+    f_note: "🔒 سيفتح واتساب ومعه طلبك منسقاً بالكامل وجاهزاً للإرسال، ثم يعود الموقع جديداً.",
+    f_err: "يرجى كتابة الاسم ورقم الواتساب بشكل صحيح للتواصل معك",
+    f_err_svc: "يرجى اختيار خدمة واحدة على الأقل من الأعلى قبل إرسال الطلب",
+    order_go: "إتمام الطلب الآن",
+    order_count: "خدمات مختارة",
+    country_pick: "اختر دولتك",
+    footer_rights: "جميع الحقوق محفوظة",
+    footer_contact: "تواصل معنا عبر واتساب",
+    svc_names: [
+      "إدارة السوشيال ميديا",
+      "إنشاء وتطوير المواقع",
+      "فيديوهات الذكاء الاصطناعي",
+      "الإعلانات الممولة",
+      "إدارة الصفحات"
+    ],
+    groups: [
+      {
+        t: "الاستراتيجية وإدارة المحتوى",
+        i: [
+          "بناء استراتيجية السوشيال ميديا",
+          "تخطيط المحتوى والتقويم الشهري",
+          "كتابة المحتوى الإبداعي والكابشن",
+          "تصميم المنشورات الاحترافية",
+          "إنتاج الفيديوهات القصيرة (Reels/TikTok)",
+          "إدارة التعليقات والرسائل (Community)",
+          "أبحاث الكلمات المفتاحية والهاشتاقات",
+          "تحليل المنافسين ودراسة السوق",
+          "تقارير الأداء الشهرية والأسبوعية",
+          "تحسين البروفايل والهايلايتس (Bio & Highlights)"
+        ]
+      },
+      {
+        t: "الإعلانات الممولة (Media Buying)",
+        i: [
+          "إعلانات ميتا (فيسبوك وإنستغرام)",
+          "إعلانات تيك توك الممولة",
+          "إعلانات سناب شات",
+          "إعلانات جوجل ويوتيوب",
+          "إعلانات منصة X ولينكدإن",
+          "حملات إعادة الاستهداف (Retargeting)",
+          "حملات جمع بيانات العملاء (Lead Gen)",
+          "إعلانات المتاجر والكتالوج الدايناميك",
+          "ربط البكسل وتتبع التحويلات (Conversion API)"
+        ]
+      },
+      {
+        t: "الإنتاج المرئي والذكاء الاصطناعي",
+        i: [
+          "تصميم الجرافيك الإعلاني",
+          "فيديوهات الموشن جرافيك",
+          "المونتاج السينمائي للفيديوهات",
+          "إنتاج فيديوهات بالذكاء الاصطناعي (AI)",
+          "فيديوهات تجربة المستخدم (UGC)",
+          "التعليق الصوتي الاحترافي (Voiceover)",
+          "إنتاج ومونتاج البودكاست والريلز"
+        ]
+      },
+      {
+        t: "الهوية البصرية والعلامة التجارية",
+        i: [
+          "تصميم الشعار الاحترافي (Logo)",
+          "بناء دليل الهوية البصرية الكامل (Brand Book)",
+          "تصميم قوالب السوشيال ميديا الموحدة"
+        ]
+      },
+      {
+        t: "المواقع والمتاجر والحلول التقنية",
+        i: [
+          "تصميم وبرمجة المواقع التعريفية والشركات",
+          "تصميم صفحات الهبوط البيعية (Landing Pages)",
+          "إنشاء المتاجر الإلكترونية المتكاملة",
+          "تحسين محركات البحث وتصدر النتائج (SEO)",
+          "إنشاء وتوثيق جوجل بيزنس بروفايل",
+          "أتمتة واتساب بزنس والرد الآلي",
+          "بناء بوتات المحادثة الذكية (AI Chatbots)"
+        ]
+      }
+    ]
   };
-  const SVC_IDS = ["smm", "web", "ai", "ads", "pages"];
-  const SVC_ICONS = ["i-smm", "i-web", "i-ai", "i-ads", "i-pages"];
-  const VIDEOS_PER_SERVICE = 3;
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const isTouch = window.matchMedia("(hover: none)").matches;
 
-  // ============ State ============
-  let lang = localStorage.getItem("t2_lang") || "ar";
-  let country = localStorage.getItem("t2_country") || null;
-  if (!COUNTRIES.some(c => c.c === country)) country = null;
-  let selected = []; // ✅ In-memory only → resets on refresh
+  // 2. اللهجة السعودية الأصيلة (KSA - Authentic Saudi Business Dialect)
+  const SA = Object.assign({}, MSA, {
+    nav_services: "خدماتنا",
+    nav_portfolio: "أعمالنا",
+    nav_all: "كل الحلول",
+    nav_quote: "اطلب عرض سعر",
+    hero_badge: "T2 Digital Agency · شريكك الأول للنمو الرقمي بالمملكة 🇸🇦",
+    hero_title: "نطوّر حضورك الرقمي ونضاعف مبيعاتك بشغل يبيّض الوجه",
+    hero_lead: "يا هلا بك في T2.. منظومة تسويق رقمي متكاملة للسوق السعودي تجمع بين إدارة السوشال ميديا، متاجر سلة وزد، فيديوهات الذكاء الاصطناعي، وحملات سناب وتيك توك الممولة.",
+    hero_cta: "ابشر بعزك — ابدأ مشروعك الحين",
+    hero_secondary: "شوف سابقة أعمالنا",
+    services_title: "وش الخدمات اللي يحتاجها مشروعك؟",
+    services_lead: "اضغط على الكروت وحدد الخدمات اللي تبيها، وفصّل باقتك على مقاس طموحك.",
+    s1_t: "إدارة حسابات السوشال ميديا",
+    s1_d: "خطة محتوى شهرية، تصاميم فخمة، ريلز وتيك توك وسناب، وتفاعل كامل مع المتابعين والرسائل.",
+    s2_t: "تصميم المواقع ومتاجر (سلة / زد / شوبيفاي)",
+    s2_d: "نبني لك موقع أو متجر إلكتروني سريع ومتجاوب مع الجوال ومربوط ببوابات الدفع والشحن بالمملكة.",
+    s3_t: "فيديوهات بالذكاء الاصطناعي (AI)",
+    s3_d: "إنتاج إعلانات وفيديوهات تسويقية احترافية بالذكاء الاصطناعي بسرعة قياسية وتكلفة أوفر.",
+    s4_t: "حملات إعلانية ممولة (سناب / تيك توك / ميتا / قوقل)",
+    s4_d: "حملات إعلانية مدروسة تستهدف عميلك الصح بالسوق السعودي وتضاعف مبيعاتك مع تقارير أسبوعية.",
+    s5_t: "إدارة وتشغيل الحسابات الشاملة",
+    s5_d: "نتولى عنك إدارة حساباتك بالكامل يومياً من محتوى ورسائل وتقارير عشان تتفرغ لتطوير تجارتك.",
+    portfolio_title: "نماذج من شغلنا وإبداعاتنا",
+    portfolio_lead: "شوف جودة التنفيذ اللي تضمن لعلامتك التجارية الصدارة بالسوق السعودي.",
+    all_title: "كل خدمات وحلول T2 الرقمية",
+    all_lead: "حدد كل الخدمات الإضافية اللي يحتاجها مشروعك من القائمة تحت.",
+    quote_title: "خلنا نبدأ مشروعك الحين",
+    quote_lead: "اختر الباقة، وعبّي بياناتك، وبيوصلك عرض السعر المفصل على الواتساب فوراً.",
+    f_pkg: "اختر مستوى الباقة",
+    f_name: "اسمك الكريم *",
+    f_biz: "اسم البراند أو المتجر / الشركة",
+    f_phone: "رقم الجوال (واتساب) *",
+    f_notes: "تفاصيل إضافية عن مشروعك أو أهدافك",
+    f_selected: "الخدمات اللي اخترتها",
+    f_none: "ما اخترت أي خدمة لين الحين — اضغط على الخدمات فوق لإضافتها",
+    f_clear: "🔄 مسح الاختيارات والبدء من جديد",
+    f_submit: "أرسل طلبك المنسق عبر واتساب الحين",
+    f_err: "فضلاً اكتب اسمك ورقم الجوال بشكل صحيح عشان نتواصل معك",
+    f_err_svc: "فضلاً اختر خدمة وحدة على الأقل قبل إرسال الطلب",
+    order_go: "كمّل طلبك الحين"
+  });
 
-  // ============ Strings ============
-  function strings() {
-    if (lang === "en") return PACKS.EN || {};
-    const c = COUNTRIES.find(x => x.c === country);
-    return (c && PACKS[c.pack]) || PACKS.MSA || {};
-  }
-  const countryName = (code) => {
-    const c = COUNTRIES.find(x => x.c === code);
-    return c ? (lang === "en" ? c.en : c.ar) : "";
+  // 3. اللهجة المصرية الاحترافية (Egypt - Authentic Egyptian Agency Dialect)
+  const EG = Object.assign({}, MSA, {
+    nav_services: "خدماتنا",
+    nav_portfolio: "سابقة أعمالنا",
+    nav_all: "كل الخدمات",
+    nav_quote: "اطلب عرض سعر",
+    hero_badge: "T2 Digital Agency · شريك نجاحك الرقمي في مصر 🇪🇬",
+    hero_title: "بنبني حضورك الرقمي صح ونضاعف مبيعاتك بأرقام حقيقية",
+    hero_lead: "أهلاً بيك في T2.. منظومة تسويق رقمي متكاملة بتجمع بين إدارة السوشيال ميديا، الميديا باينج والإعلانات الممولة، تصميم المواقع والمتاجر، وفيديوهات الذكاء الاصطناعي اللي بتخطف العين.",
+    hero_cta: "ابدأ مشروعك دلوقتي",
+    hero_secondary: "اتفرج على شغلنا",
+    services_title: "اختار الخدمات اللي محتاجها مشروعك",
+    services_lead: "اضغط على الكروت الـ 3D وحدد الخدمات اللي تناسبك وجمع باقتك في ثواني.",
+    s1_t: "إدارة السوشيال ميديا والمحتوى",
+    s1_d: "كونتنت كاليندر شهري، تصميمات احترافية، ريلز وتيك توك، ومودريشن سريع على الكومنتات والرسايل.",
+    s2_t: "تصميم وتطوير المواقع والمتاجر",
+    s2_d: "مواقع ومتاجر إلكترونية سريعة جداً ومتجاوبة مع الموبايل ومصممة عشان تحول الزوار لعملاء.",
+    s3_t: "فيديوهات بالذكاء الاصطناعي (AI Reels & Ads)",
+    s3_d: "إنتاج فيديوهات إعلانية وتسويقية سينمائية بالذكاء الاصطناعي في وقت قياسي وبأعلى كوالتي.",
+    s4_t: "إعلانات ممولة وميديا باينج (Meta / TikTok / Google)",
+    s4_d: "حملات إعلانية مبنية على أرقام وداتا حقيقية عشان تحقق أعلى عائد على الإعلانات (ROAS).",
+    s5_t: "إدارة وتشغيل الصفحات بالكامل",
+    s5_d: "بنشيل عنك إدارة الصفحات يومياً من نشر وردود وتقارير عشان تركز إنت في تكبير البيزنس بتاعك.",
+    portfolio_title: "نماذج من شغلنا على أرض الواقع",
+    portfolio_lead: "اتفرج على كوالتي الفيديوهات والشغل اللي يخلي البراند بتاعك في حتة تانية.",
+    all_title: "دليل خدمات وحلول T2 الكامل",
+    all_lead: "علم على كل الخدمات الفرعية اللي محتاجها مشروعك وهنجهزلك عرض سعر مفصل ليها.",
+    quote_title: "يلا نبدأ نكبّر البيزنس بتاعك",
+    quote_lead: "اختار الباكج، وكمل بياناتك، وطلبك هيتفتح جاهز ومنسق على واتساب في ثانية.",
+    f_pkg: "اختار مستوى الباكج",
+    f_name: "اسمك الكريم *",
+    f_biz: "اسم البراند أو الشركة",
+    f_phone: "رقم الموبايل / واتساب *",
+    f_notes: "تفاصيل إضافية عن مشروعك (اختياري)",
+    f_selected: "الخدمات اللي اخترتها",
+    f_none: "لسه ما اخترتش أي خدمة — اضغط على الكروت فوق عشان تضيف خدماتك",
+    f_clear: "🔄 مسح الاختيارات والبدء من جديد",
+    f_submit: "ابعت الطلب المنسق على واتساب دلوقتي",
+    f_err: "يا ريت تكتب اسمك ورقم الواتساب صح عشان نقدر نتواصل معاك",
+    f_err_svc: "اختار خدمة واحدة على الأقل من فوق عشان نبعتلك عرض السعر",
+    order_go: "كمّل طلبك دلوقتي"
+  });
+
+  // 4. اللهجة الإماراتية الاحترافية (UAE - Authentic Emirati Business Dialect)
+  const AE = Object.assign({}, SA, {
+    hero_badge: "T2 Digital Agency · شريكك الاستراتيجي للنمو الرقمي في الإمارات 🇦🇪",
+    hero_title: "نرتقي بحضورك الرقمي ونضاعف مبيعاتك بمعايير عالمية",
+    hero_lead: "مرحبا الساع في T2.. منظومة تسويق رقمي متكاملة تجمع بين إدارة السوشال ميديا، المواقع والمتاجر الذكية، فيديوهات الذكاء الاصطناعي، والحملات الإعلانية عالية العائد.",
+    hero_cta: "فالك طيب — ابدأ مشروعك الحين",
+    hero_secondary: "طالع سابقة أعمالنا",
+    services_title: "شو الخدمات اللي يحتاجها مشروعك؟",
+    services_lead: "اختار الخدمات المطلوبة لمشروعك من الكروت ورتّب باقتك المخصصة بكل سهولة.",
+    portfolio_lead: "طالع نماذج أعمالنا اللي تضمن لعلامتك التجارية التميز في السوق الإماراتي.",
+    quote_lead: "اختار الباقة وسجّل بياناتك، وبيتواصل وياك فريقنا فوراً عبر واتساب بالتفاصيل الكاملة.",
+    f_submit: "طرّش الطلب المنسق عبر واتساب",
+    f_err: "يرجى كتابة الاسم ورقم الواتساب عسب نتواصل وياك"
+  });
+
+  // 5. اللهجة الكويتية والخليجية (Kuwait / Qatar / Bahrain / Oman)
+  const GULF = Object.assign({}, SA, {
+    hero_badge: "T2 Digital Agency · شريكك الأول للنمو الرقمي بالخليج",
+    hero_title: "نطوّر حضورك الرقمي ونضاعف مبيعاتك بأعلى مستوى",
+    hero_lead: "يا هلا ومرحبا في T2.. إدارة سوشال ميديا، تصميم مواقع ومتاجر، فيديوهات بالذكاء الاصطناعي، وحملات إعلانية قوية بمكان واحد.",
+    hero_cta: "ابدأ مشروعك الحين",
+    hero_secondary: "شوف أعمالنا",
+    services_title: "شنو الخدمات اللي يحتاجها مشروعك؟",
+    services_lead: "اختار الخدمات اللي تبيها وفصّل باقتك بكل سهولة.",
+    quote_lead: "سجّل بياناتك وراح يتواصل معاك فريقنا فوراً على الواتساب بكل التفاصيل.",
+    f_submit: "دز الطلب المنسق على واتساب"
+  });
+
+  // 6. اللهجة الشامية والأردنية (Jordan, Lebanon, Syria, Palestine)
+  const LEV = Object.assign({}, MSA, {
+    hero_badge: "T2 Digital Agency · شريكك للنمو الرقمي والنجاح",
+    hero_title: "منطوّر حضورك الرقمي ومنضاعف مبيعاتك باحترافية",
+    hero_lead: "يا هلا فيك بـ T2.. سوشال ميديا، مواقع ومتاجر إلكترونية، فيديوهات بالذكاء الاصطناعي، وإعلانات ممولة بتجيب نتائج حقيقية.",
+    hero_cta: "بلّش مشروعك معنا",
+    hero_secondary: "شوف أعمالنا",
+    services_title: "شو الخدمات اللي بيحتاجها مشروعك؟",
+    services_lead: "حدّد الخدمات المطلوبة من الكروت ورتّب باقتك المخصصة بكل سهولة.",
+    quote_title: "يلا نبلّش مشروعك",
+    quote_lead: "اختار الباقة وعبّي بياناتك ورح يتواصل معك فريقنا فوراً عالواتساب.",
+    f_selected: "الخدمات اللي اخترتها",
+    f_none: "ما اخترت أي خدمة لهلأ — اختار من الكروت فوق",
+    f_submit: "ابعت الطلب المنسق عالواتساب",
+    order_go: "كمّل الطلب"
+  });
+
+  // 7. اللهجة العراقية (Iraq)
+  const IQ = Object.assign({}, GULF, {
+    hero_badge: "T2 Digital Agency · شريكك للنمو الرقمي في العراق 🇮🇶",
+    hero_title: "نبني حضورك الرقمي ونضاعف مبيعاتك باحترافية",
+    hero_lead: "كل الهلا بيك في T2.. إدارة سوشيال ميديا، مواقع إلكترونية، فيديوهات بالذكاء الاصطناعي، وإعلانات ممولة قوية بمكان واحد.",
+    hero_cta: "ابدأ مشروعك هسة",
+    services_title: "شنو الخدمات اللي يحتاجها مشروعك؟",
+    services_lead: "اختار الخدمات اللي تريدها وتكدر تحدد أكثر من خدمة لبناء باقتك.",
+    quote_title: "يلا نبدي مشروعك هسة",
+    quote_lead: "املي بياناتك وراح يتواصل وياك فريقنا فوراً عالواتساب.",
+    f_none: "بعدك ما اختاريت أي خدمة — اختار من فوك",
+    f_submit: "دز الطلب المنسق عالواتساب هسة"
+  });
+
+  // 8. اللهجة المغاربية (Morocco, Algeria, Tunisia)
+  const MAG = Object.assign({}, MSA, {
+    hero_badge: "T2 Digital Agency · شريكك للنمو الرقمي في المغرب العربي",
+    hero_title: "كنطورو حضورك الرقمي وكنضاعفو مبيعاتك باحترافية",
+    hero_lead: "سوشيال ميديا، مواقع ومتاجر إلكترونية، فيديوهات بالذكاء الاصطناعي، وإعلانات ممولة.. كل ما يحتاجه مشروعك في مكان واحد.",
+    hero_cta: "اطلب عرض سعر دابا",
+    services_title: "شنو هي الخدمات اللي كيحتاجها مشروعك؟",
+    services_lead: "اختار الخدمات اللي كتناسبك وتقدر تختار أكثر من خدمة."
+  });
+
+  // 9. English
+  const EN = {
+    nav_services: "Services",
+    nav_portfolio: "Portfolio",
+    nav_all: "Full Catalog",
+    nav_quote: "Get a Quote",
+    btn_lang: "العربية",
+    hero_badge: "T2 Digital Agency · Your Strategic Growth Partner",
+    hero_title: "We Engineer Your 3D Digital Presence & Scale Your Revenue",
+    hero_lead: "Full-stack digital marketing: Social Media, High-Speed Websites, AI Video Production, Paid Ads, and Page Management — all under one roof.",
+    hero_cta: "Start Your Project",
+    hero_secondary: "Explore Our Work",
+    stat_1: "Successful Campaigns",
+    stat_2: "Average ROAS Growth",
+    stat_3: "Next-Gen AI & 3D Media",
+    services_title: "Core Growth Services",
+    services_lead: "Click the 3D cards to select the services your brand needs.",
+    s1_t: "Social Media Management",
+    s1_d: "Monthly content calendars, luxury visuals, Reels/TikTok production, and community management.",
+    s2_t: "Web & E-Commerce Development",
+    s2_d: "Ultra-fast, mobile-first websites & stores built to convert visitors into buyers.",
+    s3_t: "AI Video Production",
+    s3_d: "High-converting marketing & commercial videos powered by AI — faster and cinematic.",
+    s4_t: "Performance Paid Ads",
+    s4_d: "ROI-driven ad campaigns across Meta, TikTok, Snapchat & Google with weekly analytics.",
+    s5_t: "Full Page Management",
+    s5_d: "End-to-end daily page operations, messaging, reporting, and campaign orchestration.",
+    portfolio_title: "Featured Creative Portfolio",
+    portfolio_lead: "Watch real samples across each service category and pick what fits your brand.",
+    portfolio_soon: "Interactive Preview · Soon",
+    close: "Close",
+    all_title: "Complete Solutions Catalog",
+    all_lead: "Check every specific deliverable you need below to include in your proposal.",
+    quote_title: "Let’s Launch Your Project",
+    quote_lead: "Choose your tier, review your selected services, and send your formatted brief via WhatsApp.",
+    f_pkg: "Select Package Tier",
+    f_name: "Your Full Name *",
+    f_biz: "Company / Brand Name",
+    f_phone: "WhatsApp Phone Number *",
+    f_notes: "Project Brief or Notes (Optional)",
+    f_selected: "Selected Services",
+    f_none: "No services selected yet — click the cards above to add",
+    f_clear: "🔄 Reset All Selections",
+    pkg_basic: "Basic Growth Package",
+    pkg_pro: "Professional Scale Package (Pro)",
+    pkg_full: "Full-Stack Enterprise Package (VIP)",
+    f_submit: "Send Formatted Brief via WhatsApp",
+    f_note: "🔒 WhatsApp will open with your structured brief ready to send, and the form will reset.",
+    f_err: "Please enter your name and a valid WhatsApp number",
+    f_err_svc: "Please select at least one service before submitting",
+    order_go: "Complete Request",
+    order_count: "services selected",
+    country_pick: "Select Country",
+    footer_rights: "All rights reserved",
+    footer_contact: "Chat on WhatsApp",
+    svc_names: [
+      "Social Media Management",
+      "Web Design & Development",
+      "AI Video Production",
+      "Performance Paid Ads",
+      "Page Management"
+    ],
+    groups: [
+      {
+        t: "Strategy & Content",
+        i: [
+          "Social media growth strategy",
+          "Content planning & monthly calendar",
+          "Creative copywriting & captions",
+          "Branded post design",
+          "Short-form video (Reels / TikTok / Shorts)",
+          "Comment & DM community management",
+          "Keyword & hashtag research",
+          "Competitor & market analysis",
+          "Weekly & monthly performance reports",
+          "Bio, profile & highlights optimization"
+        ]
+      },
+      {
+        t: "Paid Advertising (Media Buying)",
+        i: [
+          "Meta Ads (Facebook & Instagram)",
+          "TikTok Ads",
+          "Snapchat Ads",
+          "Google Search & YouTube Ads",
+          "X & LinkedIn Ads",
+          "Dynamic Retargeting campaigns",
+          "High-intent Lead Generation",
+          "E-commerce catalog & shopping ads",
+          "Pixel & Conversion API tracking setup"
+        ]
+      },
+      {
+        t: "Creative & AI Video Production",
+        i: [
+          "Key visual & graphic design",
+          "2D / 3D Motion graphics",
+          "Pro video editing & color grading",
+          "AI commercial video generation",
+          "UGC creator videos",
+          "Professional voiceover",
+          "Podcast production & viral clips"
+        ]
+      },
+      {
+        t: "Brand Identity",
+        i: [
+          "Logo design & mark creation",
+          "Complete brand guidelines book",
+          "Social media design systems & templates"
+        ]
+      },
+      {
+        t: "Web, E-Commerce & Automation",
+        i: [
+          "Custom corporate websites",
+          "High-converting landing pages",
+          "E-commerce store development (Shopify/Salla/Zid/Woo)",
+          "Search Engine Optimization (SEO)",
+          "Google Business Profile setup",
+          "WhatsApp Business API & automation",
+          "AI customer support chatbots"
+        ]
+      }
+    ]
   };
-  const waNumber = () => (country && WA_BY_COUNTRY[country]) || WA_DEFAULT;
-  const flagURL = (code, size = 40) => code === "OTHER"
-    ? `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="%23d4af37"/><text x="20" y="26" text-anchor="middle" font-size="18" font-weight="bold" fill="white">?</text></svg>`
-    : `https://flagcdn.com/w${size}/${code.toLowerCase()}.png`;
 
-  // ============ Selection ============
-  function labelFor(id) {
-    const s = strings();
-    if (id[0] === "c") return s["s" + (Number(id.slice(1)) + 1) + "_t"] || id;
-    const [g, i] = id.slice(1).split("_").map(Number);
-    return (s.groups && s.groups[g] && s.groups[g].i) ? s.groups[g].i[i] : id;
-  }
-  function toggle(id) {
-    const idx = selected.indexOf(id);
-    if (idx >= 0) selected.splice(idx, 1);
-    else selected.push(id);
-    syncSelection();
-  }
-  function isOn(id) { return selected.indexOf(id) >= 0; }
-
-  // ============ Apply text ============
-  function applyText() {
-    const s = strings();
-    const isEn = lang === "en";
-    document.documentElement.lang = isEn ? "en" : "ar";
-    document.documentElement.dir = isEn ? "ltr" : "rtl";
-    document.title = isEn ? "T2 | Digital Marketing & AI" : "T2 | حلول التسويق الرقمي";
-
-    document.querySelectorAll("[data-i]").forEach(el => {
-      const v = s[el.getAttribute("data-i")];
-      if (typeof v === "string") el.textContent = v;
-    });
-
-    const badge = document.querySelector(".eyebrow span:last-child");
-    if (badge && s.hero_badge) badge.textContent = s.hero_badge;
-
-    const phone = document.getElementById("phone");
-    if (phone) phone.placeholder = PHONE_META[country] || PHONE_META.EG;
-
-    const langBtn = document.getElementById("btn-lang");
-    if (langBtn && s.btn_lang) langBtn.textContent = s.btn_lang;
-
-    const fw = document.getElementById("footer-wa");
-    if (fw) fw.href = "https://wa.me/" + waNumber();
-  }
-
-  // ============ Dropdown ============
-  function renderDropdown() {
-    const s = strings();
-    const btn = document.getElementById("cdd-btn");
-    const list = document.getElementById("cdd-list");
-    if (!btn || !list) return;
-
-    const flagEl = document.getElementById("cdd-flag");
-    const labelEl = document.getElementById("cdd-label");
-    if (country) {
-      flagEl.innerHTML = `<img src="${flagURL(country, 40)}" alt="">`;
-      labelEl.textContent = countryName(country);
-    } else {
-      flagEl.innerHTML = `<svg width="16" height="16"><use href="#i-globe"/></svg>`;
-      labelEl.textContent = s.country_pick || "الدولة";
+  // أيقونات وهوية السوق المحلي المتجاوبة مع كل دولة (Country Dynamic Icons & Market Vibe)
+  const COUNTRY_VIBES = {
+    SA: {
+      floatBadge: "🇸🇦 تريند المملكة · رؤية 2030",
+      chips: ["🛍️ متاجر سلة وزد", "👻 إعلانات سناب شات", "🎵 تيك توك السعودية", "💳 مدى و Apple Pay"]
+    },
+    EG: {
+      floatBadge: "🇪🇬 تريند السوق المصري",
+      chips: ["📱 إعلانات ميتا وتيك توك", "🛒 شوبيفاي و ووكومرس", "🎬 ريلز ومحتوى فيرال", "⚡ نمو مبيعات سريع"]
+    },
+    AE: {
+      floatBadge: "🇦🇪 دبي وأبوظبي ميديـا",
+      chips: ["🏙️ براندنج فاخر", "👻 سناب وإنستغرام", "🛍️ شوبيفاي الإمارات", "🤖 حلول الذكاء الاصطناعي"]
+    },
+    KW: {
+      floatBadge: "🇰🇼 تريند السوق الكويتي",
+      chips: ["👻 سناب وإنستغرام الكويت", "🛍️ متاجر إلكترونية", "🎬 إنتاج ريلز احترافي"]
+    },
+    QA: {
+      floatBadge: "🇶🇦 السوق القطري الرقمي",
+      chips: ["👻 إعلانات سناب وتيك توك", "🏢 مواقع شركات فخمة", "🤖 فيديوهات AI"]
+    },
+    JO: {
+      floatBadge: "🇯🇴 السوق الأردني الرقمي",
+      chips: ["📱 ميتا وتيك توك الأردن", "🛒 متاجر ومواقع", "📈 حملات مبيعات"]
+    },
+    IQ: {
+      floatBadge: "🇮🇶 تريند السوق العراقي",
+      chips: ["📱 فيسبوك وإنستغرام وتيك توك", "🎬 ريلز وإعلانات ممولة", "🛍️ متاجر إلكترونية"]
+    },
+    MA: {
+      floatBadge: "🇲🇦 السوق المغربي الرقمي",
+      chips: ["🛒 التجارة الإلكترونية", "📱 إعلانات ميتا وتيك توك", "🎬 إنتاج فيديو احترافي"]
+    },
+    DEFAULT: {
+      floatBadge: "🚀 نمو رقمي متكامل",
+      chips: ["📱 إدارة سوشيال ميديا", "🤖 فيديوهات بالذكاء الاصطناعي", "📈 إعلانات ممولة", "💻 مواقع ومتاجر"]
     }
-
-    list.innerHTML = COUNTRIES.map(c => `
-      <li data-code="${c.c}" aria-selected="${c.c === country}" role="option">
-        <img src="${flagURL(c.c, 40)}" alt="" loading="lazy">
-        <span>${lang === "en" ? c.en : c.ar}</span>
-      </li>
-    `).join("");
-  }
-
-  // ============ Services ============
-  function renderCoreList() {
-    const s = strings();
-    const el = document.getElementById("services-list");
-    if (!el) return;
-    el.innerHTML = [0,1,2,3,4].map(i => {
-      const id = "c" + i;
-      return `
-        <li class="pick ${isOn(id) ? "on" : ""}" data-id="${id}">
-          <label>
-            <input type="checkbox" class="sr" value="${id}" ${isOn(id) ? "checked" : ""}>
-            <div class="pick-icon">
-              <svg width="26" height="26"><use href="#${SVC_ICONS[i]}"/></svg>
-            </div>
-            <span class="pick-check"><svg><use href="#i-check"/></svg></span>
-            <h3>${s["s" + (i + 1) + "_t"] || ""}</h3>
-            <p>${s["s" + (i + 1) + "_d"] || ""}</p>
-          </label>
-        </li>`;
-    }).join("");
-    bindSpotlight();
-  }
-
-  function renderAllList() {
-    const s = strings();
-    const el = document.getElementById("groups");
-    if (!el || !Array.isArray(s.groups)) return;
-    el.innerHTML = s.groups.map((g, gi) => `
-      <div class="group reveal">
-        <h3>${g.t}</h3>
-        <ul class="chk">
-          ${g.i.map((item, ii) => {
-            const id = "g" + gi + "_" + ii;
-            return `<li>
-              <label class="chk-row ${isOn(id) ? "on" : ""}">
-                <input type="checkbox" class="sr" value="${id}" ${isOn(id) ? "checked" : ""}>
-                <span class="box"><svg><use href="#i-check"/></svg></span>
-                <span>${item}</span>
-              </label>
-            </li>`;
-          }).join("")}
-        </ul>
-      </div>
-    `).join("");
-  }
-
-  // ============ Portfolio ============
-  function renderPortfolio() {
-    const s = strings();
-    const wrap = document.getElementById("portfolio-wrap");
-    if (!wrap || !Array.isArray(s.svc_names)) return;
-    const soon = s.portfolio_soon || "قريباً";
-
-    wrap.innerHTML = SVC_IDS.map((id, idx) => {
-      const cards = Array.from({ length: VIDEOS_PER_SERVICE }, (_, n) => `
-        <button class="vcard" type="button" data-src="videos/${id}/${n + 1}.mp4" aria-label="${s.svc_names[idx]} ${n + 1}">
-          <video preload="metadata" muted playsinline loop src="videos/${id}/${n + 1}.mp4"></video>
-          <span class="play">
-            <span class="play-icon"><svg><use href="#i-play"/></svg></span>
-            <span class="tag">#0${n + 1}</span>
-          </span>
-        </button>
-      `).join("");
-      return `<div class="pf-service reveal"><h3>${s.svc_names[idx]}</h3><div class="videos">${cards}</div></div>`;
-    }).join("");
-
-    wrap.querySelectorAll(".vcard").forEach(card => {
-      const video = card.querySelector("video");
-      const icon = card.querySelector(".play-icon");
-      const tag = card.querySelector(".tag");
-      const markSoon = () => {
-        if (card.dataset.soon === "true") return;
-        card.classList.add("is-soon");
-        card.dataset.soon = "true";
-        if (icon) icon.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>`;
-        if (tag) tag.textContent = soon;
-        if (video) video.remove();
-      };
-      if (video) {
-        video.addEventListener("loadedmetadata", () => {
-          if (video.videoWidth > video.videoHeight) card.classList.add("landscape");
-        });
-        video.addEventListener("error", markSoon, true);
-        if (!isTouch) {
-          card.addEventListener("pointerenter", () => {
-            if (card.dataset.soon !== "true" && video.readyState >= 2) {
-              video.muted = true; video.play().catch(() => {});
-            }
-          });
-          card.addEventListener("pointerleave", () => {
-            if (card.dataset.soon !== "true") { video.pause(); video.currentTime = 0; }
-          });
-        }
-      }
-      card.addEventListener("click", () => {
-        if (card.dataset.soon === "true") return;
-        openVideo(card);
-      });
-    });
-  }
-
-  // ============ Sync ============
-  function syncSelection() {
-    const s = strings();
-    document.querySelectorAll('input[type="checkbox"][value]').forEach(cb => {
-      cb.checked = isOn(cb.value);
-      const row = cb.closest(".chk-row"); if (row) row.classList.toggle("on", cb.checked);
-      const pick = cb.closest(".pick"); if (pick) pick.classList.toggle("on", cb.checked);
-    });
-
-    const sum = document.getElementById("sel-summary");
-    if (sum) {
-      sum.innerHTML = selected.length
-        ? `<p class="sel-title">${s.f_selected} (${selected.length})</p>
-           <ul>${selected.map(id => `<li>${labelFor(id)}</li>`).join("")}</ul>`
-        : `<p class="sel-title">${s.f_selected}</p><p class="sel-empty">${s.f_none}</p>`;
-    }
-
-    const bar = document.getElementById("order-bar");
-    if (bar) {
-      bar.hidden = selected.length === 0;
-      const c = document.getElementById("order-count");
-      const g = document.getElementById("order-go");
-      if (c) c.textContent = `${selected.length} ${s.order_count}`;
-      if (g) g.textContent = s.order_go;
-    }
-  }
-
-  function renderAll() {
-    applyText();
-    renderDropdown();
-    renderCoreList();
-    renderAllList();
-    renderPortfolio();
-    syncSelection();
-    initReveal();
-    initCounters();
-  }
-
-  document.addEventListener("change", (e) => {
-    if (e.target.matches('input[type="checkbox"][value]')) toggle(e.target.value);
-  });
-
-  // ============ Dropdown events ============
-  const cdd = document.getElementById("cdd");
-  const cddBtn = document.getElementById("cdd-btn");
-  const cddList = document.getElementById("cdd-list");
-
-  function closeDD() { cdd?.classList.remove("open"); cddBtn?.setAttribute("aria-expanded", "false"); }
-  function openDD() { cdd?.classList.add("open"); cddBtn?.setAttribute("aria-expanded", "true"); }
-
-  cddBtn?.addEventListener("click", (e) => {
-    e.stopPropagation();
-    cdd.classList.contains("open") ? closeDD() : openDD();
-  });
-  cddList?.addEventListener("click", (e) => {
-    const li = e.target.closest("li");
-    if (!li) return;
-    chooseCountry(li.dataset.code);
-  });
-  document.addEventListener("click", (e) => {
-    if (cdd && !cdd.contains(e.target)) closeDD();
-  });
-
-  function chooseCountry(code) {
-    country = code;
-    localStorage.setItem("t2_country", code);
-    if (code && code !== "OTHER" && lang === "en") {
-      lang = "ar"; localStorage.setItem("t2_lang", "ar");
-    }
-    closeDD();
-    renderAll();
-  }
-
-  // ============ Language ============
-  document.getElementById("btn-lang")?.addEventListener("click", () => {
-    lang = lang === "ar" ? "en" : "ar";
-    localStorage.setItem("t2_lang", lang);
-    renderAll();
-    splitHeroTitle();
-  });
-
-  // ============ Menu ============
-  const nav = document.getElementById("nav");
-  const menuBtn = document.getElementById("btn-menu");
-  menuBtn?.addEventListener("click", () => {
-    const open = nav.classList.toggle("open");
-    menuBtn.setAttribute("aria-expanded", String(open));
-  });
-  nav?.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
-    nav.classList.remove("open");
-    menuBtn.setAttribute("aria-expanded", "false");
-  }));
-
-  // ============ Video modal ============
-  const modal = document.getElementById("video-modal");
-  const player = document.getElementById("video-player");
-  const msg = document.getElementById("video-msg");
-  function openVideo(btn) {
-    if (!modal || !player) return;
-    if (msg) msg.hidden = true;
-    player.onerror = () => { if (msg) { msg.textContent = strings().portfolio_soon; msg.hidden = false; } };
-    player.src = btn.dataset.src;
-    modal.hidden = false;
-    player.play().catch(() => {});
-  }
-  function closeVideo() {
-    if (!modal || !player) return;
-    player.pause(); player.removeAttribute("src"); player.load();
-    modal.hidden = true;
-  }
-  document.getElementById("video-close")?.addEventListener("click", closeVideo);
-  modal?.addEventListener("click", e => { if (e.target === modal) closeVideo(); });
-
-  // ============ Form → WhatsApp ============
-  const form = document.getElementById("quote-form");
-  form?.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const s = strings();
-    const err = document.getElementById("form-err");
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.replace(/[^\d+]/g, "");
-
-    if (!name || phone.replace(/\D/g, "").length < 8) {
-      if (err) { err.textContent = s.f_err; err.classList.add("show"); }
-      return;
-    }
-    if (selected.length === 0) {
-      if (err) { err.textContent = s.f_err_svc; err.classList.add("show"); }
-      return;
-    }
-    err?.classList.remove("show");
-
-    const pkgSel = document.getElementById("pkg");
-    const biz = document.getElementById("biz").value.trim() || "-";
-    const notes = document.getElementById("notes").value.trim() || "-";
-    const cname = country ? countryName(country) : "-";
-
-    // ✨ رسالة منسقة بالفريمات
-    const msgLines = [
-      "╔══════════════════════════╗",
-      "      T2 DIGITAL AGENCY",
-      "        NEW PROJECT BRIEF",
-      "╚══════════════════════════╝",
-      "",
-      "┌──────────────────────────┐",
-      "│  CLIENT INFORMATION",
-      "└──────────────────────────┘",
-      `◆ Name      : ${name}`,
-      `◆ Business  : ${biz}`,
-      `◆ WhatsApp  : ${phone}`,
-      `◆ Country   : ${cname}`,
-      `◆ Package   : ${pkgSel.options[pkgSel.selectedIndex].textContent}`,
-      "",
-      "┌──────────────────────────┐",
-      `│  SELECTED SERVICES (${selected.length})`,
-      "└──────────────────────────┘",
-      ...selected.map((id, i) => `  ${String(i + 1).padStart(2, "0")}. ${labelFor(id)}`),
-      "",
-      "┌──────────────────────────┐",
-      "│  ADDITIONAL NOTES",
-      "└──────────────────────────┘",
-      notes,
-      "",
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-      "Sent via T2 Website ✦",
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    ];
-
-    window.open("https://wa.me/" + waNumber() + "?text=" + encodeURIComponent(msgLines.join("\n")), "_blank", "noopener");
-
-    // Reset after send
-    setTimeout(() => {
-      selected = [];
-      form.reset();
-      syncSelection();
-    }, 900);
-  });
-
-  // ============ Split text animation ============
-  function splitHeroTitle() {
-    const el = document.querySelector(".hero-title");
-    if (!el || reduceMotion) return;
-    const text = el.textContent.trim();
-    el.innerHTML = text.split(" ").map(word =>
-      `<span class="split-word"><span class="split-char">${word}</span></span>`
-    ).join(" ");
-    el.querySelectorAll(".split-char").forEach((c, i) => {
-      c.style.transitionDelay = (i * 0.04) + "s";
-    });
-    requestAnimationFrame(() => el.classList.add("split-in"));
-  }
-
-  // ============ Counters ============
-  function initCounters() {
-    const nums = document.querySelectorAll("[data-count]");
-    if (!nums.length) return;
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        const target = +el.dataset.count;
-        const dur = 1800;
-        const start = performance.now();
-        function tick(now) {
-          const p = Math.min((now - start) / dur, 1);
-          const eased = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(target * eased);
-          if (p < 1) requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
-        obs.unobserve(el);
-      });
-    }, { threshold: 0.5 });
-    nums.forEach(n => obs.observe(n));
-  }
-
-  // ============ Reveal ============
-  function initReveal() {
-    const els = document.querySelectorAll(".reveal:not(.visible)");
-    if (!els.length) return;
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add("visible");
-          obs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-    els.forEach(el => obs.observe(el));
-  }
-
-  // ============ Spotlight on cards ============
-  function bindSpotlight() {
-    if (isTouch) return;
-    document.querySelectorAll(".pick").forEach(el => {
-      if (el.dataset.sp) return;
-      el.dataset.sp = "1";
-      el.addEventListener("pointermove", e => {
-        const r = el.getBoundingClientRect();
-        el.style.setProperty("--mx", ((e.clientX - r.left) / r.width * 100).toFixed(1) + "%");
-        el.style.setProperty("--my", ((e.clientY - r.top) / r.height * 100).toFixed(1) + "%");
-      });
-    });
-  }
-
-  // ============ Magnetic buttons ============
-  function initMagnetic() {
-    if (isTouch || reduceMotion) return;
-    document.querySelectorAll(".magnetic").forEach(btn => {
-      btn.addEventListener("pointermove", e => {
-        const r = btn.getBoundingClientRect();
-        const x = (e.clientX - r.left - r.width / 2) * 0.15;
-        const y = (e.clientY - r.top - r.height / 2) * 0.15;
-        btn.style.transform = `translate(${x}px, ${y}px)`;
-      });
-      btn.addEventListener("pointerleave", () => { btn.style.transform = ""; });
-    });
-  }
-
-  // ============ Custom Cursor ============
-  function initCursor() {
-    if (isTouch) return;
-    const cursor = document.getElementById("cursor");
-    if (!cursor) return;
-    const dot = cursor.querySelector(".cursor-dot");
-    const ring = cursor.querySelector(".cursor-ring");
-    let mx = 0, my = 0, rx = 0, ry = 0;
-
-    document.addEventListener("pointermove", e => {
-      mx = e.clientX; my = e.clientY;
-      dot.style.left = mx + "px"; dot.style.top = my + "px";
-    });
-
-    function animate() {
-      rx += (mx - rx) * 0.16;
-      ry += (my - ry) * 0.16;
-      ring.style.left = rx + "px"; ring.style.top = ry + "px";
-      requestAnimationFrame(animate);
-    }
-    animate();
-
-    document.querySelectorAll("a, button, .pick, .vcard, .cw-item, .chk-row").forEach(el => {
-      el.addEventListener("pointerenter", () => cursor.classList.add("hover"));
-      el.addEventListener("pointerleave", () => cursor.classList.remove("hover"));
-    });
-
-    // Rebind on dynamic content
-    setTimeout(() => {
-      document.querySelectorAll(".pick, .vcard, .chk-row, .cw-item").forEach(el => {
-        el.addEventListener("pointerenter", () => cursor.classList.add("hover"));
-        el.addEventListener("pointerleave", () => cursor.classList.remove("hover"));
-      });
-    }, 500);
-  }
-
-  // ============ Preloader ============
-  function initPreloader() {
-    const pl = document.getElementById("preloader");
-    const fill = document.getElementById("pl-bar-fill");
-    const pct = document.getElementById("pl-pct");
-    if (!pl) return;
-    let p = 0;
-    const int = setInterval(() => {
-      p += Math.random() * 12 + 4;
-      if (p >= 100) { p = 100; clearInterval(int); setTimeout(() => pl.classList.add("done"), 400); }
-      if (fill) fill.style.width = p + "%";
-      if (pct) pct.textContent = Math.floor(p);
-    }, 130);
-  }
-
-  // ============ Scroll progress + header ============
-  const header = document.getElementById("site-header");
-  const progress = document.getElementById("scroll-progress");
-  const toTop = document.getElementById("back-to-top");
-  function onScroll() {
-    const s = window.scrollY || document.documentElement.scrollTop;
-    const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    if (progress) progress.style.width = (h > 0 ? (s / h) * 100 : 0) + "%";
-    header?.classList.toggle("scrolled", s > 20);
-    toTop?.classList.toggle("show", s > 450);
-  }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-  toTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  // ============ Country wheel overlay ============
-  const cwOverlay = document.getElementById("cw-overlay");
-  const cwFlag = document.getElementById("cw-wheel-flag");
-  const cwLabel = document.getElementById("cw-wheel-label");
-  const cwGrid = document.getElementById("cw-grid");
-
-  function buildCountryGrid() {
-    if (!cwGrid) return;
-    cwGrid.innerHTML = COUNTRIES.map(c => `
-      <button class="cw-item" data-code="${c.c}" type="button">
-        <img src="${flagURL(c.c, 40)}" alt="" loading="lazy">
-        <span>${c.ar}</span>
-      </button>
-    `).join("");
-    cwGrid.addEventListener("click", e => {
-      const btn = e.target.closest(".cw-item");
-      if (!btn) return;
-      country = btn.dataset.code;
-      localStorage.setItem("t2_country", country);
-      if (country !== "OTHER" && lang === "en") { lang = "ar"; localStorage.setItem("t2_lang", lang); }
-      cwOverlay.hidden = true;
-      document.body.style.overflow = "";
-      renderAll();
-      setTimeout(() => initCursor(), 300);
-    });
-  }
-
-  function spinWheel() {
-    if (!cwFlag || !cwLabel) return;
-    const codes = COUNTRIES.filter(c => c.c !== "OTHER").map(c => c.c);
-    let step = 0;
-    const total = 24 + Math.floor(Math.random() * 10);
-    let delay = 55;
-
-    function tick() {
-      const code = codes[step % codes.length];
-      cwFlag.querySelector("img").src = flagURL(code, 160);
-      cwFlag.classList.remove("cycling");
-      void cwFlag.offsetWidth;
-      cwFlag.classList.add("cycling");
-
-      const obj = COUNTRIES.find(x => x.c === code);
-      if (cwLabel) cwLabel.textContent = obj ? obj.ar : "";
-
-      step++;
-      if (step > total - 8) delay += 60;
-      if (step < total) setTimeout(tick, delay);
-      else if (cwLabel) cwLabel.textContent = "اختر دولتك ↓";
-    }
-    tick();
-  }
-
-  // ============ Three.js Hero ============
-  function initHero3D() {
-    const box = document.getElementById("hero-3d");
-    if (!box || !window.THREE || reduceMotion) return;
-    let renderer;
-    try { renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true }); }
-    catch (e) { return; }
-
-    const W = box.clientWidth || 480, H = box.clientHeight || 480;
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setSize(W, H);
-
-    const scene = new THREE.Scene();
-    const cam = new THREE.PerspectiveCamera(35, W / H, 0.1, 100);
-    cam.position.z = 7.8;
-
-    // Lights
-    scene.add(new THREE.AmbientLight(0xffffff, 0.7));
-    const keyLight = new THREE.DirectionalLight(0xfff6de, 1.4); keyLight.position.set(5, 6, 8); scene.add(keyLight);
-    const gold = new THREE.PointLight(0xd4af37, 1.8, 22); gold.position.set(-4, -2, 5); scene.add(gold);
-    const rim = new THREE.PointLight(0x3a5db8, 0.7, 25); rim.position.set(3, -5, -4); scene.add(rim);
-
-    const group = new THREE.Group();
-    scene.add(group);
-
-    // Background wireframe globe
-    const globe = new THREE.Mesh(
-      new THREE.SphereGeometry(2.7, 24, 18),
-      new THREE.MeshBasicMaterial({ color: 0xd4af37, wireframe: true, transparent: true, opacity: 0.09 })
-    );
-    scene.add(globe);
-
-    // Orbital rings
-    const ringMat = new THREE.MeshStandardMaterial({ color: 0xd4af37, metalness: 0.9, roughness: 0.2, transparent: true, opacity: 0.5 });
-    const ring1 = new THREE.Mesh(new THREE.TorusGeometry(2.05, 0.012, 12, 90), ringMat);
-    ring1.rotation.x = Math.PI * 0.42; scene.add(ring1);
-    const ring2 = new THREE.Mesh(new THREE.TorusGeometry(2.35, 0.008, 12, 90), ringMat);
-    ring2.rotation.x = Math.PI * 0.28; ring2.rotation.z = Math.PI * 0.5; scene.add(ring2);
-
-    // Floating geometry
-    const goldMat = new THREE.MeshStandardMaterial({ color: 0xd4af37, metalness: 0.92, roughness: 0.15 });
-    const navyMat = new THREE.MeshStandardMaterial({ color: 0x1a2646, metalness: 0.7, roughness: 0.35 });
-    const floats = [];
-    const shapes = [
-      [new THREE.IcosahedronGeometry(0.32, 0), goldMat, [2.1, 1.1, 0.2]],
-      [new THREE.OctahedronGeometry(0.28, 0), navyMat, [-2.2, -1.2, 0.4]],
-      [new THREE.TorusKnotGeometry(0.22, 0.06, 64, 8), goldMat, [1.8, -1.7, 0.6]],
-      [new THREE.TetrahedronGeometry(0.3, 0), navyMat, [-1.9, 1.6, 0.3]],
-    ];
-    shapes.forEach(([geo, mat, pos]) => {
-      const m = new THREE.Mesh(geo, mat);
-      m.position.set(pos[0], pos[1], pos[2]);
-      m.userData = { baseY: pos[1], offset: Math.random() * Math.PI * 2 };
-      group.add(m);
-      floats.push(m);
-    });
-
-    // 3D Logo (extruded layers) — loaded from logo.png
-    const texLoader = new THREE.TextureLoader();
-    let logoLoaded = false;
-    texLoader.load("logo.png", (tex) => {
-      const fb = box.querySelector(".hero-3d-fallback");
-      if (fb) fb.remove();
-      box.appendChild(renderer.domElement);
-
-      const geo = new THREE.PlaneGeometry(2.6, 2.6);
-      const layers = 20, depth = 0.32;
-      for (let i = 0; i < layers; i++) {
-        const front = i === layers - 1, back = i === 0;
-        const mat = (front || back)
-          ? new THREE.MeshStandardMaterial({ map: tex, transparent: true, alphaTest: 0.32, roughness: 0.32, metalness: 0.55 })
-          : new THREE.MeshStandardMaterial({ color: 0xd4af37, transparent: true, alphaTest: 0.42, roughness: 0.32, metalness: 0.9 });
-        const m = new THREE.Mesh(geo, mat);
-        m.position.z = (i / (layers - 1)) * depth - depth / 2;
-        group.add(m);
-      }
-      logoLoaded = true;
-    }, undefined, () => {
-      // Fallback: 3D text logo
-      const canvas = document.createElement("canvas");
-      canvas.width = 512; canvas.height = 512;
-      const ctx = canvas.getContext("2d");
-      ctx.fillStyle = "#0a0f1e";
-      ctx.font = "900 380px Cairo, sans-serif";
-      ctx.textAlign = "center"; ctx.textBaseline = "middle";
-      ctx.fillText("T2", 256, 280);
-      const tex = new THREE.CanvasTexture(canvas);
-      const geo = new THREE.PlaneGeometry(2.8, 2.8);
-      const layers = 18, depth = 0.35;
-      for (let i = 0; i < layers; i++) {
-        const front = i === layers - 1;
-        const mat = front
-          ? new THREE.MeshStandardMaterial({ map: tex, transparent: true, alphaTest: 0.3, roughness: 0.3, metalness: 0.6 })
-          : new THREE.MeshStandardMaterial({ color: 0xd4af37, transparent: true, alphaTest: 0.35, roughness: 0.3, metalness: 0.9 });
-        const m = new THREE.Mesh(geo, mat);
-        m.position.z = (i / (layers - 1)) * depth - depth / 2;
-        group.add(m);
-      }
-      const fb = box.querySelector(".hero-3d-fallback");
-      if (fb) fb.remove();
-      box.appendChild(renderer.domElement);
-      logoLoaded = true;
-    });
-
-    // Mouse parallax
-    let tx = 0, ty = 0, rx = 0, ry = 0;
-    const hero = document.querySelector(".hero");
-    hero?.addEventListener("pointermove", e => {
-      const r = box.getBoundingClientRect();
-      ty = ((e.clientX - (r.left + r.width / 2)) / r.width) * 0.9;
-      tx = ((e.clientY - (r.top + r.height / 2)) / r.height) * 0.6;
-      gold.position.x = ty * 6;
-      gold.position.y = -tx * 6;
-    });
-    hero?.addEventListener("pointerleave", () => { tx = 0; ty = 0; });
-
-    window.addEventListener("resize", () => {
-      const w = box.clientWidth, h = box.clientHeight;
-      if (!w || !h) return;
-      renderer.setSize(w, h);
-      cam.aspect = w / h;
-      cam.updateProjectionMatrix();
-    });
-
-    const clock = new THREE.Clock();
-    (function loop() {
-      requestAnimationFrame(loop);
-      const t = clock.getElapsedTime();
-      rx += (tx - rx) * 0.06; ry += (ty - ry) * 0.06;
-
-      group.rotation.x = rx;
-      group.rotation.y = ry + Math.sin(t * 0.6) * 0.12;
-      group.position.y = Math.sin(t * 1.1) * 0.1;
-
-      globe.rotation.y = t * 0.08;
-      globe.rotation.x = Math.sin(t * 0.2) * 0.15;
-      ring1.rotation.z = t * 0.16;
-      ring2.rotation.z = -t * 0.12;
-
-      floats.forEach((f, i) => {
-        f.rotation.x = t * 0.3 + i;
-        f.rotation.y = t * 0.4 + i;
-        f.position.y = f.userData.baseY + Math.sin(t * 1.2 + f.userData.offset) * 0.25;
-      });
-
-      renderer.render(scene, cam);
-    })();
-  }
-
-  // ============ Background Particles ============
-  function initParticles() {
-    const canvas = document.getElementById("bg");
-    if (!canvas || !window.THREE) return;
-    let renderer;
-    try { renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false }); }
-    catch (e) { return; }
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-    const scene = new THREE.Scene();
-    const cam = new THREE.PerspectiveCamera(60, 1, 0.1, 300);
-    cam.position.z = 45;
-
-    function createLayer(count, color, size, opacity) {
-      const pos = new Float32Array(count * 3);
-      for (let i = 0; i < count; i++) {
-        pos[i*3] = (Math.random() - 0.5) * 140;
-        pos[i*3+1] = (Math.random() - 0.5) * 95;
-        pos[i*3+2] = (Math.random() - 0.5) * 95;
-      }
-      const geo = new THREE.BufferGeometry();
-      geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
-      return new THREE.Points(geo, new THREE.PointsMaterial({ color, size, transparent: true, opacity, blending: THREE.AdditiveBlending }));
-    }
-    const gold = createLayer(280, 0xd4af37, 0.35, 0.7);
-    const navy = createLayer(160, 0x3a5db8, 0.25, 0.4);
-    scene.add(gold, navy);
-
-    function resize() {
-      renderer.setSize(window.innerWidth, window.innerHeight, false);
-      cam.aspect = window.innerWidth / window.innerHeight;
-      cam.updateProjectionMatrix();
-    }
-    window.addEventListener("resize", resize);
-    resize();
-
-    let sy = 0;
-    window.addEventListener("scroll", () => { sy = window.scrollY; }, { passive: true });
-
-    (function loop() {
-      requestAnimationFrame(loop);
-      if (!reduceMotion) {
-        gold.rotation.y += 0.0006;
-        navy.rotation.y -= 0.0004;
-      }
-      gold.position.y = sy * 0.012;
-      navy.position.y = sy * 0.007;
-      renderer.render(scene, cam);
-    })();
-  }
-
-  // ============ Init ============
-  document.addEventListener("DOMContentLoaded", () => {
-    initPreloader();
-    renderAll();
-    splitHeroTitle();
-    initHero3D();
-    initParticles();
-    initMagnetic();
-    initCursor();
-    initReveal();
-
-    if (!country) {
-      const cw = document.getElementById("cw-overlay");
-      if (cw) {
-        cw.hidden = false;
-        document.body.style.overflow = "hidden";
-        buildCountryGrid();
-        spinWheel();
-      }
-    }
-  });
+  };
+
+  const PACKS = { MSA, EN, EG, SA, AE, GULF, LEV, IQ, MAG };
+
+  const COUNTRIES = [
+    { c: "SA", ar: "السعودية", en: "Saudi Arabia", pack: "SA", flag: "🇸🇦" },
+    { c: "EG", ar: "مصر", en: "Egypt", pack: "EG", flag: "🇪🇬" },
+    { c: "AE", ar: "الإمارات", en: "UAE", pack: "AE", flag: "🇦🇪" },
+    { c: "KW", ar: "الكويت", en: "Kuwait", pack: "GULF", flag: "🇰🇼" },
+    { c: "QA", ar: "قطر", en: "Qatar", pack: "GULF", flag: "🇶🇦" },
+    { c: "BH", ar: "البحرين", en: "Bahrain", pack: "GULF", flag: "🇧🇭" },
+    { c: "OM", ar: "عُمان", en: "Oman", pack: "GULF", flag: "🇴🇲" },
+    { c: "JO", ar: "الأردن", en: "Jordan", pack: "LEV", flag: "🇯🇴" },
+    { c: "LB", ar: "لبنان", en: "Lebanon", pack: "LEV", flag: "🇱🇧" },
+    { c: "PS", ar: "فلسطين", en: "Palestine", pack: "LEV", flag: "🇵🇸" },
+    { c: "SY", ar: "سوريا", en: "Syria", pack: "LEV", flag: "🇸🇾" },
+    { c: "IQ", ar: "العراق", en: "Iraq", pack: "IQ", flag: "🇮🇶" },
+    { c: "YE", ar: "اليمن", en: "Yemen", pack: "GULF", flag: "🇾🇪" },
+    { c: "MA", ar: "المغرب", en: "Morocco", pack: "MAG", flag: "🇲🇦" },
+    { c: "DZ", ar: "الجزائر", en: "Algeria", pack: "MAG", flag: "🇩🇿" },
+    { c: "TN", ar: "تونس", en: "Tunisia", pack: "MAG", flag: "🇹🇳" },
+    { c: "LY", ar: "ليبيا", en: "Libya", pack: "MSA", flag: "🇱🇾" },
+    { c: "SD", ar: "السودان", en: "Sudan", pack: "MSA", flag: "🇸🇩" },
+    { c: "OTHER", ar: "دولة أخرى", en: "Other Country", pack: "MSA", flag: "🌍" }
+  ];
+
+  window.T2_I18N = { PACKS, COUNTRIES, COUNTRY_VIBES };
 })();
