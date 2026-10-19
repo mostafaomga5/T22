@@ -1,32 +1,29 @@
 /* ==========================================================================
-   T2 DIGITAL AGENCY — NEXT-GEN 3D SOCIAL MEDIA & AI DESIGN SYSTEM (style.css)
+   T2 DIGITAL AGENCY — ZERO-OVERFLOW 3D SPATIAL DESIGN SYSTEM (style.css)
    ========================================================================== */
 
 :root {
   --navy: #14213d;
-  --navy-2: #0d172b;
-  --navy-light: #1e325c;
+  --navy-2: #0c1528;
   --gold: #c9a227;
-  --gold-2: #f3d878;
+  --gold-2: #f4d97b;
   --gold-3: #9e7b12;
   --paper: #f7f5f0;
   --paper-2: #efeae0;
-  --card: #ffffff;
   --ink: #121826;
   --muted: #556075;
   --line: #e2dccb;
   --line-strong: #cfc6b0;
 
-  --radius-sm: 14px;
   --radius: 20px;
   --radius-lg: 26px;
-  --radius-xl: 34px;
-  --maxw: 1240px;
+  --radius-xl: 32px;
+  --maxw: 1200px;
 
   --grad-navy-3d: linear-gradient(145deg, #213766 0%, #14213d 55%, #0c1528 100%);
   --grad-gold-3d: linear-gradient(135deg, #f7e28d 0%, #c9a227 55%, #9c7811 100%);
   --grad-card-3d: linear-gradient(160deg, #ffffff 0%, #f9f6ee 100%);
-  --grad-royal-card: linear-gradient(145deg, #1b2e56 0%, #14213d 65%, #19294b 100%);
+  --grad-royal-card: linear-gradient(145deg, #1d315c 0%, #14213d 65%, #0f1a32 100%);
 
   --shadow-3d-sm:
     0 6px 14px -3px rgba(20, 33, 61, 0.07),
@@ -34,21 +31,21 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.95);
 
   --shadow-3d-md:
-    0 14px 28px -6px rgba(20, 33, 61, 0.11),
+    0 14px 28px -6px rgba(20, 33, 61, 0.12),
     0 24px 48px -12px rgba(20, 33, 61, 0.12),
-    0 4px 0 0 #dfd7c4,
-    inset 0 1px 0 rgba(255, 255, 255, 1);
+    0 5px 0 0 #ddd4c0,
+    inset 0 1px 0 #ffffff;
 
   --shadow-3d-lg:
-    0 22px 44px -10px rgba(20, 33, 61, 0.18),
+    0 22px 46px -10px rgba(20, 33, 61, 0.2),
     0 36px 72px -16px rgba(20, 33, 61, 0.22),
     0 6px 0 0 var(--gold),
-    inset 0 1px 0 rgba(255, 255, 255, 1);
+    inset 0 1px 0 #ffffff;
 
   --shadow-gold-active:
     0 18px 38px -6px rgba(201, 162, 39, 0.35),
     0 5px 0 0 var(--gold),
-    0 0 0 2px var(--gold),
+    0 0 0 2.5px var(--gold),
     inset 0 1px 0 #fff;
 
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
@@ -61,9 +58,13 @@
   padding: 0;
 }
 
-html {
+/* منع أي إزاحة أفقية أو ميل لليمين نهائياً على الموبايل والكمبيوتر */
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: clip;
   scroll-behavior: smooth;
-  scroll-padding-top: 88px;
+  scroll-padding-top: 84px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -71,18 +72,20 @@ body {
   font-family: "Tajawal", system-ui, -apple-system, sans-serif;
   background-color: var(--paper);
   background-image:
-    radial-gradient(circle at 12% 12%, rgba(201, 162, 39, 0.11) 0%, transparent 38%),
-    radial-gradient(circle at 88% 28%, rgba(20, 33, 61, 0.07) 0%, transparent 42%),
-    radial-gradient(circle at 50% 85%, rgba(201, 162, 39, 0.09) 0%, transparent 48%);
-  background-attachment: fixed;
+    radial-gradient(circle at 15% 12%, rgba(201, 162, 39, 0.12) 0%, transparent 38%),
+    radial-gradient(circle at 85% 28%, rgba(20, 33, 61, 0.08) 0%, transparent 42%),
+    radial-gradient(circle at 50% 85%, rgba(201, 162, 39, 0.1) 0%, transparent 48%);
   color: var(--ink);
   line-height: 1.7;
-  overflow-x: hidden;
+  position: relative;
 }
 
-::selection {
-  background: var(--gold);
-  color: var(--navy);
+main, section, header, footer {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: clip;
+  position: relative;
+  z-index: 1;
 }
 
 img, video, canvas, svg {
@@ -96,35 +99,31 @@ a {
 }
 
 .wrap {
+  width: 100%;
   max-width: var(--maxw);
   margin-inline: auto;
-  padding-inline: 5vw;
+  padding-inline: 20px;
 }
 
 section {
-  padding: 96px 0;
-  position: relative;
+  padding: 84px 0;
 }
 
 #bg {
   position: fixed;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.75;
-}
-
-main, header, footer {
-  position: relative;
-  z-index: 1;
+  opacity: 0.7;
 }
 
 .scroll-progress {
   position: fixed;
   top: 0;
-  inset-inline-start: 0;
+  right: 0;
+  left: 0;
   height: 4px;
   width: 0%;
   background: linear-gradient(90deg, var(--navy), var(--gold), var(--gold-2));
@@ -132,21 +131,22 @@ main, header, footer {
 }
 
 /* ==========================================================================
-   1. 3D COUNTRY WHEEL GATE (شاشة عجلة الدول التفاعلية عند الدخول)
+   1. بوابة عجلة الدول ثلاثية الأبعاد (متسنترة تماماً)
    ========================================================================== */
 .country-gate {
   position: fixed;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 9000;
-  background: rgba(15, 25, 48, 0.84);
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  background: rgba(14, 24, 46, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  perspective: 1400px;
-  transition: opacity 0.45s var(--ease-spring), visibility 0.45s;
+  padding: 16px;
+  transition: opacity 0.4s ease, visibility 0.4s;
 }
 
 .country-gate.hidden {
@@ -156,26 +156,18 @@ main, header, footer {
 }
 
 .gate-card {
-  width: min(760px, 96vw);
-  max-height: 92vh;
+  width: 100%;
+  max-width: 720px;
+  max-height: 90vh;
   overflow-y: auto;
+  overflow-x: hidden;
+  margin: auto;
   background: linear-gradient(160deg, #ffffff 0%, #f6f2e7 100%);
-  border: 2px solid var(--gold);
+  border: 2.5px solid var(--gold);
   border-radius: var(--radius-xl);
-  padding: clamp(24px, 4vw, 38px);
+  padding: clamp(20px, 4vw, 34px);
   text-align: center;
-  box-shadow:
-    0 35px 80px rgba(10, 18, 36, 0.55),
-    0 0 0 8px rgba(201, 162, 39, 0.15),
-    inset 0 2px 0 #fff;
-  transform-style: preserve-3d;
-  animation: gateEnter 0.6s var(--ease-out-back);
-  position: relative;
-}
-
-@keyframes gateEnter {
-  from { opacity: 0; transform: translateY(35px) rotateX(-12deg) scale(0.92); }
-  to { opacity: 1; transform: translateY(0) rotateX(0deg) scale(1); }
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 0 0 6px rgba(201, 162, 39, 0.16);
 }
 
 .gate-badge {
@@ -184,15 +176,14 @@ main, header, footer {
   border-radius: 999px;
   background: var(--grad-navy-3d);
   color: var(--gold-2);
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.8px;
-  margin-bottom: 12px;
-  box-shadow: 0 6px 16px rgba(20, 33, 61, 0.25);
+  letter-spacing: 0.6px;
+  margin-bottom: 10px;
 }
 
 .gate-header h2 {
-  font-size: clamp(22px, 3.2vw, 32px);
+  font-size: clamp(20px, 3vw, 30px);
   color: var(--navy);
   font-weight: 900;
   margin-bottom: 6px;
@@ -200,40 +191,39 @@ main, header, footer {
 
 .gate-header p {
   color: var(--muted);
-  font-size: 15.5px;
-  margin-bottom: 22px;
+  font-size: 14.5px;
+  margin-bottom: 18px;
 }
 
-/* منصة العجلة ثلاثية الأبعاد */
+/* ضبط سنتر العجلة بغض النظر عن RTL/LTR */
 .wheel-stage {
   position: relative;
-  width: 170px;
-  height: 170px;
-  margin: 0 auto 24px;
-  perspective: 900px;
+  width: 164px;
+  height: 164px;
+  margin: 0 auto 22px;
   display: flex;
   align-items: center;
   justify-content: center;
+  direction: ltr;
 }
 
 .wheel-ring {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 3px dashed rgba(201, 162, 39, 0.55);
-  background: radial-gradient(circle, rgba(201, 162, 39, 0.18) 0%, transparent 70%);
+  border: 2.5px dashed rgba(201, 162, 39, 0.65);
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.2) 0%, transparent 70%);
   animation: spinWheel 16s linear infinite;
-  transform-style: preserve-3d;
 }
 
 .wheel-ring.spinning-fast {
-  animation: spinWheel 0.55s cubic-bezier(0.12, 0.8, 0.25, 1) 1;
+  animation: spinWheel 0.45s cubic-bezier(0.12, 0.8, 0.25, 1) 1;
 }
 
 .wheel-flag-node {
   position: absolute;
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: #fff;
   border: 1.5px solid var(--gold);
@@ -241,24 +231,26 @@ main, header, footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 19px;
+  font-size: 18px;
   top: 50%;
   left: 50%;
+  margin-top: -17px;
+  margin-left: -17px;
 }
 
 .wheel-center-icon {
-  width: 74px;
-  height: 74px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   background: var(--grad-navy-3d);
   border: 2.5px solid var(--gold);
-  box-shadow: 0 12px 26px rgba(20, 33, 61, 0.35), 0 0 0 6px rgba(201, 162, 39, 0.2);
+  box-shadow: 0 10px 24px rgba(20, 33, 61, 0.35), 0 0 0 5px rgba(201, 162, 39, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 36px;
+  font-size: 34px;
   z-index: 2;
-  transition: transform 0.35s var(--ease-out-back);
+  transition: transform 0.3s var(--ease-out-back);
 }
 
 @keyframes spinWheel {
@@ -266,123 +258,103 @@ main, header, footer {
   to { transform: rotate(360deg); }
 }
 
-/* أزرار الدول المجسمة داخل البوابة */
 .gate-countries {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
   gap: 10px;
-  margin-bottom: 20px;
-  perspective: 800px;
+  margin-bottom: 18px;
 }
 
 .gate-country-btn {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 11px 14px;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 12px;
   border-radius: 14px;
   background: #ffffff;
   border: 1.5px solid var(--line-strong);
-  box-shadow:
-    0 5px 12px rgba(20, 33, 61, 0.06),
-    0 3px 0 0 #ddd5c2;
+  box-shadow: 0 4px 10px rgba(20, 33, 61, 0.06), 0 3px 0 0 #ddd5c2;
   cursor: pointer;
   font: inherit;
   font-weight: 800;
-  font-size: 14.5px;
+  font-size: 14px;
   color: var(--navy);
-  transition: all 0.22s var(--ease-out-back);
+  transition: all 0.2s var(--ease-out-back);
 }
 
 .gate-country-btn .flag {
-  font-size: 22px;
-  line-height: 1;
+  font-size: 20px;
 }
 
-.gate-country-btn:hover,
-.gate-country-btn:focus-visible {
-  transform: translateY(-4px) rotateX(8deg);
+.gate-country-btn:hover {
+  transform: translateY(-3px);
   border-color: var(--gold);
-  background: linear-gradient(135deg, #fffdf7 0%, #f8f0d8 100%);
-  box-shadow:
-    0 12px 22px rgba(201, 162, 39, 0.25),
-    0 4px 0 0 var(--gold);
-  outline: none;
-}
-
-.gate-country-btn.selected {
-  background: var(--grad-navy-3d);
-  color: var(--gold-2);
-  border-color: var(--gold);
-  box-shadow: 0 10px 20px rgba(20, 33, 61, 0.35), 0 3px 0 0 var(--gold);
+  background: #fdf8e7;
+  box-shadow: 0 10px 18px rgba(201, 162, 39, 0.22), 0 3px 0 0 var(--gold);
 }
 
 .gate-footer {
   border-top: 1px solid var(--line);
-  padding-top: 16px;
+  padding-top: 14px;
 }
 
 /* ==========================================================================
-   2. HEADER & 3D NAVIGATION
+   2. HEADER & NAVIGATION (مضبوط للموبايل والكمبيوتر)
    ========================================================================== */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 60;
-  background: rgba(247, 245, 240, 0.88);
+  background: rgba(247, 245, 240, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(20, 33, 61, 0.09);
-  transition: all 0.3s ease;
+  width: 100%;
 }
 
-.site-header .wrap {
+.header-flex {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  height: 78px;
+  gap: 10px;
+  height: 74px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 .brand img {
-  height: 46px;
-  width: 46px;
+  height: 42px;
+  width: 42px;
   object-fit: contain;
-  filter: drop-shadow(0 6px 12px rgba(20, 33, 61, 0.18));
-  transition: transform 0.35s var(--ease-out-back);
-}
-
-.brand:hover img {
-  transform: scale(1.1) rotate(-5deg);
 }
 
 .brand-tag {
   font-weight: 900;
-  font-size: 18px;
+  font-size: 17px;
   color: var(--navy);
-  letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 .brand-tag span {
   color: var(--gold);
-  font-size: 13px;
+  font-size: 12px;
   background: rgba(201, 162, 39, 0.16);
-  padding: 2px 8px;
+  padding: 2px 7px;
   border-radius: 99px;
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 6px 10px;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 5px 8px;
   border-radius: 999px;
   border: 1px solid var(--line-strong);
   box-shadow: var(--shadow-3d-sm);
@@ -390,24 +362,24 @@ main, header, footer {
 
 .nav a {
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14.5px;
   color: var(--ink);
-  padding: 7px 16px;
+  padding: 6px 14px;
   border-radius: 999px;
-  transition: all 0.25s var(--ease-spring);
+  white-space: nowrap;
+  transition: all 0.2s ease;
 }
 
 .nav a:hover {
   color: var(--navy);
   background: var(--grad-gold-3d);
-  box-shadow: 0 4px 12px rgba(201, 162, 39, 0.3);
-  transform: translateY(-1px);
 }
 
 .header-actions {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .chip,
@@ -415,195 +387,198 @@ main, header, footer {
   border: 1.5px solid var(--line-strong);
   background: var(--grad-card-3d);
   color: var(--navy);
-  padding: 8px 16px;
+  padding: 7px 13px;
   border-radius: 999px;
   font: inherit;
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 800;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  white-space: nowrap;
   box-shadow: 0 4px 10px rgba(20, 33, 61, 0.06), 0 2px 0 0 #d5ccb8;
-  transition: all 0.25s var(--ease-out-back);
+  transition: all 0.2s ease;
 }
 
 .chip:hover,
 .cdd-btn:hover {
   border-color: var(--gold);
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(201, 162, 39, 0.25), 0 3px 0 0 var(--gold);
 }
 
 .menu-btn {
   display: none;
   border: 1.5px solid var(--line-strong);
   background: #fff;
-  border-radius: 12px;
-  width: 44px;
-  height: 40px;
-  font-size: 19px;
+  border-radius: 11px;
+  width: 40px;
+  height: 38px;
+  font-size: 18px;
   cursor: pointer;
   color: var(--navy);
+  flex-shrink: 0;
 }
 
 /* ==========================================================================
-   3. 3D BUTTONS
+   3. BUTTONS
    ========================================================================== */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 15px 32px;
+  padding: 14px 28px;
   border-radius: 16px;
   font: inherit;
   font-weight: 800;
-  font-size: 16px;
+  font-size: 15.5px;
   cursor: pointer;
-  transition: all 0.28s var(--ease-out-back);
+  transition: all 0.25s var(--ease-out-back);
 }
 
 .btn.primary {
   background: var(--grad-navy-3d);
   color: var(--gold-2);
   border: 1.5px solid var(--gold);
-  box-shadow:
-    0 12px 24px -6px rgba(20, 33, 61, 0.45),
-    0 5px 0 0 #091120,
-    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  box-shadow: 0 12px 24px -6px rgba(20, 33, 61, 0.45), 0 5px 0 0 #091120;
 }
 
 .btn.primary:hover {
   background: var(--grad-gold-3d);
   color: var(--navy-2);
-  transform: translateY(-4px);
-  box-shadow:
-    0 18px 32px -6px rgba(201, 162, 39, 0.45),
-    0 5px 0 0 var(--gold-3);
+  transform: translateY(-3px);
 }
 
 .btn.ghost {
   background: #ffffff;
   color: var(--navy);
   border: 1.5px solid var(--line-strong);
-  box-shadow:
-    0 8px 18px -6px rgba(20, 33, 61, 0.1),
-    0 4px 0 0 #d8d0bc;
+  box-shadow: 0 8px 18px -6px rgba(20, 33, 61, 0.1), 0 4px 0 0 #d8d0bc;
 }
 
 .btn.ghost:hover {
   border-color: var(--gold);
-  transform: translateY(-4px);
-  box-shadow:
-    0 14px 26px -6px rgba(20, 33, 61, 0.16),
-    0 4px 0 0 var(--gold);
+  transform: translateY(-3px);
 }
 
 /* ==========================================================================
-   4. HERO SECTION & FLOATING 3D SOCIAL MEDIA ORBIT
+   4. HERO & 3D COUNTRY STICKERS STAGE (متسنتر ومربوط بالصور الفعلية)
    ========================================================================== */
 .hero {
-  min-height: calc(100vh - 78px);
+  min-height: calc(100vh - 74px);
   display: flex;
   align-items: center;
-  padding: 56px 0 80px;
-  perspective: 1400px;
+  padding: 48px 0 72px;
+  position: relative;
 }
 
-.hero .wrap {
+/* خلفية الدولة المخصصة (مثل الإمارات-خلفية.webp) */
+.hero-country-bg {
+  position: absolute;
+  inset: 0;
+  background-size: 420px;
+  background-repeat: repeat;
+  background-position: center;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 48px;
+  gap: 40px;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 18px;
-  margin-bottom: 18px;
+  gap: 8px;
+  padding: 7px 16px;
+  margin-bottom: 16px;
   border-radius: 999px;
   background: #ffffff;
   border: 1.5px solid var(--gold);
   box-shadow: 0 8px 20px -6px rgba(201, 162, 39, 0.3);
   color: var(--navy);
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 800;
+  max-width: 100%;
 }
 
 .hero-badge .dot {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background: var(--gold);
-  box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.25);
+  flex-shrink: 0;
 }
 
 .hero h1 {
-  font-size: clamp(32px, 4.6vw, 58px);
+  font-size: clamp(28px, 4.2vw, 52px);
   font-weight: 900;
-  margin-bottom: 18px;
-  line-height: 1.18;
+  margin-bottom: 16px;
+  line-height: 1.2;
   color: var(--navy);
 }
 
 .hero .lead {
-  font-size: clamp(16.5px, 1.6vw, 19.5px);
+  font-size: clamp(15.5px, 1.5vw, 18.5px);
   color: var(--muted);
-  margin-bottom: 22px;
+  margin-bottom: 20px;
   font-weight: 500;
 }
 
-/* شريط أيقونات السوق المحلي المتجاوب مع الدولة */
 .country-vibe-bar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  margin-bottom: 26px;
+  margin-bottom: 24px;
 }
 
 .vibe-chip {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 13px;
+  padding: 6px 12px;
   border-radius: 12px;
   background: linear-gradient(135deg, #ffffff 0%, #f5efe0 100%);
-  border: 1px solid rgba(201, 162, 39, 0.45);
+  border: 1px solid rgba(201, 162, 39, 0.5);
   box-shadow: 0 4px 10px rgba(20, 33, 61, 0.06), 0 2px 0 0 rgba(201, 162, 39, 0.3);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 800;
   color: var(--navy);
 }
 
 .cta-row {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 .stats-strip {
-  margin-top: 34px;
+  margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  gap: 12px;
 }
 
 .stat-item {
   background: var(--grad-card-3d);
   border: 1.5px solid var(--line-strong);
-  border-radius: 18px;
-  padding: 14px 16px;
+  border-radius: 16px;
+  padding: 12px 14px;
   box-shadow: var(--shadow-3d-md);
-  transition: transform 0.3s var(--ease-out-back);
 }
 
 .stat-num {
   display: block;
-  font-size: clamp(20px, 2.3vw, 27px);
+  font-size: clamp(19px, 2.2vw, 25px);
   font-weight: 900;
   color: var(--navy);
 }
@@ -613,112 +588,231 @@ main, header, footer {
 }
 
 .stat-label {
-  font-size: 13px;
+  font-size: 12.5px;
   color: var(--muted);
   font-weight: 700;
 }
 
-/* منصة الشعار وأيقونات السوشيال ميديا الـ 3D الطائرة */
-.hero-logo {
-  position: relative;
+/* مسرح الـ 3D والستيكرات والشخصيات المدارية (مضمون عدم الخروج عن الشاشة) */
+.hero-stage-wrap {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  perspective: 1200px;
+  padding: 12px;
 }
 
-.social-orbit {
+.hero-logo {
+  position: relative;
+  width: min(390px, 84vw);
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto;
+}
+
+.country-stickers-orbit {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 4;
+  z-index: 5;
+}
+
+/* الستيكرات المجسمة 3D حول اللوجو */
+.sticker-node {
+  position: absolute;
+  width: clamp(66px, 8.5vw, 96px);
+  height: clamp(66px, 8.5vw, 96px);
+  padding: 7px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid var(--gold);
+  box-shadow: 0 14px 28px rgba(20, 33, 61, 0.24), 0 4px 0 0 var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: stickerFloat 5s ease-in-out infinite;
+}
+
+.sticker-node img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* الشخصية الرئيسية للدولة (السعودية-شخصية.png / الإمارات-شخصية.webp) */
+.character-node {
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  width: clamp(110px, 14vw, 158px);
+  height: clamp(110px, 14vw, 158px);
+  z-index: 6;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(249, 243, 224, 0.9) 100%);
+  border: 2.5px solid var(--gold);
+  border-radius: 28px;
+  padding: 6px;
+  box-shadow: 0 18px 36px rgba(20, 33, 61, 0.32), 0 5px 0 0 var(--gold);
+  animation: charFloat 4.5s ease-in-out infinite;
+}
+
+.character-node img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sticker-pos-0 { top: 2%; right: 2%; animation-delay: 0s; }
+.sticker-pos-1 { top: 4%; left: 2%; animation-delay: 1.1s; }
+.sticker-pos-2 { bottom: 6%; left: 2%; animation-delay: 2.2s; }
+.sticker-pos-3 { bottom: 4%; right: 4%; animation-delay: 3.3s; }
+
+@keyframes stickerFloat {
+  0%, 100% { transform: translateY(0px) rotate(-3deg); }
+  50% { transform: translateY(-12px) rotate(4deg); }
+}
+
+@keyframes charFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
 
 .float-badge {
   position: absolute;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 9px 15px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.94);
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
   border: 1.5px solid var(--gold);
-  box-shadow:
-    0 14px 28px rgba(20, 33, 61, 0.18),
-    0 4px 0 0 var(--gold);
+  box-shadow: 0 12px 24px rgba(20, 33, 61, 0.18), 0 3px 0 0 var(--gold);
   font-weight: 800;
-  font-size: 13.5px;
+  font-size: 12.5px;
   color: var(--navy);
-  animation: floatBadge 5s ease-in-out infinite;
-}
-
-.float-badge.fb-1 { top: 6%; inset-inline-start: 0%; animation-delay: 0s; }
-.float-badge.fb-2 { top: 14%; inset-inline-end: 0%; animation-delay: 1.2s; }
-.float-badge.fb-3 { bottom: 14%; inset-inline-start: 2%; animation-delay: 2.4s; }
-.float-badge.fb-4 { bottom: 6%; inset-inline-end: 2%; animation-delay: 3.6s; }
-
-@keyframes floatBadge {
-  0%, 100% { transform: translateY(0px) rotate(-2deg); }
-  50% { transform: translateY(-12px) rotate(2deg); }
+  white-space: nowrap;
+  animation: stickerFloat 5s ease-in-out infinite;
 }
 
 .hero-3d {
-  width: min(430px, 80vw);
-  aspect-ratio: 1;
+  width: 100%;
+  height: 100%;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform-style: preserve-3d;
 }
 
 .hero-3d::before {
   content: "";
   position: absolute;
-  inset: 8%;
+  inset: 10%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(201, 162, 39, 0.32) 0%, rgba(20, 33, 61, 0.08) 60%, transparent 74%);
-  filter: blur(20px);
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.34) 0%, rgba(20, 33, 61, 0.08) 60%, transparent 74%);
+  filter: blur(18px);
 }
 
 .hero-3d img.fallback {
-  width: 82%;
-  height: 82%;
+  width: 74%;
+  height: 74%;
   object-fit: contain;
-  filter: drop-shadow(0 28px 36px rgba(20, 33, 61, 0.32));
-  animation: float3D 6s ease-in-out infinite;
+  filter: drop-shadow(0 24px 32px rgba(20, 33, 61, 0.3));
 }
 
-@keyframes float3D {
-  0%, 100% { transform: translateY(0) rotateY(-6deg); }
-  50% { transform: translateY(-16px) rotateY(8deg); }
+/* شريط استعراض ستيكرات وهوية الدولة تحت الهيرو */
+.country-showcase-strip {
+  padding: 22px 0;
+  background: linear-gradient(90deg, rgba(20, 33, 61, 0.05), rgba(201, 162, 39, 0.16), rgba(20, 33, 61, 0.05));
+  border-top: 1.5px solid rgba(201, 162, 39, 0.4);
+  border-bottom: 1.5px solid rgba(201, 162, 39, 0.4);
+}
+
+.showcase-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 14px;
+  align-items: center;
+}
+
+.showcase-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1.5px solid var(--gold);
+  box-shadow: var(--shadow-3d-sm);
+  transition: transform 0.25s ease;
+}
+
+.showcase-card:hover {
+  transform: translateY(-4px);
+}
+
+.showcase-card img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.showcase-card span {
+  font-weight: 800;
+  color: var(--navy);
+  font-size: 13.5px;
+  line-height: 1.35;
+}
+
+/* المستشار الرقمي المرافق أثناء التصفح */
+.floating-companion {
+  position: fixed;
+  bottom: 82px;
+  left: 18px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid var(--gold);
+  box-shadow: 0 12px 24px rgba(20, 33, 61, 0.25), 0 3px 0 0 var(--gold);
+  padding: 5px;
+  z-index: 46;
+  pointer-events: none;
+  animation: charFloat 4s ease-in-out infinite;
+}
+
+.floating-companion img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
 /* ==========================================================================
-   5. SECTION HEADERS
+   5. SECTIONS & 3D CARDS (مع أيقونات 3D حقيقية من الصور المرفوعة)
    ========================================================================== */
 .section-head {
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 
 .section-tag {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.7px;
   color: var(--navy);
   background: linear-gradient(135deg, rgba(201, 162, 39, 0.25), rgba(201, 162, 39, 0.1));
   border: 1px solid var(--gold);
   padding: 5px 14px;
   border-radius: 999px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 section h2 {
-  font-size: clamp(27px, 3.6vw, 44px);
+  font-size: clamp(25px, 3.4vw, 42px);
   font-weight: 900;
   margin-bottom: 10px;
   color: var(--navy);
@@ -726,13 +820,10 @@ section h2 {
 
 .section-lead {
   color: var(--muted);
-  font-size: clamp(16px, 1.4vw, 18.5px);
+  font-size: clamp(15.5px, 1.4vw, 18px);
   max-width: 62ch;
 }
 
-/* ==========================================================================
-   6. 3D INTERACTIVE SERVICE CARDS (.pick-list & .pick)
-   ========================================================================== */
 .sr {
   position: absolute;
   opacity: 0;
@@ -744,9 +835,8 @@ section h2 {
 .pick-list {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  gap: 22px;
-  perspective: 1400px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
 .pick {
@@ -754,17 +844,13 @@ section h2 {
   background: var(--grad-card-3d);
   border: 1.5px solid var(--line-strong);
   box-shadow: var(--shadow-3d-md);
-  transform-style: preserve-3d;
   position: relative;
   overflow: hidden;
-  transition:
-    transform 0.35s var(--ease-out-back),
-    box-shadow 0.35s var(--ease-spring),
-    border-color 0.25s ease;
+  transition: all 0.3s var(--ease-out-back);
 }
 
 .pick:hover {
-  transform: perspective(1000px) translateY(-8px) rotateX(4deg) rotateY(-3deg);
+  transform: translateY(-6px);
   border-color: var(--gold);
   box-shadow: var(--shadow-3d-lg);
 }
@@ -772,53 +858,53 @@ section h2 {
 .pick label {
   display: flex;
   align-items: center;
-  gap: 18px;
-  padding: 24px;
+  gap: 16px;
+  padding: 22px 20px;
   cursor: pointer;
-  position: relative;
-  z-index: 1;
 }
 
 .pick-icon-box {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 62px;
-  height: 62px;
+  width: 64px;
+  height: 64px;
   border-radius: 18px;
   background: linear-gradient(145deg, #ffffff, #f0ead8);
   border: 1.5px solid var(--gold);
   box-shadow: 0 6px 14px rgba(20, 33, 61, 0.08), 0 3px 0 0 #d5cab0;
   font-size: 26px;
   flex-shrink: 0;
-  transition: transform 0.35s var(--ease-out-back);
+  padding: 6px;
 }
 
-.pick:hover .pick-icon-box {
-  transform: translateZ(20px) scale(1.1) rotate(-5deg);
+.pick-icon-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .pick-body {
   flex: 1;
+  min-width: 0;
 }
 
 .pick-body h3 {
-  font-size: 19.5px;
+  font-size: 18.5px;
   font-weight: 900;
   color: var(--navy);
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
 .pick-body p {
   color: var(--muted);
-  font-size: 14.5px;
+  font-size: 14px;
   line-height: 1.55;
 }
 
 .tick {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   border: 2px solid var(--line-strong);
   background: #ffffff;
@@ -827,32 +913,25 @@ section h2 {
   justify-content: center;
   color: transparent;
   font-weight: 900;
-  font-size: 16px;
   flex-shrink: 0;
-  transition: all 0.3s var(--ease-out-back);
+  transition: all 0.25s ease;
 }
 
 .pick.on {
   background: linear-gradient(155deg, #ffffff 0%, #fbf3d9 100%);
   border-color: var(--gold);
   box-shadow: var(--shadow-gold-active);
-  transform: translateY(-5px);
-}
-
-.pick.on .pick-icon-box {
-  background: var(--grad-navy-3d);
-  border-color: var(--gold);
+  transform: translateY(-4px);
 }
 
 .pick.on .tick {
   background: var(--grad-navy-3d);
   border-color: var(--gold);
   color: var(--gold-2);
-  transform: scale(1.14);
 }
 
 /* ==========================================================================
-   7. 3D PORTFOLIO REELS (بدون أي خلفية سوداء عشوائية)
+   6. PORTFOLIO & CATALOG
    ========================================================================== */
 #portfolio {
   background:
@@ -863,21 +942,17 @@ section h2 {
 }
 
 .pf-service {
-  margin-bottom: 52px;
-}
-
-.pf-service:last-child {
-  margin-bottom: 0;
+  margin-bottom: 48px;
 }
 
 .pf-service h3 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 900;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 9px 20px;
+  padding: 8px 18px;
   background: #ffffff;
   border: 1.5px solid var(--gold);
   border-radius: 999px;
@@ -887,12 +962,10 @@ section h2 {
 
 .videos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  gap: 22px;
-  perspective: 1400px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 18px;
 }
 
-/* كارت العرض ثلاثي الأبعاد بتدرج كحلي ملكي وذهبي فخم بدلاً من الأسود */
 .vcard {
   position: relative;
   aspect-ratio: 9 / 16;
@@ -900,15 +973,10 @@ section h2 {
   overflow: hidden;
   background: var(--grad-royal-card);
   cursor: pointer;
-  border: 2px solid rgba(201, 162, 39, 0.45);
-  padding: 0;
-  font: inherit;
+  border: 2px solid rgba(201, 162, 39, 0.5);
   color: #ffffff;
-  transform-style: preserve-3d;
-  box-shadow:
-    0 16px 32px -8px rgba(20, 33, 61, 0.28),
-    0 5px 0 0 var(--gold);
-  transition: all 0.35s var(--ease-out-back);
+  box-shadow: 0 16px 32px -8px rgba(20, 33, 61, 0.28), 0 5px 0 0 var(--gold);
+  transition: transform 0.3s ease;
 }
 
 .vcard.landscape {
@@ -917,11 +985,8 @@ section h2 {
 }
 
 .vcard:hover {
-  transform: perspective(900px) translateY(-10px) rotateX(6deg) rotateY(-4deg);
+  transform: translateY(-8px);
   border-color: var(--gold-2);
-  box-shadow:
-    0 26px 48px -10px rgba(20, 33, 61, 0.38),
-    0 6px 0 0 var(--gold-2);
 }
 
 .vcard video {
@@ -940,17 +1005,17 @@ section h2 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 14px;
-  padding: 18px;
+  gap: 12px;
+  padding: 16px;
   text-align: center;
   background:
     radial-gradient(circle at 50% 30%, rgba(201, 162, 39, 0.25), transparent 65%),
-    linear-gradient(180deg, rgba(20, 33, 61, 0.15) 0%, rgba(20, 33, 61, 0.82) 100%);
+    linear-gradient(180deg, rgba(20, 33, 61, 0.15) 0%, rgba(20, 33, 61, 0.85) 100%);
 }
 
 .vcard .play-icon {
-  width: 60px;
-  height: 60px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
   background: var(--grad-gold-3d);
   color: var(--navy-2);
@@ -960,63 +1025,37 @@ section h2 {
   font-size: 22px;
   font-weight: 900;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3), 0 0 0 6px rgba(201, 162, 39, 0.25);
-  transition: transform 0.3s var(--ease-out-back);
-}
-
-.vcard:hover .play-icon {
-  transform: scale(1.15) translateZ(20px);
 }
 
 .vcard .tag {
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 800;
   padding: 6px 14px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(8px);
   border: 1px solid rgba(243, 216, 120, 0.5);
   color: var(--gold-2);
 }
 
-/* تصميم كروت المعاينة التفاعلية الفخمة عند عدم رفع ملف الفيديو بعد */
-.vcard.is-soon {
-  background:
-    radial-gradient(circle at 50% 25%, rgba(201, 162, 39, 0.28), transparent 65%),
-    linear-gradient(155deg, #223867 0%, #14213d 60%, #101b33 100%);
-  border: 2px solid rgba(201, 162, 39, 0.55);
-}
-
-/* ==========================================================================
-   8. ALL SERVICES CATALOG (.groups, .group, .chk-row)
-   ========================================================================== */
 .groups {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  perspective: 1400px;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 20px;
 }
 
 .group {
   background: var(--grad-card-3d);
   border: 1.5px solid var(--line-strong);
   border-radius: var(--radius-lg);
-  padding: 26px 22px;
+  padding: 24px 20px;
   box-shadow: var(--shadow-3d-md);
-  transform-style: preserve-3d;
-  transition: all 0.3s var(--ease-out-back);
-}
-
-.group:hover {
-  transform: translateY(-6px);
-  border-color: var(--gold);
-  box-shadow: var(--shadow-3d-lg);
 }
 
 .group h3 {
-  font-size: 19.5px;
+  font-size: 19px;
   font-weight: 900;
   margin-bottom: 14px;
-  padding-bottom: 12px;
+  padding-bottom: 10px;
   border-bottom: 1.5px solid var(--line);
   color: var(--navy);
   display: flex;
@@ -1038,31 +1077,20 @@ section h2 {
 .chk-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   padding: 10px 12px;
   border-radius: 13px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 600;
   color: var(--ink);
   background: #ffffff;
   border: 1px solid var(--line);
-  transition: all 0.2s var(--ease-spring);
-}
-
-.chk-row:hover {
-  border-color: var(--gold);
-  background: #fdfaf0;
-  transform: translateX(-3px);
-}
-
-[dir="ltr"] .chk-row:hover {
-  transform: translateX(3px);
 }
 
 .chk-row .box {
-  width: 23px;
-  height: 23px;
+  width: 22px;
+  height: 22px;
   border-radius: 7px;
   border: 2px solid #c2b8a3;
   background: #ffffff;
@@ -1073,7 +1101,6 @@ section h2 {
   font-weight: 900;
   color: transparent;
   flex-shrink: 0;
-  transition: all 0.22s var(--ease-out-back);
 }
 
 .chk-row.on {
@@ -1081,18 +1108,16 @@ section h2 {
   font-weight: 800;
   background: linear-gradient(90deg, #fdf6df, #ffffff);
   border: 1.5px solid var(--gold);
-  box-shadow: 0 4px 12px rgba(201, 162, 39, 0.2);
 }
 
 .chk-row.on .box {
   background: var(--grad-navy-3d);
   border-color: var(--gold);
   color: var(--gold-2);
-  transform: scale(1.1);
 }
 
 /* ==========================================================================
-   9. QUOTE SECTION & FORM
+   7. QUOTE FORM & FLOATING BAR
    ========================================================================== */
 .quote {
   background:
@@ -1116,11 +1141,12 @@ section h2 {
 }
 
 .form {
-  max-width: 780px;
+  max-width: 760px;
+  margin-inline: auto;
   background: linear-gradient(165deg, #ffffff 0%, #f9f6ed 100%);
   color: var(--ink);
   border-radius: var(--radius-xl);
-  padding: clamp(26px, 4.5vw, 44px);
+  padding: clamp(22px, 4vw, 40px);
   border: 2px solid var(--gold);
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
 }
@@ -1129,15 +1155,15 @@ section h2 {
   background: linear-gradient(135deg, #fcf9f0 0%, #f3ecda 100%);
   border: 1.5px dashed var(--gold);
   border-radius: 16px;
-  padding: 18px 20px;
+  padding: 16px 18px;
   margin-bottom: 12px;
 }
 
 .sel-summary .sel-title {
   font-weight: 900;
   color: var(--navy);
-  margin-bottom: 10px;
-  font-size: 16px;
+  margin-bottom: 8px;
+  font-size: 15.5px;
 }
 
 .sel-summary ul {
@@ -1151,8 +1177,8 @@ section h2 {
   background: #ffffff;
   border: 1.5px solid var(--gold);
   border-radius: 999px;
-  padding: 5px 14px;
-  font-size: 14px;
+  padding: 5px 12px;
+  font-size: 13.5px;
   font-weight: 800;
   color: var(--navy);
 }
@@ -1178,21 +1204,14 @@ section h2 {
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.clear-sel-btn:hover {
-  border-color: #d92d20;
-  color: #b42318;
-  background: #fef3f2;
 }
 
 .form label {
   display: block;
   font-weight: 800;
-  font-size: 15px;
+  font-size: 14.5px;
   color: var(--navy);
-  margin: 16px 0 6px;
+  margin: 14px 0 6px;
 }
 
 .form input,
@@ -1200,36 +1219,27 @@ section h2 {
 .form textarea {
   width: 100%;
   font: inherit;
-  font-size: 16px;
-  padding: 13px 16px;
+  font-size: 15.5px;
+  padding: 12px 14px;
   border: 1.5px solid #cfc7b4;
   border-radius: 14px;
   background: #ffffff;
   color: var(--ink);
-  transition: all 0.22s ease;
-}
-
-.form input:focus,
-.form select:focus,
-.form textarea:focus {
-  outline: none;
-  border-color: var(--gold);
-  box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.2);
 }
 
 .form .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 14px;
 }
 
 .form .btn {
   width: 100%;
-  margin-top: 24px;
+  margin-top: 22px;
 }
 
 .form .note {
-  font-size: 13.5px;
+  font-size: 13px;
   color: var(--muted);
   text-align: center;
   margin-top: 12px;
@@ -1247,21 +1257,19 @@ section h2 {
   margin-top: 12px;
 }
 
-/* ==========================================================================
-   10. FLOATING ORDER BAR & MODALS
-   ========================================================================== */
 .order-bar {
   position: fixed;
-  bottom: 18px;
-  inset-inline: 5vw;
-  max-width: 880px;
+  bottom: 16px;
+  right: 16px;
+  left: 16px;
+  max-width: 840px;
   margin-inline: auto;
   z-index: 55;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 12px 22px;
+  gap: 12px;
+  padding: 12px 20px;
   border-radius: 999px;
   background: var(--grad-navy-3d);
   color: #ffffff;
@@ -1275,19 +1283,19 @@ section h2 {
 
 .order-bar #order-count {
   font-weight: 800;
-  font-size: 16px;
+  font-size: 15px;
   color: var(--gold-2);
 }
 
 .order-bar-btns {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .btn-reset-mini {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.3);
   background: rgba(255, 255, 255, 0.12);
@@ -1296,37 +1304,33 @@ section h2 {
   font-weight: 900;
 }
 
-.btn-reset-mini:hover {
-  background: #d92d20;
-  border-color: #d92d20;
-}
-
 .order-bar .btn.primary {
   background: var(--grad-gold-3d);
   color: var(--navy-2);
-  padding: 10px 24px;
+  padding: 9px 20px;
   border-radius: 999px;
+  font-size: 14px;
 }
 
 footer {
-  padding: 40px 0;
+  padding: 36px 0;
   background: var(--paper-2);
   border-top: 1px solid var(--line-strong);
   color: var(--muted);
 }
 
-footer .wrap {
+.footer-flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
 footer a {
   color: var(--navy);
   font-weight: 800;
-  padding: 8px 18px;
+  padding: 8px 16px;
   border-radius: 999px;
   background: #ffffff;
   border: 1.5px solid var(--gold);
@@ -1334,10 +1338,10 @@ footer a {
 
 .back-to-top {
   position: fixed;
-  bottom: 24px;
-  inset-inline-start: 24px;
-  width: 46px;
-  height: 46px;
+  bottom: 20px;
+  left: 18px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--grad-navy-3d);
   color: var(--gold-2);
@@ -1349,7 +1353,6 @@ footer a {
   z-index: 48;
   opacity: 0;
   pointer-events: none;
-  transition: all 0.3s ease;
 }
 
 .back-to-top.show {
@@ -1388,51 +1391,50 @@ footer a {
 
 .player .close {
   position: absolute;
-  top: -48px;
-  inset-inline-end: 0;
+  top: -46px;
+  right: 0;
   background: #ffffff;
   color: var(--navy);
   border: 1.5px solid var(--gold);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   font-size: 18px;
   font-weight: 800;
   cursor: pointer;
 }
 
 /* ==========================================================================
-   11. RESPONSIVE BREAKPOINTS
+   8. RESPONSIVE BREAKPOINTS (ضبط مثالي للموبايل والتابلت)
    ========================================================================== */
-@media (max-width: 900px) {
-  .hero .wrap {
+@media (max-width: 920px) {
+  .hero-grid {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 28px;
   }
   .country-vibe-bar,
   .cta-row {
     justify-content: center;
   }
-  .hero-logo {
+  .hero-stage-wrap {
     order: -1;
   }
-  .hero-3d {
-    width: min(300px, 72vw);
-  }
-  .float-badge {
-    font-size: 11.5px;
-    padding: 6px 10px;
+  .hero-logo {
+    width: min(300px, 78vw);
   }
   .nav {
     position: fixed;
-    top: 78px;
-    inset-inline: 4vw;
+    top: 74px;
+    right: 16px;
+    left: 16px;
     background: #ffffff;
     flex-direction: column;
     align-items: stretch;
     padding: 14px;
     border-radius: 20px;
     border: 2px solid var(--gold);
+    box-shadow: 0 24px 48px rgba(20, 33, 61, 0.25);
     display: none;
   }
   .nav.open {
@@ -1446,14 +1448,27 @@ footer a {
 }
 
 @media (max-width: 560px) {
-  .pick-list {
-    grid-template-columns: 1fr;
+  .brand-tag {
+    display: none; /* توفير مساحة في هيدر الموبايل عشان ما يضغطش الأزرار */
   }
+  .cdd-btn {
+    padding: 6px 11px;
+    font-size: 12.5px;
+  }
+  .chip {
+    padding: 6px 10px;
+    font-size: 12.5px;
+  }
+  .pick-list,
   .stats-strip,
   .form .row {
     grid-template-columns: 1fr;
   }
   .gate-countries {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .videos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 }
