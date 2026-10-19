@@ -1,483 +1,635 @@
 /**
  * ============================================================================
- * T2 DIGITAL MARKETING AGENCY — AUTHENTIC MULTI-DIALECT & CULTURE ENGINE (i18n.js)
+ * T2 DIGITAL MARKETING AGENCY — 3D INTERACTIVE ENGINE & ZERO-CACHE STATE (app.js)
  * ============================================================================
  */
 (function () {
   "use strict";
 
-  // 1. الفصحى (Modern Standard Arabic)
-  const MSA = {
-    nav_services: "خدماتنا",
-    nav_portfolio: "أعمالنا",
-    nav_all: "كل الحلول",
-    nav_quote: "اطلب عرض سعر",
-    btn_lang: "English",
-    hero_badge: "T2 Digital Agency · شريكك الاستراتيجي للنمو الرقمي",
-    hero_title: "نصنع حضورك الرقمي ونضاعف مبيعاتك باحترافية",
-    hero_lead: "منظومة تسويق رقمي متكاملة تجمع بين إدارة السوشيال ميديا، تطوير المواقع، فيديوهات الذكاء الاصطناعي، والحملات الإعلانية الممولة في مكان واحد.",
-    hero_cta: "ابدأ مشروعك الآن",
-    hero_secondary: "شاهد سابقة أعمالنا",
-    stat_1: "حملة ومشروع ناجح",
-    stat_2: "متوسط مضاعفة المبيعات",
-    stat_3: "أحدث تقنيات الميديا",
-    services_title: "خدماتنا الأساسية",
-    services_lead: "اضغط على الكروت ثلاثية الأبعاد لتحديد الخدمات التي يحتاجها مشروعك الآن.",
-    s1_t: "إدارة السوشيال ميديا",
-    s1_d: "خطة محتوى شهرية، تصميمات احترافية، تصوير ومونتاج ريلز، وإدارة كاملة للتعليقات والرسائل.",
-    s2_t: "إنشاء وتطوير المواقع والمتاجر",
-    s2_d: "مواقع ومتاجر إلكترونية سريعة ومتجاوبة مع الجوال بمعايير عالمية وتجربة مستخدم تضاعف المبيعات.",
-    s3_t: "فيديوهات الذكاء الاصطناعي (AI)",
-    s3_d: "إنتاج إعلانات وفيديوهات تسويقية سينمائية بالذكاء الاصطناعي بسرعة قياسية وجودة مبهرة.",
-    s4_t: "إعلانات ممولة عالية العائد",
-    s4_d: "إدارة حملات إعلانية مدروسة على ميتا وتيك توك وسناب شات وجوجل مع تقارير أداء دقيقة.",
-    s5_t: "إدارة وتشغيل الصفحات والمنصات",
-    s5_d: "تشغيل يومي شامل لحساباتك يشمل النشر والردود وتنظيم الحملات والتقارير الدورية.",
-    portfolio_title: "نماذج من أعمالنا الإبداعية",
-    portfolio_lead: "شاهد نماذج من فيديوهات وإبداعات كل قسم واختر المستوى الذي يليق بعلامتك التجارية.",
-    portfolio_soon: "عرض تفاعلي · قريباً",
-    close: "إغلاق",
-    all_title: "دليل خدمات وحلول T2 الشامل",
-    all_lead: "حدد كافة الخدمات الفرعية التي يحتاجها مشروعك من القائمة ليصلك عرض سعر مفصل.",
-    quote_title: "احصل على خطتك وعرض السعر الآن",
-    quote_lead: "اختر الباقة، وحدد الخدمات، وأكمل بياناتك ليصلك عرضنا المنسق عبر واتساب مباشرة.",
-    f_pkg: "اختر مستوى الباقة",
-    f_name: "الاسم الكريم *",
-    f_biz: "اسم الشركة أو النشاط التجاري",
-    f_phone: "رقم الواتساب *",
-    f_notes: "تفاصيل إضافية أو ملاحظات حول مشروعك",
-    f_selected: "الخدمات المختارة في طلبك",
-    f_none: "لم تختر أي خدمة بعد — اضغط على الخدمات من الأعلى لإضافتها",
-    f_clear: "🔄 مسح الاختيارات والبدء من جديد",
-    pkg_basic: "الباقة الأساسية للانطلاق (Basic)",
-    pkg_pro: "الباقة الاحترافية للنمو (Pro)",
-    pkg_full: "الباقة الشاملة المتكاملة (Full VIP)",
-    f_submit: "إرسال الطلب المنسق عبر واتساب",
-    f_note: "🔒 سيفتح واتساب ومعه طلبك منسقاً بالكامل وجاهزاً للإرسال، ثم يعود الموقع جديداً.",
-    f_err: "يرجى كتابة الاسم ورقم الواتساب بشكل صحيح للتواصل معك",
-    f_err_svc: "يرجى اختيار خدمة واحدة على الأقل من الأعلى قبل إرسال الطلب",
-    order_go: "إتمام الطلب الآن",
-    order_count: "خدمات مختارة",
-    country_pick: "اختر دولتك",
-    footer_rights: "جميع الحقوق محفوظة",
-    footer_contact: "تواصل معنا عبر واتساب",
-    svc_names: [
-      "إدارة السوشيال ميديا",
-      "إنشاء وتطوير المواقع",
-      "فيديوهات الذكاء الاصطناعي",
-      "الإعلانات الممولة",
-      "إدارة الصفحات"
-    ],
-    groups: [
-      {
-        t: "الاستراتيجية وإدارة المحتوى",
-        i: [
-          "بناء استراتيجية السوشيال ميديا",
-          "تخطيط المحتوى والتقويم الشهري",
-          "كتابة المحتوى الإبداعي والكابشن",
-          "تصميم المنشورات الاحترافية",
-          "إنتاج الفيديوهات القصيرة (Reels/TikTok)",
-          "إدارة التعليقات والرسائل (Community)",
-          "أبحاث الكلمات المفتاحية والهاشتاقات",
-          "تحليل المنافسين ودراسة السوق",
-          "تقارير الأداء الشهرية والأسبوعية",
-          "تحسين البروفايل والهايلايتس (Bio & Highlights)"
-        ]
-      },
-      {
-        t: "الإعلانات الممولة (Media Buying)",
-        i: [
-          "إعلانات ميتا (فيسبوك وإنستغرام)",
-          "إعلانات تيك توك الممولة",
-          "إعلانات سناب شات",
-          "إعلانات جوجل ويوتيوب",
-          "إعلانات منصة X ولينكدإن",
-          "حملات إعادة الاستهداف (Retargeting)",
-          "حملات جمع بيانات العملاء (Lead Gen)",
-          "إعلانات المتاجر والكتالوج الدايناميك",
-          "ربط البكسل وتتبع التحويلات (Conversion API)"
-        ]
-      },
-      {
-        t: "الإنتاج المرئي والذكاء الاصطناعي",
-        i: [
-          "تصميم الجرافيك الإعلاني",
-          "فيديوهات الموشن جرافيك",
-          "المونتاج السينمائي للفيديوهات",
-          "إنتاج فيديوهات بالذكاء الاصطناعي (AI)",
-          "فيديوهات تجربة المستخدم (UGC)",
-          "التعليق الصوتي الاحترافي (Voiceover)",
-          "إنتاج ومونتاج البودكاست والريلز"
-        ]
-      },
-      {
-        t: "الهوية البصرية والعلامة التجارية",
-        i: [
-          "تصميم الشعار الاحترافي (Logo)",
-          "بناء دليل الهوية البصرية الكامل (Brand Book)",
-          "تصميم قوالب السوشيال ميديا الموحدة"
-        ]
-      },
-      {
-        t: "المواقع والمتاجر والحلول التقنية",
-        i: [
-          "تصميم وبرمجة المواقع التعريفية والشركات",
-          "تصميم صفحات الهبوط البيعية (Landing Pages)",
-          "إنشاء المتاجر الإلكترونية المتكاملة",
-          "تحسين محركات البحث وتصدر النتائج (SEO)",
-          "إنشاء وتوثيق جوجل بيزنس بروفايل",
-          "أتمتة واتساب بزنس والرد الآلي",
-          "بناء بوتات المحادثة الذكية (AI Chatbots)"
-        ]
-      }
-    ]
+  const I18N = window.T2_I18N || { PACKS: { MSA: {}, EN: {} }, COUNTRIES: [], COUNTRY_VIBES: {} };
+  const { PACKS, COUNTRIES, COUNTRY_VIBES } = I18N;
+
+  const WA_DEFAULT = "201090960743";
+  const SVC_IDS = ["smm", "web", "ai", "ads", "pages"];
+  const SVC_ICONS = ["📱", "💻", "🤖", "📈", "⚡"];
+  const VIDEOS_PER_SERVICE = 3;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const PHONE_META = {
+    SA: "+966 5X XXX XXXX",
+    AE: "+971 5X XXX XXXX",
+    EG: "+20 10X XXX XXXX",
+    KW: "+965 XXXX XXXX",
+    QA: "+974 XXXX XXXX",
+    BH: "+973 XXXX XXXX",
+    OM: "+968 XXXX XXXX",
+    JO: "+962 7X XXX XXXX",
+    LB: "+961 XX XXX XXX",
+    IQ: "+964 7XX XXX XXXX",
+    MA: "+212 6XX-XXXXXX",
+    OTHER: "+XX XXX XXX XXXX"
   };
 
-  // 2. اللهجة السعودية الأصيلة (KSA - Authentic Saudi Business Dialect)
-  const SA = Object.assign({}, MSA, {
-    nav_services: "خدماتنا",
-    nav_portfolio: "أعمالنا",
-    nav_all: "كل الحلول",
-    nav_quote: "اطلب عرض سعر",
-    hero_badge: "T2 Digital Agency · شريكك الأول للنمو الرقمي بالمملكة 🇸🇦",
-    hero_title: "نطوّر حضورك الرقمي ونضاعف مبيعاتك بشغل يبيّض الوجه",
-    hero_lead: "يا هلا بك في T2.. منظومة تسويق رقمي متكاملة للسوق السعودي تجمع بين إدارة السوشال ميديا، متاجر سلة وزد، فيديوهات الذكاء الاصطناعي، وحملات سناب وتيك توك الممولة.",
-    hero_cta: "ابشر بعزك — ابدأ مشروعك الحين",
-    hero_secondary: "شوف سابقة أعمالنا",
-    services_title: "وش الخدمات اللي يحتاجها مشروعك؟",
-    services_lead: "اضغط على الكروت وحدد الخدمات اللي تبيها، وفصّل باقتك على مقاس طموحك.",
-    s1_t: "إدارة حسابات السوشال ميديا",
-    s1_d: "خطة محتوى شهرية، تصاميم فخمة، ريلز وتيك توك وسناب، وتفاعل كامل مع المتابعين والرسائل.",
-    s2_t: "تصميم المواقع ومتاجر (سلة / زد / شوبيفاي)",
-    s2_d: "نبني لك موقع أو متجر إلكتروني سريع ومتجاوب مع الجوال ومربوط ببوابات الدفع والشحن بالمملكة.",
-    s3_t: "فيديوهات بالذكاء الاصطناعي (AI)",
-    s3_d: "إنتاج إعلانات وفيديوهات تسويقية احترافية بالذكاء الاصطناعي بسرعة قياسية وتكلفة أوفر.",
-    s4_t: "حملات إعلانية ممولة (سناب / تيك توك / ميتا / قوقل)",
-    s4_d: "حملات إعلانية مدروسة تستهدف عميلك الصح بالسوق السعودي وتضاعف مبيعاتك مع تقارير أسبوعية.",
-    s5_t: "إدارة وتشغيل الحسابات الشاملة",
-    s5_d: "نتولى عنك إدارة حساباتك بالكامل يومياً من محتوى ورسائل وتقارير عشان تتفرغ لتطوير تجارتك.",
-    portfolio_title: "نماذج من شغلنا وإبداعاتنا",
-    portfolio_lead: "شوف جودة التنفيذ اللي تضمن لعلامتك التجارية الصدارة بالسوق السعودي.",
-    all_title: "كل خدمات وحلول T2 الرقمية",
-    all_lead: "حدد كل الخدمات الإضافية اللي يحتاجها مشروعك من القائمة تحت.",
-    quote_title: "خلنا نبدأ مشروعك الحين",
-    quote_lead: "اختر الباقة، وعبّي بياناتك، وبيوصلك عرض السعر المفصل على الواتساب فوراً.",
-    f_pkg: "اختر مستوى الباقة",
-    f_name: "اسمك الكريم *",
-    f_biz: "اسم البراند أو المتجر / الشركة",
-    f_phone: "رقم الجوال (واتساب) *",
-    f_notes: "تفاصيل إضافية عن مشروعك أو أهدافك",
-    f_selected: "الخدمات اللي اخترتها",
-    f_none: "ما اخترت أي خدمة لين الحين — اضغط على الخدمات فوق لإضافتها",
-    f_clear: "🔄 مسح الاختيارات والبدء من جديد",
-    f_submit: "أرسل طلبك المنسق عبر واتساب الحين",
-    f_err: "فضلاً اكتب اسمك ورقم الجوال بشكل صحيح عشان نتواصل معك",
-    f_err_svc: "فضلاً اختر خدمة وحدة على الأقل قبل إرسال الطلب",
-    order_go: "كمّل طلبك الحين"
+  // ---------- 1. مسح أي ذاكرة قديمة معلقة عشان يبدأ الموقع من جديد دائماً ----------
+  try {
+    localStorage.removeItem("t2_sel");
+    localStorage.removeItem("t2_country");
+    localStorage.removeItem("t2_lang");
+    sessionStorage.clear();
+  } catch (e) {}
+
+  let lang = "ar";
+  let country = null;
+  let selected = [];
+
+  // ---------- 2. دالة تصفير الاختيارات والنماذج بالكامل ----------
+  function resetAllSelectionsAndForm() {
+    selected = [];
+    const form = document.getElementById("quote-form");
+    if (form) form.reset();
+
+    document.querySelectorAll('input[type="checkbox"]').forEach((cb) => {
+      cb.checked = false;
+    });
+
+    const err = document.getElementById("form-err");
+    if (err) err.style.display = "none";
+
+    syncSelection();
+  }
+
+  // ضمان التصفير حتى لو المتصفح رجع للصفحة بزر الـ Back (bfcache)
+  window.addEventListener("pageshow", () => {
+    resetAllSelectionsAndForm();
   });
 
-  // 3. اللهجة المصرية الاحترافية (Egypt - Authentic Egyptian Agency Dialect)
-  const EG = Object.assign({}, MSA, {
-    nav_services: "خدماتنا",
-    nav_portfolio: "سابقة أعمالنا",
-    nav_all: "كل الخدمات",
-    nav_quote: "اطلب عرض سعر",
-    hero_badge: "T2 Digital Agency · شريك نجاحك الرقمي في مصر 🇪🇬",
-    hero_title: "بنبني حضورك الرقمي صح ونضاعف مبيعاتك بأرقام حقيقية",
-    hero_lead: "أهلاً بيك في T2.. منظومة تسويق رقمي متكاملة بتجمع بين إدارة السوشيال ميديا، الميديا باينج والإعلانات الممولة، تصميم المواقع والمتاجر، وفيديوهات الذكاء الاصطناعي اللي بتخطف العين.",
-    hero_cta: "ابدأ مشروعك دلوقتي",
-    hero_secondary: "اتفرج على شغلنا",
-    services_title: "اختار الخدمات اللي محتاجها مشروعك",
-    services_lead: "اضغط على الكروت الـ 3D وحدد الخدمات اللي تناسبك وجمع باقتك في ثواني.",
-    s1_t: "إدارة السوشيال ميديا والمحتوى",
-    s1_d: "كونتنت كاليندر شهري، تصميمات احترافية، ريلز وتيك توك، ومودريشن سريع على الكومنتات والرسايل.",
-    s2_t: "تصميم وتطوير المواقع والمتاجر",
-    s2_d: "مواقع ومتاجر إلكترونية سريعة جداً ومتجاوبة مع الموبايل ومصممة عشان تحول الزوار لعملاء.",
-    s3_t: "فيديوهات بالذكاء الاصطناعي (AI Reels & Ads)",
-    s3_d: "إنتاج فيديوهات إعلانية وتسويقية سينمائية بالذكاء الاصطناعي في وقت قياسي وبأعلى كوالتي.",
-    s4_t: "إعلانات ممولة وميديا باينج (Meta / TikTok / Google)",
-    s4_d: "حملات إعلانية مبنية على أرقام وداتا حقيقية عشان تحقق أعلى عائد على الإعلانات (ROAS).",
-    s5_t: "إدارة وتشغيل الصفحات بالكامل",
-    s5_d: "بنشيل عنك إدارة الصفحات يومياً من نشر وردود وتقارير عشان تركز إنت في تكبير البيزنس بتاعك.",
-    portfolio_title: "نماذج من شغلنا على أرض الواقع",
-    portfolio_lead: "اتفرج على كوالتي الفيديوهات والشغل اللي يخلي البراند بتاعك في حتة تانية.",
-    all_title: "دليل خدمات وحلول T2 الكامل",
-    all_lead: "علم على كل الخدمات الفرعية اللي محتاجها مشروعك وهنجهزلك عرض سعر مفصل ليها.",
-    quote_title: "يلا نبدأ نكبّر البيزنس بتاعك",
-    quote_lead: "اختار الباكج، وكمل بياناتك، وطلبك هيتفتح جاهز ومنسق على واتساب في ثانية.",
-    f_pkg: "اختار مستوى الباكج",
-    f_name: "اسمك الكريم *",
-    f_biz: "اسم البراند أو الشركة",
-    f_phone: "رقم الموبايل / واتساب *",
-    f_notes: "تفاصيل إضافية عن مشروعك (اختياري)",
-    f_selected: "الخدمات اللي اخترتها",
-    f_none: "لسه ما اخترتش أي خدمة — اضغط على الكروت فوق عشان تضيف خدماتك",
-    f_clear: "🔄 مسح الاختيارات والبدء من جديد",
-    f_submit: "ابعت الطلب المنسق على واتساب دلوقتي",
-    f_err: "يا ريت تكتب اسمك ورقم الواتساب صح عشان نقدر نتواصل معاك",
-    f_err_svc: "اختار خدمة واحدة على الأقل من فوق عشان نبعتلك عرض السعر",
-    order_go: "كمّل طلبك دلوقتي"
-  });
+  // ---------- 3. جلب النصوص واللهجة الصحيحة بدون أي تضارب ----------
+  function strings() {
+    if (lang === "en") return PACKS.EN || {};
+    const cObj = COUNTRIES.find((x) => x.c === country);
+    const packKey = cObj ? cObj.pack : "MSA";
+    return Object.assign({}, PACKS.MSA || {}, PACKS[packKey] || {});
+  }
 
-  // 4. اللهجة الإماراتية الاحترافية (UAE - Authentic Emirati Business Dialect)
-  const AE = Object.assign({}, SA, {
-    hero_badge: "T2 Digital Agency · شريكك الاستراتيجي للنمو الرقمي في الإمارات 🇦🇪",
-    hero_title: "نرتقي بحضورك الرقمي ونضاعف مبيعاتك بمعايير عالمية",
-    hero_lead: "مرحبا الساع في T2.. منظومة تسويق رقمي متكاملة تجمع بين إدارة السوشال ميديا، المواقع والمتاجر الذكية، فيديوهات الذكاء الاصطناعي، والحملات الإعلانية عالية العائد.",
-    hero_cta: "فالك طيب — ابدأ مشروعك الحين",
-    hero_secondary: "طالع سابقة أعمالنا",
-    services_title: "شو الخدمات اللي يحتاجها مشروعك؟",
-    services_lead: "اختار الخدمات المطلوبة لمشروعك من الكروت ورتّب باقتك المخصصة بكل سهولة.",
-    portfolio_lead: "طالع نماذج أعمالنا اللي تضمن لعلامتك التجارية التميز في السوق الإماراتي.",
-    quote_lead: "اختار الباقة وسجّل بياناتك، وبيتواصل وياك فريقنا فوراً عبر واتساب بالتفاصيل الكاملة.",
-    f_submit: "طرّش الطلب المنسق عبر واتساب",
-    f_err: "يرجى كتابة الاسم ورقم الواتساب عسب نتواصل وياك"
-  });
-
-  // 5. اللهجة الكويتية والخليجية (Kuwait / Qatar / Bahrain / Oman)
-  const GULF = Object.assign({}, SA, {
-    hero_badge: "T2 Digital Agency · شريكك الأول للنمو الرقمي بالخليج",
-    hero_title: "نطوّر حضورك الرقمي ونضاعف مبيعاتك بأعلى مستوى",
-    hero_lead: "يا هلا ومرحبا في T2.. إدارة سوشال ميديا، تصميم مواقع ومتاجر، فيديوهات بالذكاء الاصطناعي، وحملات إعلانية قوية بمكان واحد.",
-    hero_cta: "ابدأ مشروعك الحين",
-    hero_secondary: "شوف أعمالنا",
-    services_title: "شنو الخدمات اللي يحتاجها مشروعك؟",
-    services_lead: "اختار الخدمات اللي تبيها وفصّل باقتك بكل سهولة.",
-    quote_lead: "سجّل بياناتك وراح يتواصل معاك فريقنا فوراً على الواتساب بكل التفاصيل.",
-    f_submit: "دز الطلب المنسق على واتساب"
-  });
-
-  // 6. اللهجة الشامية والأردنية (Jordan, Lebanon, Syria, Palestine)
-  const LEV = Object.assign({}, MSA, {
-    hero_badge: "T2 Digital Agency · شريكك للنمو الرقمي والنجاح",
-    hero_title: "منطوّر حضورك الرقمي ومنضاعف مبيعاتك باحترافية",
-    hero_lead: "يا هلا فيك بـ T2.. سوشال ميديا، مواقع ومتاجر إلكترونية، فيديوهات بالذكاء الاصطناعي، وإعلانات ممولة بتجيب نتائج حقيقية.",
-    hero_cta: "بلّش مشروعك معنا",
-    hero_secondary: "شوف أعمالنا",
-    services_title: "شو الخدمات اللي بيحتاجها مشروعك؟",
-    services_lead: "حدّد الخدمات المطلوبة من الكروت ورتّب باقتك المخصصة بكل سهولة.",
-    quote_title: "يلا نبلّش مشروعك",
-    quote_lead: "اختار الباقة وعبّي بياناتك ورح يتواصل معك فريقنا فوراً عالواتساب.",
-    f_selected: "الخدمات اللي اخترتها",
-    f_none: "ما اخترت أي خدمة لهلأ — اختار من الكروت فوق",
-    f_submit: "ابعت الطلب المنسق عالواتساب",
-    order_go: "كمّل الطلب"
-  });
-
-  // 7. اللهجة العراقية (Iraq)
-  const IQ = Object.assign({}, GULF, {
-    hero_badge: "T2 Digital Agency · شريكك للنمو الرقمي في العراق 🇮🇶",
-    hero_title: "نبني حضورك الرقمي ونضاعف مبيعاتك باحترافية",
-    hero_lead: "كل الهلا بيك في T2.. إدارة سوشيال ميديا، مواقع إلكترونية، فيديوهات بالذكاء الاصطناعي، وإعلانات ممولة قوية بمكان واحد.",
-    hero_cta: "ابدأ مشروعك هسة",
-    services_title: "شنو الخدمات اللي يحتاجها مشروعك؟",
-    services_lead: "اختار الخدمات اللي تريدها وتكدر تحدد أكثر من خدمة لبناء باقتك.",
-    quote_title: "يلا نبدي مشروعك هسة",
-    quote_lead: "املي بياناتك وراح يتواصل وياك فريقنا فوراً عالواتساب.",
-    f_none: "بعدك ما اختاريت أي خدمة — اختار من فوك",
-    f_submit: "دز الطلب المنسق عالواتساب هسة"
-  });
-
-  // 8. اللهجة المغاربية (Morocco, Algeria, Tunisia)
-  const MAG = Object.assign({}, MSA, {
-    hero_badge: "T2 Digital Agency · شريكك للنمو الرقمي في المغرب العربي",
-    hero_title: "كنطورو حضورك الرقمي وكنضاعفو مبيعاتك باحترافية",
-    hero_lead: "سوشيال ميديا، مواقع ومتاجر إلكترونية، فيديوهات بالذكاء الاصطناعي، وإعلانات ممولة.. كل ما يحتاجه مشروعك في مكان واحد.",
-    hero_cta: "اطلب عرض سعر دابا",
-    services_title: "شنو هي الخدمات اللي كيحتاجها مشروعك؟",
-    services_lead: "اختار الخدمات اللي كتناسبك وتقدر تختار أكثر من خدمة."
-  });
-
-  // 9. English
-  const EN = {
-    nav_services: "Services",
-    nav_portfolio: "Portfolio",
-    nav_all: "Full Catalog",
-    nav_quote: "Get a Quote",
-    btn_lang: "العربية",
-    hero_badge: "T2 Digital Agency · Your Strategic Growth Partner",
-    hero_title: "We Engineer Your 3D Digital Presence & Scale Your Revenue",
-    hero_lead: "Full-stack digital marketing: Social Media, High-Speed Websites, AI Video Production, Paid Ads, and Page Management — all under one roof.",
-    hero_cta: "Start Your Project",
-    hero_secondary: "Explore Our Work",
-    stat_1: "Successful Campaigns",
-    stat_2: "Average ROAS Growth",
-    stat_3: "Next-Gen AI & 3D Media",
-    services_title: "Core Growth Services",
-    services_lead: "Click the 3D cards to select the services your brand needs.",
-    s1_t: "Social Media Management",
-    s1_d: "Monthly content calendars, luxury visuals, Reels/TikTok production, and community management.",
-    s2_t: "Web & E-Commerce Development",
-    s2_d: "Ultra-fast, mobile-first websites & stores built to convert visitors into buyers.",
-    s3_t: "AI Video Production",
-    s3_d: "High-converting marketing & commercial videos powered by AI — faster and cinematic.",
-    s4_t: "Performance Paid Ads",
-    s4_d: "ROI-driven ad campaigns across Meta, TikTok, Snapchat & Google with weekly analytics.",
-    s5_t: "Full Page Management",
-    s5_d: "End-to-end daily page operations, messaging, reporting, and campaign orchestration.",
-    portfolio_title: "Featured Creative Portfolio",
-    portfolio_lead: "Watch real samples across each service category and pick what fits your brand.",
-    portfolio_soon: "Interactive Preview · Soon",
-    close: "Close",
-    all_title: "Complete Solutions Catalog",
-    all_lead: "Check every specific deliverable you need below to include in your proposal.",
-    quote_title: "Let’s Launch Your Project",
-    quote_lead: "Choose your tier, review your selected services, and send your formatted brief via WhatsApp.",
-    f_pkg: "Select Package Tier",
-    f_name: "Your Full Name *",
-    f_biz: "Company / Brand Name",
-    f_phone: "WhatsApp Phone Number *",
-    f_notes: "Project Brief or Notes (Optional)",
-    f_selected: "Selected Services",
-    f_none: "No services selected yet — click the cards above to add",
-    f_clear: "🔄 Reset All Selections",
-    pkg_basic: "Basic Growth Package",
-    pkg_pro: "Professional Scale Package (Pro)",
-    pkg_full: "Full-Stack Enterprise Package (VIP)",
-    f_submit: "Send Formatted Brief via WhatsApp",
-    f_note: "🔒 WhatsApp will open with your structured brief ready to send, and the form will reset.",
-    f_err: "Please enter your name and a valid WhatsApp number",
-    f_err_svc: "Please select at least one service before submitting",
-    order_go: "Complete Request",
-    order_count: "services selected",
-    country_pick: "Select Country",
-    footer_rights: "All rights reserved",
-    footer_contact: "Chat on WhatsApp",
-    svc_names: [
-      "Social Media Management",
-      "Web Design & Development",
-      "AI Video Production",
-      "Performance Paid Ads",
-      "Page Management"
-    ],
-    groups: [
-      {
-        t: "Strategy & Content",
-        i: [
-          "Social media growth strategy",
-          "Content planning & monthly calendar",
-          "Creative copywriting & captions",
-          "Branded post design",
-          "Short-form video (Reels / TikTok / Shorts)",
-          "Comment & DM community management",
-          "Keyword & hashtag research",
-          "Competitor & market analysis",
-          "Weekly & monthly performance reports",
-          "Bio, profile & highlights optimization"
-        ]
-      },
-      {
-        t: "Paid Advertising (Media Buying)",
-        i: [
-          "Meta Ads (Facebook & Instagram)",
-          "TikTok Ads",
-          "Snapchat Ads",
-          "Google Search & YouTube Ads",
-          "X & LinkedIn Ads",
-          "Dynamic Retargeting campaigns",
-          "High-intent Lead Generation",
-          "E-commerce catalog & shopping ads",
-          "Pixel & Conversion API tracking setup"
-        ]
-      },
-      {
-        t: "Creative & AI Video Production",
-        i: [
-          "Key visual & graphic design",
-          "2D / 3D Motion graphics",
-          "Pro video editing & color grading",
-          "AI commercial video generation",
-          "UGC creator videos",
-          "Professional voiceover",
-          "Podcast production & viral clips"
-        ]
-      },
-      {
-        t: "Brand Identity",
-        i: [
-          "Logo design & mark creation",
-          "Complete brand guidelines book",
-          "Social media design systems & templates"
-        ]
-      },
-      {
-        t: "Web, E-Commerce & Automation",
-        i: [
-          "Custom corporate websites",
-          "High-converting landing pages",
-          "E-commerce store development (Shopify/Salla/Zid/Woo)",
-          "Search Engine Optimization (SEO)",
-          "Google Business Profile setup",
-          "WhatsApp Business API & automation",
-          "AI customer support chatbots"
-        ]
-      }
-    ]
+  const countryObj = (code) => COUNTRIES.find((x) => x.c === code);
+  const countryName = (code) => {
+    const c = countryObj(code);
+    return c ? (lang === "en" ? c.en : c.ar) : "";
   };
 
-  // أيقونات وهوية السوق المحلي المتجاوبة مع كل دولة (Country Dynamic Icons & Market Vibe)
-  const COUNTRY_VIBES = {
-    SA: {
-      floatBadge: "🇸🇦 تريند المملكة · رؤية 2030",
-      chips: ["🛍️ متاجر سلة وزد", "👻 إعلانات سناب شات", "🎵 تيك توك السعودية", "💳 مدى و Apple Pay"]
-    },
-    EG: {
-      floatBadge: "🇪🇬 تريند السوق المصري",
-      chips: ["📱 إعلانات ميتا وتيك توك", "🛒 شوبيفاي و ووكومرس", "🎬 ريلز ومحتوى فيرال", "⚡ نمو مبيعات سريع"]
-    },
-    AE: {
-      floatBadge: "🇦🇪 دبي وأبوظبي ميديـا",
-      chips: ["🏙️ براندنج فاخر", "👻 سناب وإنستغرام", "🛍️ شوبيفاي الإمارات", "🤖 حلول الذكاء الاصطناعي"]
-    },
-    KW: {
-      floatBadge: "🇰🇼 تريند السوق الكويتي",
-      chips: ["👻 سناب وإنستغرام الكويت", "🛍️ متاجر إلكترونية", "🎬 إنتاج ريلز احترافي"]
-    },
-    QA: {
-      floatBadge: "🇶🇦 السوق القطري الرقمي",
-      chips: ["👻 إعلانات سناب وتيك توك", "🏢 مواقع شركات فخمة", "🤖 فيديوهات AI"]
-    },
-    JO: {
-      floatBadge: "🇯🇴 السوق الأردني الرقمي",
-      chips: ["📱 ميتا وتيك توك الأردن", "🛒 متاجر ومواقع", "📈 حملات مبيعات"]
-    },
-    IQ: {
-      floatBadge: "🇮🇶 تريند السوق العراقي",
-      chips: ["📱 فيسبوك وإنستغرام وتيك توك", "🎬 ريلز وإعلانات ممولة", "🛍️ متاجر إلكترونية"]
-    },
-    MA: {
-      floatBadge: "🇲🇦 السوق المغربي الرقمي",
-      chips: ["🛒 التجارة الإلكترونية", "📱 إعلانات ميتا وتيك توك", "🎬 إنتاج فيديو احترافي"]
-    },
-    DEFAULT: {
-      floatBadge: "🚀 نمو رقمي متكامل",
-      chips: ["📱 إدارة سوشيال ميديا", "🤖 فيديوهات بالذكاء الاصطناعي", "📈 إعلانات ممولة", "💻 مواقع ومتاجر"]
+  function labelFor(id) {
+    const s = strings();
+    if (id[0] === "c") return s["s" + (Number(id.slice(1)) + 1) + "_t"] || id;
+    const [g, i] = id.slice(1).split("_").map(Number);
+    return s.groups && s.groups[g] && s.groups[g].i ? s.groups[g].i[i] : id;
+  }
+
+  function toggle(id) {
+    const idx = selected.indexOf(id);
+    if (idx >= 0) selected.splice(idx, 1);
+    else selected.push(id);
+    syncSelection();
+  }
+
+  function isOn(id) {
+    return selected.indexOf(id) >= 0;
+  }
+
+  // ---------- 4. بناء عجلة الدول ثلاثية الأبعاد (3D Country Wheel Gate) ----------
+  function initCountryWheelGate() {
+    const gate = document.getElementById("country-gate");
+    const wheelRing = document.getElementById("wheel-ring");
+    const centerIcon = document.getElementById("wheel-center-icon");
+    const grid = document.getElementById("gate-countries");
+    const openBtn = document.getElementById("open-wheel-btn");
+    const enBtn = document.getElementById("gate-en-btn");
+
+    if (!gate || !grid) return;
+
+    // توزيع أعلام الدول على محيط العجلة الدوارة
+    if (wheelRing) {
+      const wheelCountries = COUNTRIES.slice(0, 10);
+      const radius = 68;
+      wheelRing.innerHTML = wheelCountries
+        .map((c, idx) => {
+          const angle = (idx / wheelCountries.length) * Math.PI * 2;
+          const x = Math.cos(angle) * radius;
+          const y = Math.sin(angle) * radius;
+          return `<span class="wheel-flag-node" style="transform: translate(calc(-50% + ${x.toFixed(1)}px), calc(-50% + ${y.toFixed(1)}px))">${c.flag}</span>`;
+        })
+        .join("");
     }
-  };
 
-  const PACKS = { MSA, EN, EG, SA, AE, GULF, LEV, IQ, MAG };
+    // بناء أزرار الدول
+    grid.innerHTML = COUNTRIES.map(
+      (c) => `
+      <button type="button" class="gate-country-btn ${c.c === country ? "selected" : ""}" data-code="${c.c}">
+        <span class="flag">${c.flag}</span>
+        <span>${c.ar}</span>
+      </button>`
+    ).join("");
 
-  const COUNTRIES = [
-    { c: "SA", ar: "السعودية", en: "Saudi Arabia", pack: "SA", flag: "🇸🇦" },
-    { c: "EG", ar: "مصر", en: "Egypt", pack: "EG", flag: "🇪🇬" },
-    { c: "AE", ar: "الإمارات", en: "UAE", pack: "AE", flag: "🇦🇪" },
-    { c: "KW", ar: "الكويت", en: "Kuwait", pack: "GULF", flag: "🇰🇼" },
-    { c: "QA", ar: "قطر", en: "Qatar", pack: "GULF", flag: "🇶🇦" },
-    { c: "BH", ar: "البحرين", en: "Bahrain", pack: "GULF", flag: "🇧🇭" },
-    { c: "OM", ar: "عُمان", en: "Oman", pack: "GULF", flag: "🇴🇲" },
-    { c: "JO", ar: "الأردن", en: "Jordan", pack: "LEV", flag: "🇯🇴" },
-    { c: "LB", ar: "لبنان", en: "Lebanon", pack: "LEV", flag: "🇱🇧" },
-    { c: "PS", ar: "فلسطين", en: "Palestine", pack: "LEV", flag: "🇵🇸" },
-    { c: "SY", ar: "سوريا", en: "Syria", pack: "LEV", flag: "🇸🇾" },
-    { c: "IQ", ar: "العراق", en: "Iraq", pack: "IQ", flag: "🇮🇶" },
-    { c: "YE", ar: "اليمن", en: "Yemen", pack: "GULF", flag: "🇾🇪" },
-    { c: "MA", ar: "المغرب", en: "Morocco", pack: "MAG", flag: "🇲🇦" },
-    { c: "DZ", ar: "الجزائر", en: "Algeria", pack: "MAG", flag: "🇩🇿" },
-    { c: "TN", ar: "تونس", en: "Tunisia", pack: "MAG", flag: "🇹🇳" },
-    { c: "LY", ar: "ليبيا", en: "Libya", pack: "MSA", flag: "🇱🇾" },
-    { c: "SD", ar: "السودان", en: "Sudan", pack: "MSA", flag: "🇸🇩" },
-    { c: "OTHER", ar: "دولة أخرى", en: "Other Country", pack: "MSA", flag: "🌍" }
-  ];
+    grid.addEventListener("click", (e) => {
+      const btn = e.target.closest(".gate-country-btn");
+      if (!btn) return;
+      const code = btn.getAttribute("data-code");
+      const chosen = countryObj(code);
 
-  window.T2_I18N = { PACKS, COUNTRIES, COUNTRY_VIBES };
+      if (centerIcon && chosen) {
+        centerIcon.textContent = chosen.flag;
+        centerIcon.style.transform = "scale(1.22)";
+      }
+      if (wheelRing) {
+        wheelRing.classList.add("spinning-fast");
+      }
+
+      setTimeout(() => {
+        selectCountryAndTransform(code, "ar");
+        gate.classList.add("hidden");
+        if (wheelRing) wheelRing.classList.remove("spinning-fast");
+        if (centerIcon) centerIcon.style.transform = "";
+      }, 360);
+    });
+
+    if (enBtn) {
+      enBtn.addEventListener("click", () => {
+        selectCountryAndTransform(country || "OTHER", "en");
+        gate.classList.add("hidden");
+      });
+    }
+
+    if (openBtn) {
+      openBtn.addEventListener("click", () => {
+        gate.classList.remove("hidden");
+      });
+    }
+  }
+
+  function selectCountryAndTransform(code, targetLang) {
+    country = code;
+    if (targetLang) lang = targetLang;
+    renderAll();
+  }
+
+  // ---------- 5. تحديث النصوص والهوية المحلية المتجاوبة مع الدولة ----------
+  function applyTextAndCulture() {
+    const s = strings();
+    const isEn = lang === "en";
+    const cObj = countryObj(country);
+
+    document.documentElement.lang = isEn ? "en" : "ar";
+    document.documentElement.dir = isEn ? "ltr" : "rtl";
+
+    document.querySelectorAll("[data-i]").forEach((el) => {
+      const key = el.getAttribute("data-i");
+      if (typeof s[key] === "string") el.textContent = s[key];
+    });
+
+    // تحديث زر الدولة في الهيدر
+    const flagEl = document.getElementById("current-flag");
+    const labelEl = document.getElementById("current-country-label");
+    if (flagEl) flagEl.textContent = cObj ? cObj.flag : "🌍";
+    if (labelEl) {
+      labelEl.textContent = cObj
+        ? isEn
+          ? cObj.en
+          : cObj.ar
+        : s.country_pick;
+    }
+
+    // تحديث شريط الهوية المحلية والأيقونات الخاصة بكل دولة
+    const vibeBar = document.getElementById("country-vibe-bar");
+    const floatBadge = document.getElementById("country-float-badge");
+    const vibe = (country && COUNTRY_VIBES[country]) || COUNTRY_VIBES.DEFAULT;
+
+    if (vibeBar && vibe) {
+      vibeBar.innerHTML = vibe.chips
+        .map((chipText) => `<span class="vibe-chip">${chipText}</span>`)
+        .join("");
+    }
+    if (floatBadge && vibe) {
+      floatBadge.innerHTML = `<span>${vibe.floatBadge}</span>`;
+    }
+
+    // تحديث مفتاح الهاتف
+    const phoneInput = document.getElementById("phone");
+    if (phoneInput) {
+      phoneInput.placeholder = PHONE_META[country] || PHONE_META.EG;
+    }
+
+    const langBtn = document.getElementById("btn-lang");
+    if (langBtn && s.btn_lang) langBtn.textContent = s.btn_lang;
+  }
+
+  // ---------- 6. بناء كروت الخدمات الـ 3D ----------
+  function renderCoreList() {
+    const s = strings();
+    const listEl = document.getElementById("services-list");
+    if (!listEl) return;
+
+    listEl.innerHTML = [0, 1, 2, 3, 4]
+      .map((i) => {
+        const id = "c" + i;
+        return `
+      <li class="pick tilt ${isOn(id) ? "on" : ""}" data-id="${id}">
+        <label>
+          <input type="checkbox" class="sr" value="${id}" ${isOn(id) ? "checked" : ""}>
+          <span class="pick-icon-box">${SVC_ICONS[i]}</span>
+          <span class="pick-body">
+            <h3>${s["s" + (i + 1) + "_t"] || ""}</h3>
+            <p>${s["s" + (i + 1) + "_d"] || ""}</p>
+          </span>
+          <span class="tick" aria-hidden="true">✓</span>
+        </label>
+      </li>`;
+      })
+      .join("");
+  }
+
+  function renderAllList() {
+    const s = strings();
+    const groupsEl = document.getElementById("groups");
+    if (!groupsEl || !Array.isArray(s.groups)) return;
+
+    groupsEl.innerHTML = s.groups
+      .map(
+        (g, gi) => `
+      <div class="group tilt">
+        <h3>${g.t}</h3>
+        <ul class="chk">
+          ${g.i
+            .map((item, ii) => {
+              const id = "g" + gi + "_" + ii;
+              return `<li>
+                <label class="chk-row ${isOn(id) ? "on" : ""}">
+                  <input type="checkbox" class="sr" value="${id}" ${isOn(id) ? "checked" : ""}>
+                  <span class="box" aria-hidden="true">✓</span>
+                  <span>${item}</span>
+                </label>
+              </li>`;
+            })
+            .join("")}
+        </ul>
+      </div>`
+      )
+      .join("");
+  }
+
+  // ---------- 7. بناء البورتفوليو ثلاثي الأبعاد ----------
+  function renderPortfolio() {
+    const s = strings();
+    const wrap = document.getElementById("portfolio-wrap");
+    if (!wrap || !Array.isArray(s.svc_names)) return;
+
+    const soonLabel = s.portfolio_soon || "عرض تفاعلي · قريباً";
+
+    wrap.innerHTML = SVC_IDS.map((id, idx) => {
+      const cards = Array.from(
+        { length: VIDEOS_PER_SERVICE },
+        (_, n) => `
+        <button class="vcard tilt" type="button" data-src="videos/${id}/${n + 1}.mp4" aria-label="${s.svc_names[idx]} ${n + 1}">
+          <video preload="metadata" muted playsinline loop src="videos/${id}/${n + 1}.mp4"></video>
+          <span class="play">
+            <span class="play-icon">${SVC_ICONS[idx]}</span>
+            <span class="tag">${s.svc_names[idx]} #0${n + 1}</span>
+          </span>
+        </button>`
+      ).join("");
+
+      return `
+        <div class="pf-service">
+          <h3>${SVC_ICONS[idx]} ${s.svc_names[idx]}</h3>
+          <div class="videos">${cards}</div>
+        </div>`;
+    }).join("");
+
+    wrap.querySelectorAll(".vcard").forEach((card) => {
+      const video = card.querySelector("video");
+      const tag = card.querySelector(".tag");
+
+      const markSoon = () => {
+        if (card.dataset.soon === "true") return;
+        card.classList.add("is-soon");
+        card.setAttribute("data-soon", "true");
+        if (tag) tag.textContent = soonLabel;
+        if (video) video.remove();
+      };
+
+      if (video) {
+        video.addEventListener("loadedmetadata", () => {
+          if (video.videoWidth > video.videoHeight) {
+            card.classList.add("landscape");
+          }
+        });
+        video.addEventListener("error", markSoon, true);
+      }
+
+      card.addEventListener("click", () => {
+        if (card.dataset.soon === "true") return;
+        openVideo(card);
+      });
+    });
+  }
+
+  function syncSelection() {
+    const s = strings();
+    document.querySelectorAll('input[type="checkbox"][value]').forEach((cb) => {
+      cb.checked = isOn(cb.value);
+      const row = cb.closest(".chk-row");
+      if (row) row.classList.toggle("on", cb.checked);
+      const pick = cb.closest(".pick");
+      if (pick) pick.classList.toggle("on", cb.checked);
+    });
+
+    const summary = document.getElementById("sel-summary");
+    if (summary) {
+      summary.innerHTML = selected.length
+        ? `<p class="sel-title">${s.f_selected} (${selected.length})</p>
+           <ul>${selected.map((id) => `<li>${labelFor(id)}</li>`).join("")}</ul>`
+        : `<p class="sel-title">${s.f_selected}</p>
+           <p class="sel-empty">${s.f_none}</p>`;
+    }
+
+    const bar = document.getElementById("order-bar");
+    if (bar) {
+      bar.hidden = selected.length === 0;
+      const countEl = document.getElementById("order-count");
+      const goEl = document.getElementById("order-go");
+      if (countEl) countEl.textContent = `${selected.length} ${s.order_count}`;
+      if (goEl) goEl.textContent = s.order_go;
+    }
+  }
+
+  function renderAll() {
+    applyTextAndCulture();
+    renderCoreList();
+    renderAllList();
+    renderPortfolio();
+    syncSelection();
+    bindTilt();
+  }
+
+  document.addEventListener("change", (e) => {
+    if (e.target.matches('input[type="checkbox"][value]')) {
+      toggle(e.target.value);
+    }
+  });
+
+  // أزرار مسح الاختيارات الفوري
+  const clearBtn = document.getElementById("clear-sel-btn");
+  if (clearBtn) clearBtn.addEventListener("click", resetAllSelectionsAndForm);
+
+  const orderResetBtn = document.getElementById("order-reset");
+  if (orderResetBtn) orderResetBtn.addEventListener("click", resetAllSelectionsAndForm);
+
+  // تبديل اللغة
+  const btnLang = document.getElementById("btn-lang");
+  if (btnLang) {
+    btnLang.addEventListener("click", () => {
+      lang = lang === "ar" ? "en" : "ar";
+      renderAll();
+    });
+  }
+
+  // ---------- 8. إرسال رسالة واتساب منسقة بالبراويز والفواصل + تصفير الموقع بعدها ----------
+  const form = document.getElementById("quote-form");
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const s = strings();
+      const err = document.getElementById("form-err");
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if (!name || phone.replace(/\D/g, "").length < 8) {
+        err.textContent = s.f_err;
+        err.style.display = "block";
+        return;
+      }
+      if (selected.length === 0) {
+        err.textContent = s.f_err_svc;
+        err.style.display = "block";
+        return;
+      }
+      err.style.display = "none";
+
+      const pkgSel = document.getElementById("pkg");
+      const pkgText = pkgSel.options[pkgSel.selectedIndex].textContent;
+      const biz = document.getElementById("biz").value.trim() || "غير محدد";
+      const notes = document.getElementById("notes").value.trim() || "لا توجد ملاحظات إضافية";
+      const cObj = countryObj(country);
+      const countryText = cObj ? `${cObj.flag} ${cObj.ar}` : "غير محدد";
+
+      const coreChosen = selected.filter((id) => id.startsWith("c")).map((id) => labelFor(id));
+      const subChosen = selected.filter((id) => id.startsWith("g")).map((id) => labelFor(id));
+
+      const dateStr = new Date().toLocaleDateString("ar-EG", {
+        year: "numeric",
+        month: "short",
+        day: "numeric"
+      });
+
+      const formattedMessage = [
+        "╔══════════════════════════╗",
+        "   🌟 *T2 DIGITAL MARKETING AGENCY* 🌟",
+        "        *طلب خطة وعرض سعر جديد*",
+        "╚══════════════════════════╝",
+        "",
+        "┌─── 👤 *بيانات العميل* ───┐",
+        `  • *الاسم:* ${name}`,
+        `  • *النشاط / البراند:* ${biz}`,
+        `  • *رقم الواتساب:* ${phone}`,
+        `  • *الدولة:* ${countryText}`,
+        `  • *تاريخ الطلب:* ${dateStr}`,
+        "└────────────────────┘",
+        "",
+        "///===================///",
+        "",
+        "┌─── 📦 *الباقة المختارة* ───┐",
+        `  💎 *${pkgText}*`,
+        "└────────────────────┘",
+        "",
+        `┌─── 🚀 *الخدمات المطلوبة (${selected.length})* ───┐`,
+        ...(coreChosen.length
+          ? [
+              "  📌 *الخدمات الأساسية:*",
+              ...coreChosen.map((item, idx) => `     ${idx + 1}. ${item}`)
+            ]
+          : []),
+        ...(subChosen.length
+          ? [
+              "",
+              "  ✨ *الخدمات التفصيلية الإضافية:*",
+              ...subChosen.map((item, idx) => `     ${idx + 1}. ${item}`)
+            ]
+          : []),
+        "└────────────────────┘",
+        "",
+        "///===================///",
+        "",
+        "┌─── 📝 *ملاحظات وتفاصيل المشروع* ───┐",
+        `  ${notes}`,
+        "└────────────────────┘",
+        "",
+        "══════════════════════════",
+        "✅ *تم الإرسال عبر المنصة التفاعلية لـ T2*"
+      ].join("\n");
+
+      window.open(
+        "https://wa.me/" + WA_DEFAULT + "?text=" + encodeURIComponent(formattedMessage),
+        "_blank",
+        "noopener"
+      );
+
+      // تصفير جميع الاختيارات والحقول فوراً بعد الطلب عشان يرجع الموقع من جديد
+      setTimeout(() => {
+        resetAllSelectionsAndForm();
+      }, 400);
+    });
+  }
+
+  // ---------- 9. مشغل الفيديو والموبايل منيو ----------
+  const videoModal = document.getElementById("video-modal");
+  const player = document.getElementById("video-player");
+
+  function openVideo(btn) {
+    if (!videoModal || !player) return;
+    player.src = btn.getAttribute("data-src");
+    videoModal.hidden = false;
+    player.play().catch(() => {});
+  }
+
+  function closeVideo() {
+    if (!videoModal || !player) return;
+    player.pause();
+    player.removeAttribute("src");
+    player.load();
+    videoModal.hidden = true;
+  }
+
+  const videoCloseBtn = document.getElementById("video-close");
+  if (videoCloseBtn) videoCloseBtn.addEventListener("click", closeVideo);
+
+  const nav = document.getElementById("nav");
+  const menuBtn = document.getElementById("btn-menu");
+  if (nav && menuBtn) {
+    menuBtn.addEventListener("click", () => {
+      const open = nav.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(open));
+    });
+  }
+
+  // ---------- 10. حركات الـ 3D للكروت مع الماوس والـ Scroll ----------
+  function bindTilt() {
+    if (reduce || window.matchMedia("(hover: none)").matches) return;
+    document.querySelectorAll(".tilt").forEach((el) => {
+      if (el.dataset.tiltBound) return;
+      el.dataset.tiltBound = "1";
+
+      el.addEventListener("pointermove", (e) => {
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        el.style.transform = `perspective(1000px) rotateX(${(-y * 12).toFixed(2)}deg) rotateY(${(x * 14).toFixed(2)}deg) translateZ(16px)`;
+      });
+
+      el.addEventListener("pointerleave", () => {
+        el.style.transform = "";
+      });
+    });
+  }
+
+  // ---------- 11. مجسم الـ 3D الرئيسي في الهيرو (Three.js) ----------
+  function heroLogo() {
+    const box = document.getElementById("hero-3d");
+    if (!box || !window.THREE) return;
+
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    } catch (e) {
+      return;
+    }
+
+    const W = box.clientWidth || 420;
+    const H = box.clientHeight || 420;
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(W, H);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(35, W / H, 0.1, 100);
+    camera.position.z = 7.4;
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.9));
+    const keyLight = new THREE.DirectionalLight(0xfff8e7, 1.25);
+    keyLight.position.set(4, 5, 7);
+    scene.add(keyLight);
+
+    const goldLight = new THREE.PointLight(0xc9a227, 1.8, 20);
+    goldLight.position.set(-3, -2, 4);
+    scene.add(goldLight);
+
+    const group = new THREE.Group();
+    scene.add(group);
+
+    // حلقتان مداريتان ثلاثيتا الأبعاد تدلان على التفاعل الرقمي والسوشيال ميديا
+    const ringGeo1 = new THREE.TorusGeometry(2.25, 0.022, 16, 100);
+    const ringMat1 = new THREE.MeshStandardMaterial({ color: 0xc9a227, metalness: 0.85, roughness: 0.2 });
+    const ring1 = new THREE.Mesh(ringGeo1, ringMat1);
+    ring1.rotation.x = Math.PI * 0.35;
+    scene.add(ring1);
+
+    const ringGeo2 = new THREE.TorusGeometry(2.55, 0.014, 16, 100);
+    const ringMat2 = new THREE.MeshStandardMaterial({ color: 0x14213d, metalness: 0.7, roughness: 0.3 });
+    const ring2 = new THREE.Mesh(ringGeo2, ringMat2);
+    ring2.rotation.y = Math.PI * 0.28;
+    scene.add(ring2);
+
+    new THREE.TextureLoader().load("logo.png", (tex) => {
+      const fb = box.querySelector("img.fallback");
+      if (fb) fb.remove();
+      box.appendChild(renderer.domElement);
+
+      const geo = new THREE.PlaneGeometry(3.3, 3.3);
+      const layers = 24;
+      const depth = 0.3;
+
+      for (let i = 0; i < layers; i++) {
+        const isEdge = i === 0 || i === layers - 1;
+        const mat = new THREE.MeshStandardMaterial({
+          map: tex,
+          color: isEdge ? 0xffffff : 0xc9a227,
+          transparent: true,
+          alphaTest: 0.3,
+          roughness: 0.28,
+          metalness: 0.65
+        });
+        const mesh = new THREE.Mesh(geo, mat);
+        mesh.position.z = (i / (layers - 1)) * depth - depth / 2;
+        group.add(mesh);
+      }
+    });
+
+    const clock = new THREE.Clock();
+    (function loop() {
+      requestAnimationFrame(loop);
+      const t = clock.getElapsedTime();
+      group.rotation.y = Math.sin(t * 0.8) * 0.28;
+      group.rotation.x = Math.cos(t * 0.6) * 0.12;
+      group.position.y = Math.sin(t * 1.3) * 0.14;
+      ring1.rotation.z = t * 0.3;
+      ring2.rotation.x = -t * 0.22;
+      renderer.render(scene, camera);
+    })();
+  }
+
+  // ---------- 12. التشغيل الأولي ----------
+  document.addEventListener("DOMContentLoaded", () => {
+    resetAllSelectionsAndForm();
+    initCountryWheelGate();
+    renderAll();
+    if (window.THREE) {
+      heroLogo();
+    }
+  });
 })();
