@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>T2 | وكالة التسويق الرقمي المتكاملة والذكاء الاصطناعي</title>
-  <meta name="description" content="T2 وكالة تسويق رقمي متكاملة: إدارة سوشيال ميديا، تصميم وتطوير مواقع، إنتاج فيديوهات بالذكاء الاصطناعي، حملات إعلانية ممولة، وبناء الهوية الرقمية.">
+  <title>T2 | وكالة التسويق الرقمي المتكاملة</title>
+  <meta name="description" content="T2 وكالة تسويق رقمي متكاملة: إدارة سوشيال ميديا، تصميم وتطوير مواقع، إنتاج فيديوهات، حملات إعلانية ممولة، وبناء الهوية الرقمية.">
   <meta name="theme-color" content="#14213d">
 
   <link rel="icon" type="image/png" href="logo.png">
@@ -15,40 +15,45 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- ملف التنسيقات الأساسي الـ 3D -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- مكتبة Three.js للـ 3D -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 </head>
 <body>
 
-<!-- شريط تقدم التمرير العلوي -->
 <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
-<!-- خلفية الـ 3D التفاعلية -->
+<!-- خلفية الـ 3D الجزيئية -->
 <canvas id="bg" aria-hidden="true"></canvas>
 
 <!-- =======================================================================
-     بوابة اختيار الدولة التفاعلية ثلاثية الأبعاد (3D Country Wheel Gate)
+     طبقة الديكورات والمجسمات ثلاثية الأبعاد الجانبية (3D SceneStage)
+     تظهر الصور الكبيرة من الجوانب بأنيميشن احترافي دون التغطية على المحتوى
+     ======================================================================= -->
+<div class="scene-3d-decor" id="scene-3d-decor" aria-hidden="true">
+  <div class="decor-slot slot-hero-side" id="decor-hero-side"></div>
+  <div class="decor-slot slot-mid-right" id="decor-mid-right"></div>
+  <div class="decor-slot slot-mid-left" id="decor-mid-left"></div>
+  <div class="decor-slot slot-bottom-side" id="decor-bottom-side"></div>
+</div>
+
+<!-- =======================================================================
+     بوابة عجلة الدول الديناميكية (3D Orbital Country Wheel)
      ======================================================================= -->
 <div class="country-gate" id="country-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
   <div class="gate-card">
-    <div class="gate-glow" aria-hidden="true"></div>
     <div class="gate-header">
-      <div class="gate-badge">🚀 T2 DIGITAL & AI AGENCY</div>
-      <h2 id="gate-title">اختر دولتك لتجربة مخصصة بلهجتك</h2>
-      <p>نضبط لك المحتوى، اللهجة، والحلول التسويقية المناسبة لسوق بلدك فوراً</p>
+      <div class="gate-badge">T2 DIGITAL AGENCY</div>
+      <h2 id="gate-title">اختر دولتك</h2>
     </div>
 
-    <!-- عجلة الدول الدوارة ثلاثية الأبعاد -->
-    <div class="wheel-stage">
-      <div class="wheel-ring" id="wheel-ring" aria-hidden="true"></div>
-      <div class="wheel-center-icon" id="wheel-center-icon">🌍</div>
+    <!-- أنيميشن دوران الدول حول بعضها ثم التوقف للاختيار -->
+    <div class="wheel-stage" id="wheel-stage">
+      <div class="wheel-orbit-ring" id="wheel-ring"></div>
+      <div class="wheel-center-core" id="wheel-center-icon">🌍</div>
     </div>
 
-    <!-- شبكة اختيار الدولة السريعة -->
-    <div class="gate-countries" id="gate-countries" role="listbox" aria-label="اختر الدولة"></div>
+    <!-- شبكة اختيار الدول الواضحة -->
+    <div class="gate-countries" id="gate-countries" role="listbox" aria-label="قائمة الدول"></div>
 
     <div class="gate-footer">
       <button type="button" class="btn ghost gate-en-btn" id="gate-en-btn">Continue in English 🌐</button>
@@ -60,8 +65,8 @@
 <header class="site-header" id="site-header">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="T2 الصفحة الرئيسية">
-      <img src="logo.png" alt="T2 شعار شركة التسويق الرقمي" width="48" height="48">
-      <span class="brand-tag">T2 <span>MEDIA</span></span>
+      <img src="logo.png" alt="T2" width="48" height="48">
+      <span class="brand-tag">T2 <span>AGENCY</span></span>
     </a>
 
     <nav class="nav" id="nav" aria-label="القائمة الرئيسية">
@@ -72,29 +77,24 @@
     </nav>
 
     <div class="header-actions">
-      <!-- زر تغيير الدولة يفتح عجلة الدول في أي وقت -->
       <button class="cdd-btn" id="open-wheel-btn" type="button" aria-label="تغيير الدولة">
         <span class="flag" id="current-flag">🌍</span>
-        <span class="label" id="current-country-label">اختر دولتك</span>
+        <span class="label" id="current-country-label">اختر الدولة</span>
         <span class="caret">▼</span>
       </button>
 
-      <!-- زر تبديل اللغة -->
       <button class="chip" id="btn-lang" type="button" aria-label="تغيير اللغة">EN</button>
-
-      <!-- زر القائمة للموبايل -->
       <button class="menu-btn" id="btn-menu" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="nav">☰</button>
     </div>
   </div>
 </header>
 
-<!-- المحتوى الرئيسي -->
 <main id="main-content">
 
-  <!-- القسم الافتتاحي (3D Social Media Hero Section) -->
+  <!-- القسم الافتتاحي (Hero Section) -->
   <section class="hero" id="top">
     <div class="wrap">
-      <div class="hero-content reveal visible">
+      <div class="hero-content">
         <div class="hero-badge">
           <span class="dot" aria-hidden="true"></span>
           <span id="hero-badge-text" data-i="hero_badge">T2 Digital Agency · شريكك للنمو الرقمي</span>
@@ -102,10 +102,9 @@
 
         <h1 data-i="hero_title">نصنع حضورك الرقمي ونضاعف مبيعاتك باحترافية</h1>
         <p class="lead" data-i="hero_lead">
-          منظومة تسويق رقمي متكاملة تجمع بين الإبداع، الإعلانات الممولة الدقيقة، وتطوير المواقع وإنتاج الفيديوهات بالذكاء الاصطناعي.
+          منظومة تسويق رقمي متكاملة تجمع بين الإبداع، الإعلانات الممولة الدقيقة، وتطوير المواقع وإنتاج الفيديوهات الاحترافية.
         </p>
 
-        <!-- شريط الهوية المحلية والمنصات المتجاوب مع دولة العميل -->
         <div class="country-vibe-bar" id="country-vibe-bar" aria-live="polite"></div>
 
         <div class="cta-row">
@@ -113,7 +112,6 @@
           <a class="btn ghost" href="#portfolio" data-i="hero_secondary">شاهد سابقة أعمالنا</a>
         </div>
 
-        <!-- مؤشرات الثقة ثلاثية الأبعاد -->
         <div class="stats-strip" aria-label="إحصائيات الشركة">
           <div class="stat-item tilt">
             <span class="stat-num"><span>+</span>240</span>
@@ -124,32 +122,35 @@
             <span class="stat-label" data-i="stat_2">متوسط مضاعفة المبيعات</span>
           </div>
           <div class="stat-item tilt">
-            <span class="stat-num">AI <span>&</span> 3D</span>
-            <span class="stat-label" data-i="stat_3">أحدث تقنيات الميديا</span>
+            <span class="stat-num">100<span>%</span></span>
+            <span class="stat-label" data-i="stat_3">جودة تنفيذ احترافية</span>
           </div>
         </div>
       </div>
 
-      <!-- منصة الـ 3D التفاعلية وأيقونات السوشيال ميديا الطائرة -->
-      <div class="hero-logo reveal visible">
-        <div class="social-orbit" aria-hidden="true">
-          <div class="float-badge fb-1">🎬 <span>Reels & TikTok</span></div>
-          <div class="float-badge fb-2">📈 <span>ROAS +480%</span></div>
-          <div class="float-badge fb-3">🤖 <span>AI Video</span></div>
-          <div class="float-badge fb-4" id="country-float-badge">🚀 <span>Top Trend</span></div>
-        </div>
-        <div class="hero-3d" id="hero-3d">
-          <img class="fallback" src="logo.png" alt="شعار T2 ثلاثي الأبعاد" width="420" height="420">
+      <!-- المسرح البصري ثلاثي الأبعاد (يعرض الشخصية/المعالم + اللوجو الـ 3D + المجسمات حوله) -->
+      <div class="hero-logo">
+        <div class="hero-stage-showcase" id="hero-stage-showcase">
+          <!-- المجسمات المدارية الكبيرة من الصور المرفوعة -->
+          <div class="stage-orbiter orb-top-right" id="orb-1"></div>
+          <div class="stage-orbiter orb-bottom-left" id="orb-2"></div>
+          <div class="stage-orbiter orb-top-left" id="orb-3"></div>
+
+          <!-- العرض الرئيسي (يتبدل ديناميكياً مع الدولة أو يعرض اللوجو الـ 3D) -->
+          <div class="hero-main-figure" id="hero-main-figure"></div>
+          <div class="hero-3d" id="hero-3d">
+            <img class="fallback" src="logo.png" alt="شعار T2" width="420" height="420">
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- قسم اختيار الخدمات الأساسية (3D Interactive Cards) -->
-  <section id="services" class="reveal">
+  <!-- قسم اختيار الخدمات الأساسية -->
+  <section id="services">
     <div class="wrap">
       <div class="section-head">
-        <span class="section-tag">3D Interactive Solutions · الحلول الرئيسية</span>
+        <span class="section-tag">Core Solutions · الحلول الرئيسية</span>
         <h2 data-i="services_title">اختر الخدمات التي يحتاجها مشروعك</h2>
         <p class="section-lead" data-i="services_lead">اضغط على الكروت ثلاثية الأبعاد لتحديد خدماتك وبناء باقتك فوراً.</p>
       </div>
@@ -157,11 +158,11 @@
     </div>
   </section>
 
-  <!-- قسم سابقة الأعمال (3D Reels & Showcase) -->
-  <section id="portfolio" class="reveal">
+  <!-- قسم سابقة الأعمال -->
+  <section id="portfolio">
     <div class="wrap">
       <div class="section-head">
-        <span class="section-tag">Creative Reels & Works · سابقة الأعمال</span>
+        <span class="section-tag">Portfolio · سابقة الأعمال</span>
         <h2 data-i="portfolio_title">نماذج من أعمالنا الإبداعية</h2>
         <p class="section-lead" data-i="portfolio_lead">جودة تنفيذ عالية تضمن لعلامتك التجارية التميز وسط المنافسين.</p>
       </div>
@@ -169,11 +170,11 @@
     </div>
   </section>
 
-  <!-- قسم جميع الخدمات التفصيلية (3D Service Decks) -->
-  <section id="all" class="reveal">
+  <!-- قسم جميع الخدمات التفصيلية -->
+  <section id="all">
     <div class="wrap">
       <div class="section-head">
-        <span class="section-tag">Full Agency Catalog · الدليل الشامل</span>
+        <span class="section-tag">Full Catalog · الدليل الشامل</span>
         <h2 data-i="all_title">جميع خدمات وحلول T2 الرقمية</h2>
         <p class="section-lead" data-i="all_lead">حدد أي خدمات فرعية إضافية ترغب في ضمها لخطتك التسويقية.</p>
       </div>
@@ -181,8 +182,8 @@
     </div>
   </section>
 
-  <!-- قسم طلب عرض السعر (Quote Section) -->
-  <section id="quote" class="quote reveal">
+  <!-- قسم طلب عرض السعر -->
+  <section id="quote" class="quote">
     <div class="wrap">
       <div class="section-head">
         <span class="section-tag">Start Now · ابدأ الآن</span>
@@ -194,7 +195,7 @@
         <div class="sel-summary" id="sel-summary" aria-live="polite"></div>
 
         <div class="sel-actions">
-          <button type="button" class="clear-sel-btn" id="clear-sel-btn" data-i="f_clear">🔄 إعادة تعيين الاختيارات من جديد</button>
+          <button type="button" class="clear-sel-btn" id="clear-sel-btn" data-i="f_clear">🔄 مسح الاختيارات والبدء من جديد</button>
         </div>
 
         <label for="pkg" data-i="f_pkg">اختر مستوى الباقة</label>
@@ -240,10 +241,8 @@
   </div>
 </div>
 
-<!-- زر الصعود للأعلى -->
 <button class="back-to-top" id="back-to-top" type="button" aria-label="العودة إلى أعلى الصفحة">↑</button>
 
-<!-- الفوتر -->
 <footer>
   <div class="wrap">
     <span>© <span id="year">2026</span> T2 Digital Marketing Agency · <span data-i="footer_rights">جميع الحقوق محفوظة</span></span>
@@ -251,7 +250,6 @@
   </div>
 </footer>
 
-<!-- نافذة عرض الفيديو -->
 <div class="modal" id="video-modal" hidden role="dialog" aria-modal="true" aria-label="مشغل الفيديو">
   <div class="player">
     <button class="close" id="video-close" type="button" aria-label="إغلاق الفيديو">✕</button>
@@ -260,7 +258,6 @@
   </div>
 </div>
 
-<!-- ملفات الجافاسكريبت الأساسية -->
 <script src="i18n.js" defer></script>
 <script src="app.js" defer></script>
 </body>
