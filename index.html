@@ -1,756 +1,324 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="scroll-smooth">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-  <!-- العنوان والوصف الأساسي (SEO) -->
-  <title>T2 | حلول التسويق الرقمي المتكاملة والذكاء الاصطناعي</title>
-  <meta name="description" content="T2 شركة تسويق رقمي متكاملة: إدارة سوشيال ميديا، تصميم وتطوير مواقع، إنتاج فيديوهات بالذكاء الاصطناعي، حملات إعلانية ممولة، وبناء الهوية الرقمية.">
-  <meta name="keywords" content="T2, تسويق رقمي, سوشيال ميديا, تصميم مواقع, فيديوهات بالذكاء الاصطناعي, إعلانات ممولة, إدارة صفحات, وكالة تسويق">
-  <meta name="author" content="T2 Digital Marketing Agency">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#14213d">
-
-  <!-- Open Graph / Social Media (لمعاينة احترافية عند مشاركة الرابط على واتساب وفيسبوك) -->
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="ar_AR">
-  <meta property="og:site_name" content="T2 Digital Marketing">
+  <title>T2 | حلول التسويق الرقمي المتكاملة</title>
+  <meta name="description" content="T2 — وكالة تسويق رقمي متكاملة: سوشيال ميديا، مواقع، فيديوهات ذكاء اصطناعي، وإعلانات ممولة.">
+  <meta name="theme-color" content="#0a0f1e">
   <meta property="og:title" content="T2 | حلول التسويق الرقمي المتكاملة">
-  <meta property="og:description" content="نحوّل حضورك الرقمي إلى نتائج حقيقية ومبيعات مستدامة عبر أحدث حلول التسويق والذكاء الاصطناعي.">
   <meta property="og:image" content="logo.png">
-
-  <!-- Twitter Cards -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="T2 | حلول التسويق الرقمي المتكاملة">
-  <meta name="twitter:description" content="شركة تسويق رقمي متكاملة: سوشيال ميديا، مواقع، فيديوهات بالذكاء الاصطناعي، وإعلانات ممولة.">
-  <meta name="twitter:image" content="logo.png">
-
-  <!-- الأيقونات والروابط المسبقة لتحسين السرعة (Performance) -->
   <link rel="icon" type="image/png" href="logo.png">
-  <link rel="apple-touch-icon" href="logo.png">
-  <link rel="preload" as="image" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-
-  <!-- ملف التنسيقات الأساسي -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Cairo:wght@600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
-  <!-- مكتبة Three.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-
-  <!-- بيانات منظمة لمحركات البحث (Google Schema.org JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "T2 Digital Marketing",
-    "description": "شركة تسويق رقمي متكاملة: سوشيال ميديا، مواقع، فيديوهات بالذكاء الاصطناعي، إعلانات، وإدارة صفحات.",
-    "logo": "logo.png",
-    "telephone": "+201090960743",
-    "url": "https://wa.me/201090960743",
-    "sameAs": [
-      "https://wa.me/201090960743"
-    ]
-  }
-  </script>
-
-  <!-- طبقة تحسينات التصميم الاحترافي (Clean & Modern UI Enhancements) -->
-  <style>
-    :root {
-      --navy-fallback: var(--navy, #14213d);
-      --gold-fallback: var(--gold, #c9a227);
-      --gold-light: rgba(201, 162, 39, 0.14);
-      --line-fallback: var(--line, #e5e7eb);
-      --ink-fallback: var(--ink, #1f2937);
-      --muted-fallback: var(--muted, #6b7280);
-      --surface-glass: rgba(255, 255, 255, 0.86);
-      --shadow-sm: 0 4px 14px rgba(20, 33, 61, 0.05);
-      --shadow-md: 0 12px 32px rgba(20, 33, 61, 0.08);
-      --shadow-lg: 0 24px 54px rgba(20, 33, 61, 0.14);
-      --radius-lg: 20px;
-      --radius-md: 14px;
-      --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 88px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      overflow-x: hidden;
-      selection-background-color: var(--gold-fallback);
-    }
-
-    ::selection {
-      background: var(--gold-fallback);
-      color: #fff;
-    }
-
-    /* شريط تقدم القراءة العلوي */
-    .scroll-progress {
-      position: fixed;
-      top: 0;
-      inset-inline-start: 0;
-      height: 3px;
-      width: 0%;
-      background: linear-gradient(90deg, var(--navy-fallback), var(--gold-fallback));
-      z-index: 9999;
-      transition: width 0.1s ease-out;
-    }
-
-    /* رابط تخطي المحتوى لدعم الوصولية Accessibility */
-    .skip-link {
-      position: absolute;
-      top: -100px;
-      inset-inline-start: 16px;
-      background: var(--navy-fallback);
-      color: #fff;
-      padding: 10px 18px;
-      border-radius: 8px;
-      z-index: 10000;
-      text-decoration: none;
-      font-weight: 700;
-      transition: top 0.2s;
-    }
-    .skip-link:focus {
-      top: 12px;
-    }
-
-    /* تحسين الهيدر الزجاجي (Glassmorphism Header) */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      background: var(--surface-glass);
-      border-bottom: 1px solid rgba(20, 33, 61, 0.08);
-      transition: var(--transition-smooth);
-    }
-    .site-header.scrolled {
-      box-shadow: var(--shadow-sm);
-      background: rgba(255, 255, 255, 0.94);
-    }
-
-    .brand img {
-      transition: transform 0.3s ease;
-    }
-    .brand:hover img {
-      transform: scale(1.05);
-    }
-
-    .nav a {
-      position: relative;
-      font-weight: 600;
-      transition: color 0.25s ease;
-    }
-    .nav a::after {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      inset-inline-start: 0;
-      width: 0;
-      height: 2px;
-      background: var(--gold-fallback);
-      border-radius: 2px;
-      transition: width 0.3s ease;
-    }
-    .nav a:hover::after,
-    .nav a:focus-visible::after {
-      width: 100%;
-    }
-
-    /* القائمة المنسدلة للدول (Country Dropdown) */
-    .cdd { position: relative; }
-    .cdd-btn {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      min-width: 150px;
-      border: 1px solid var(--line-fallback);
-      background: #fff;
-      border-radius: 999px;
-      font: inherit;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--navy-fallback);
-      cursor: pointer;
-      justify-content: space-between;
-      box-shadow: 0 2px 6px rgba(20, 33, 61, 0.04);
-      transition: var(--transition-smooth);
-    }
-    .cdd-btn:hover,
-    .cdd-btn:focus-visible {
-      border-color: var(--gold-fallback);
-      box-shadow: 0 4px 12px rgba(201, 162, 39, 0.15);
-      outline: none;
-    }
-    .cdd-btn .flag { font-size: 18px; line-height: 1; }
-    .cdd-btn .label {
-      flex: 1;
-      text-align: start;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .cdd-btn .caret {
-      font-size: 10px;
-      color: var(--muted-fallback);
-      transition: transform 0.25s ease;
-    }
-    .cdd.open .cdd-btn .caret { transform: rotate(180deg); }
-    .cdd-btn.pulse { animation: pulse 1.8s infinite; }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.55); }
-      70% { box-shadow: 0 0 0 10px rgba(201, 162, 39, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0); }
-    }
-
-    .cdd-list {
-      position: absolute;
-      top: calc(100% + 10px);
-      inset-inline-end: 0;
-      width: min(260px, 86vw);
-      max-height: 340px;
-      overflow: auto;
-      margin: 0;
-      padding: 8px;
-      list-style: none;
-      background: #fff;
-      border: 1px solid var(--line-fallback);
-      border-radius: 16px;
-      box-shadow: var(--shadow-lg);
-      z-index: 60;
-      opacity: 0;
-      transform: translateY(-8px) scale(0.98);
-      pointer-events: none;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-    .cdd.open .cdd-list {
-      opacity: 1;
-      transform: none;
-      pointer-events: auto;
-    }
-    .cdd-list li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 10px;
-      cursor: pointer;
-      color: var(--ink-fallback);
-      transition: background 0.15s ease;
-    }
-    .cdd-list li .flag { font-size: 20px; line-height: 1; }
-    .cdd-list li.active,
-    .cdd-list li:hover { background: #f4f1e8; }
-    .cdd-list li[aria-selected="true"] {
-      color: var(--navy-fallback);
-      font-weight: 700;
-      background: rgba(201, 162, 39, 0.1);
-    }
-    .cdd-list li[aria-selected="true"]::after {
-      content: "✓";
-      margin-inline-start: auto;
-      color: var(--gold-fallback);
-      font-weight: 800;
-    }
-
-    /* تحسين قسم الـ Hero والـ 3D */
-    .hero {
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      margin-bottom: 16px;
-      border-radius: 999px;
-      background: var(--gold-light);
-      border: 1px solid rgba(201, 162, 39, 0.35);
-      color: var(--navy-fallback);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-    }
-    .hero-badge .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--gold-fallback);
-      box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.25);
-    }
-
-    .hero-3d {
-      width: min(460px, 80vw);
-      aspect-ratio: 1;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .hero-3d::before {
-      content: "";
-      position: absolute;
-      inset: 10%;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(201, 162, 39, 0.22) 0%, rgba(20, 33, 61, 0) 70%);
-      filter: blur(25px);
-      z-index: -1;
-      pointer-events: none;
-    }
-    .hero-3d canvas {
-      width: 100% !important;
-      height: 100% !important;
-      display: block;
-    }
-    .hero-3d img.fallback {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      animation: float 6s ease-in-out infinite;
-      filter: drop-shadow(0 20px 30px rgba(20, 33, 61, 0.15));
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-14px); }
-    }
-    @media (max-width: 900px) {
-      .hero-3d { width: min(320px, 72vw); margin-inline: auto; }
-    }
-
-    /* شريط الإحصائيات والثقة (Trust Metrics Strip) */
-    .stats-strip {
-      margin-top: 28px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(20, 33, 61, 0.08);
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-    .stat-item {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .stat-num {
-      font-size: clamp(20px, 2.5vw, 26px);
-      font-weight: 800;
-      color: var(--navy-fallback);
-      line-height: 1.2;
-    }
-    .stat-num span {
-      color: var(--gold-fallback);
-    }
-    .stat-label {
-      font-size: 13px;
-      color: var(--muted-fallback);
-      font-weight: 500;
-    }
-
-    /* تحسين الأزرار (Buttons Micro-interactions) */
-    .btn {
-      transition: var(--transition-smooth);
-      position: relative;
-      overflow: hidden;
-    }
-    .btn.primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(20, 33, 61, 0.22);
-    }
-    .btn.ghost:hover {
-      transform: translateY(-2px);
-      border-color: var(--gold-fallback);
-    }
-
-    /* تحسين رؤوس الأقسام (Section Headers) */
-    .section-head {
-      margin-bottom: 32px;
-    }
-    .section-tag {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--gold-fallback);
-      background: var(--gold-light);
-      padding: 4px 12px;
-      border-radius: 999px;
-      margin-bottom: 10px;
-    }
-
-    /* تحسين نموذج طلب السعر (Quote Form Upgrade) */
-    .form {
-      background: #fff;
-      padding: clamp(22px, 4vw, 38px);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--line-fallback);
-      box-shadow: var(--shadow-md);
-    }
-    .form input,
-    .form select,
-    .form textarea {
-      width: 100%;
-      border: 1px solid var(--line-fallback);
-      border-radius: 12px;
-      padding: 12px 14px;
-      font: inherit;
-      background: #fcfcfd;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-    .form input:focus,
-    .form select:focus,
-    .form textarea:focus {
-      outline: none;
-      background: #fff;
-      border-color: var(--gold-fallback);
-      box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.14);
-    }
-    .form label {
-      display: block;
-      font-weight: 700;
-      margin-top: 14px;
-      margin-bottom: 6px;
-      color: var(--navy-fallback);
-    }
-    .form textarea {
-      min-height: 110px;
-      resize: vertical;
-    }
-
-    /* شريط الطلب العائم (Floating Order Bar) */
-    .order-bar {
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    /* نافذة الفيديو المنبثقة (Video Modal) */
-    .modal {
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
-    /* تأثيرات الظهور عند التمرير (Scroll Reveal) */
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* زر الصعود للأعلى العائم */
-    .back-to-top {
-      position: fixed;
-      bottom: 24px;
-      inset-inline-start: 24px;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--navy-fallback);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: var(--shadow-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 45;
-      opacity: 0;
-      transform: translateY(12px);
-      pointer-events: none;
-      transition: var(--transition-smooth);
-      font-size: 18px;
-    }
-    .back-to-top.show {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-    .back-to-top:hover {
-      background: var(--gold-fallback);
-      color: var(--navy-fallback);
-      transform: translateY(-3px);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-      .reveal { opacity: 1; transform: none; }
-    }
-  </style>
 </head>
 <body>
 
-<!-- شريط تقدم التمرير العلوي -->
+<!-- ========== SVG SPRITE (Icons) ========== -->
+<svg style="display:none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-smm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+  </symbol>
+  <symbol id="i-web" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+  </symbol>
+  <symbol id="i-ai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z"/>
+    <path d="M19 15l1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3z"/>
+  </symbol>
+  <symbol id="i-ads" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+  </symbol>
+  <symbol id="i-pages" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+    <polyline points="2 17 12 22 22 17"/>
+    <polyline points="2 12 12 17 22 12"/>
+  </symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+  </symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="20 6 9 17 4 12"/>
+  </symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+  </symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+  </symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+  </symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="6 9 12 15 18 9"/>
+  </symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.5 14.4c-.3-.2-1.7-.9-2-1s-.5-.2-.7.2c-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6 0-.3-.2-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.2-.2.4-.5.5-.7.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.6-1.5-.9-2.1c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.8c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.7.1.5-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.3-.1-.2-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.2-1.4c1.4.8 3 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/>
+  </symbol>
+</svg>
+
+<!-- ========== Preloader ========== -->
+<div class="preloader" id="preloader">
+  <div class="pl-inner">
+    <div class="pl-logo">T<span>2</span></div>
+    <div class="pl-bar"><span id="pl-bar-fill"></span></div>
+    <div class="pl-counter"><span id="pl-pct">0</span>%</div>
+  </div>
+</div>
+
+<!-- ========== Custom Cursor ========== -->
+<div class="cursor" id="cursor" aria-hidden="true">
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+</div>
+
+<!-- ========== Noise & Progress ========== -->
+<div class="noise" aria-hidden="true"></div>
 <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
-
-<!-- رابط تخطي إلى المحتوى الرئيسي (معايير الوصولية العالمية) -->
-<a href="#main-content" class="skip-link">تخطي إلى المحتوى الرئيسي</a>
-
-<!-- خلفية الـ Canvas التفاعلية -->
 <canvas id="bg" aria-hidden="true"></canvas>
 
-<!-- الهيدر الرئيسي -->
+<a href="#main-content" class="skip-link">تخطي إلى المحتوى</a>
+
+<!-- ========== Country Overlay ========== -->
+<div class="cw-overlay" id="cw-overlay" hidden>
+  <div class="cw-panel">
+    <div class="cw-header">
+      <div class="cw-eyebrow">
+        <span class="cw-eyebrow-line"></span>
+        <span>WELCOME TO T2</span>
+        <span class="cw-eyebrow-line"></span>
+      </div>
+      <h2 class="cw-title">اختر دولتك لنبدأ</h2>
+      <p class="cw-sub">تجربة مخصصة بلهجتك وأسعارك المحلية</p>
+    </div>
+
+    <div class="cw-wheel">
+      <div class="cw-wheel-ring"></div>
+      <div class="cw-wheel-ring cw-wheel-ring-2"></div>
+      <div class="cw-wheel-flag" id="cw-wheel-flag">
+        <img src="https://flagcdn.com/w160/sa.png" alt="">
+      </div>
+    </div>
+    <div class="cw-wheel-label" id="cw-wheel-label">جاري التحميل...</div>
+
+    <div class="cw-grid" id="cw-grid"></div>
+
+    <p class="cw-hint">يمكنك تغيير الدولة في أي وقت من الأعلى</p>
+  </div>
+</div>
+
+<!-- ========== Header ========== -->
 <header class="site-header" id="site-header">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="T2 الصفحة الرئيسية">
-      <img src="logo.png" alt="T2 شعار شركة التسويق الرقمي" width="48" height="48" fetchpriority="high">
+    <a class="brand" href="#top" aria-label="T2">
+      <span class="brand-mark">T<span>2</span></span>
+      <span class="brand-text">DIGITAL<em>AGENCY</em></span>
     </a>
 
-    <nav class="nav" id="nav" aria-label="القائمة الرئيسية">
-      <a href="#services" data-i="nav_services">خدماتنا</a>
-      <a href="#portfolio" data-i="nav_portfolio">أعمالنا</a>
-      <a href="#all" data-i="nav_all">كل الحلول</a>
-      <a href="#quote" data-i="nav_quote">اطلب عرض سعر</a>
+    <nav class="nav" id="nav" aria-label="القائمة">
+      <a href="#services" data-i="nav_services"><span>الخدمات</span></a>
+      <a href="#portfolio" data-i="nav_portfolio"><span>أعمالنا</span></a>
+      <a href="#all" data-i="nav_all"><span>الحلول</span></a>
+      <a href="#quote" data-i="nav_quote"><span>اطلب عرض</span></a>
     </nav>
 
     <div class="header-actions">
-      <!-- اختيار الدولة / العملة -->
       <div class="cdd" id="cdd">
-        <button class="cdd-btn" id="cdd-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="cdd-list">
-          <span class="flag" aria-hidden="true">🌍</span>
-          <span class="label">اختر الدولة</span>
-          <span class="caret" aria-hidden="true">▼</span>
+        <button class="cdd-btn" id="cdd-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="cdd-flag" id="cdd-flag"><svg width="16" height="16"><use href="#i-globe"/></svg></span>
+          <span class="cdd-label" id="cdd-label">الدولة</span>
+          <svg class="cdd-caret" width="12" height="12"><use href="#i-chevron"/></svg>
         </button>
-        <ul class="cdd-list" id="cdd-list" role="listbox" aria-label="قائمة الدول"></ul>
+        <ul class="cdd-list" id="cdd-list" role="listbox"></ul>
       </div>
-
-      <!-- زر تبديل اللغة -->
-      <button class="chip" id="btn-lang" type="button" aria-label="تغيير اللغة">EN</button>
-
-      <!-- زر القائمة للموبايل -->
-      <button class="menu-btn" id="btn-menu" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="nav">☰</button>
+      <button class="lang-btn" id="btn-lang" type="button" aria-label="تغيير اللغة">EN</button>
+      <button class="menu-btn" id="btn-menu" type="button" aria-label="القائمة" aria-expanded="false">
+        <svg width="20" height="20"><use href="#i-menu"/></svg>
+      </button>
     </div>
   </div>
 </header>
 
-<!-- المحتوى الرئيسي -->
+<!-- ========== Main ========== -->
 <main id="main-content">
 
-  <!-- القسم الافتتاحي (Hero Section) -->
+  <!-- HERO -->
   <section class="hero" id="top">
+    <div class="hero-glow" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="hero-content reveal visible">
-        <div class="hero-badge">
-          <span class="dot" aria-hidden="true"></span>
-          <span>T2 Digital Agency · شريكك للنمو الرقمي</span>
+      <div class="hero-content">
+        <div class="eyebrow reveal">
+          <span class="eyebrow-dot"></span>
+          <span data-i="hero_badge">T2 Digital Agency</span>
+        </div>
+        <h1 class="hero-title" data-i="hero_title">نصنع حضورك الرقمي ونضاعف مبيعاتك باحترافية</h1>
+        <p class="hero-lead" data-i="hero_lead">منظومة تسويق رقمي متكاملة.</p>
+        <div class="cta-row reveal">
+          <a class="btn btn-primary magnetic" href="#quote" data-i="hero_cta">
+            <span>اطلب عرض سعر</span>
+            <svg width="18" height="18"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="btn btn-ghost magnetic" href="#portfolio" data-i="hero_secondary">شاهد أعمالنا</a>
         </div>
 
-        <h1 data-i="hero_title">نصنع حضورك الرقمي ونضاعف مبيعاتك باحترافية</h1>
-        <p class="lead" data-i="hero_lead">
-          منظومة تسويق رقمي متكاملة تجمع بين الإبداع، الإعلانات الممولة الدقيقة، وتطوير المواقع وإنتاج الفيديوهات بالذكاء الاصطناعي.
-        </p>
-
-        <div class="cta-row">
-          <a class="btn primary" href="#quote" data-i="hero_cta">ابدأ مشروعك الآن</a>
-          <a class="btn ghost" href="#portfolio" data-i="hero_secondary">شاهد سابقة أعمالنا</a>
-        </div>
-
-        <!-- مؤشرات الثقة السريعة -->
-        <div class="stats-strip" aria-label="إحصائيات الشركة">
-          <div class="stat-item">
-            <span class="stat-num"><span>+</span>150</span>
-            <span class="stat-label">مشروع وحملة ناجحة</span>
+        <div class="stats-row">
+          <div class="stat">
+            <div class="stat-num" data-count="150">0</div>
+            <div class="stat-label">مشروع ناجح</div>
           </div>
-          <div class="stat-item">
-            <span class="stat-num"><span>%</span>98</span>
-            <span class="stat-label">نسبة رضا العملاء</span>
+          <div class="stat">
+            <div class="stat-num" data-count="98">0</div>
+            <div class="stat-label">% رضا العملاء</div>
           </div>
-          <div class="stat-item">
-            <span class="stat-num">AI <span>&</span> Web</span>
-            <span class="stat-label">أحدث تقنيات التسويق</span>
+          <div class="stat">
+            <div class="stat-num" data-count="12">0</div>
+            <div class="stat-label">دولة نخدمها</div>
           </div>
         </div>
       </div>
 
-      <div class="hero-logo reveal visible">
+      <div class="hero-visual">
         <div class="hero-3d" id="hero-3d">
-          <img class="fallback" src="logo.png" alt="شعار T2 ثلاثي الأبعاد" width="420" height="420">
+          <div class="hero-3d-fallback">T<span>2</span></div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- قسم اختيار الخدمات السريعة (Services Section) -->
-  <section id="services" class="reveal">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="section-tag">Solutions · الحلول</span>
-        <h2 data-i="services_title">اختر الخدمات التي يحتاجها مشروعك</h2>
-        <p class="section-lead" data-i="services_lead">حدد الخدمات المطلوبة لبناء باقتك المخصصة فوراً وبكل سهولة.</p>
-      </div>
-      <ul class="pick-list" id="services-list" aria-live="polite"></ul>
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>اكتشف</span>
+      <span class="scroll-line"></span>
     </div>
   </section>
 
-  <!-- قسم سابقة الأعمال (Portfolio Section) -->
-  <section id="portfolio" class="reveal" style="background:#fbfaf6">
+  <!-- Marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>SOCIAL MEDIA</span><span>•</span><span>WEB DEV</span><span>•</span><span>AI VIDEO</span><span>•</span><span>PAID ADS</span><span>•</span><span>BRANDING</span><span>•</span>
+      <span>SOCIAL MEDIA</span><span>•</span><span>WEB DEV</span><span>•</span><span>AI VIDEO</span><span>•</span><span>PAID ADS</span><span>•</span><span>BRANDING</span><span>•</span>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="section-tag">Portfolio · الإنجازات</span>
-        <h2 data-i="portfolio_title">نماذج من أعمالنا الإبداعية</h2>
-        <p class="section-lead" data-i="portfolio_lead">جودة تنفيذ عالية تضمن لعلامتك التجارية التميز وسط المنافسين.</p>
+        <span class="section-tag reveal">Services · الخدمات</span>
+        <h2 class="section-title reveal" data-i="services_title">خدماتنا الأساسية</h2>
+        <p class="section-lead reveal" data-i="services_lead">اختر ما يناسب مشروعك.</p>
       </div>
-      <div id="portfolio-wrap" aria-live="polite"></div>
+      <ul class="pick-list" id="services-list"></ul>
     </div>
   </section>
 
-  <!-- قسم جميع الخدمات التفصيلية (All Services Groups) -->
-  <section id="all" class="reveal">
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="section section-alt">
     <div class="wrap">
       <div class="section-head">
-        <span class="section-tag">Full Catalog · الدليل الكامل</span>
-        <h2 data-i="all_title">جميع خدمات وحلول T2 الرقمية</h2>
-        <p class="section-lead" data-i="all_lead">استكشف كافة الأقسام والخدمات المتخصصة التي نقدمها لتطوير أعمالك.</p>
+        <span class="section-tag reveal">Portfolio · أعمالنا</span>
+        <h2 class="section-title reveal" data-i="portfolio_title">نماذج من أعمالنا</h2>
+        <p class="section-lead reveal" data-i="portfolio_lead">جودة تنفيذ عالية.</p>
+      </div>
+      <div id="portfolio-wrap"></div>
+    </div>
+  </section>
+
+  <!-- ALL SERVICES -->
+  <section id="all" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag reveal">Full Catalog · الدليل</span>
+        <h2 class="section-title reveal" data-i="all_title">جميع خدماتنا</h2>
+        <p class="section-lead reveal" data-i="all_lead">استكشف كل التفاصيل.</p>
       </div>
       <div class="groups" id="groups"></div>
     </div>
   </section>
 
-  <!-- قسم طلب عرض السعر (Quote Section) -->
-  <section id="quote" class="quote reveal">
+  <!-- QUOTE -->
+  <section id="quote" class="section section-quote">
     <div class="wrap">
       <div class="section-head">
-        <span class="section-tag">Get a Quote · ابدأ الآن</span>
-        <h2 data-i="quote_title">احصل على خطة وعرض سعر مخصص</h2>
-        <p class="section-lead" data-i="quote_lead">أكمل بياناتك وسيتواصل معك فريقنا فوراً عبر واتساب بالتفاصيل الكاملة.</p>
+        <span class="section-tag reveal">Get Started · ابدأ الآن</span>
+        <h2 class="section-title reveal" data-i="quote_title">لنبدأ مشروعك</h2>
+        <p class="section-lead reveal" data-i="quote_lead">أكمل بياناتك ليصلك عرضنا عبر واتساب.</p>
       </div>
 
-      <form class="form" id="quote-form" novalidate>
-        <!-- ملخص الخدمات المختارة -->
-        <div class="sel-summary" id="sel-summary" aria-live="polite"></div>
+      <form class="form" id="quote-form" novalidate autocomplete="off">
+        <div class="sel-summary" id="sel-summary"></div>
 
-        <label for="pkg" data-i="f_pkg">اختر مستوى الباقة</label>
-        <select id="pkg" name="package">
-          <option value="basic" data-i="pkg_basic">الباقة الأساسية (Basic)</option>
-          <option value="pro" data-i="pkg_pro">الباقة الاحترافية (Pro)</option>
-          <option value="full" data-i="pkg_full">الباقة الشاملة المتكاملة (Full)</option>
-        </select>
-
-        <div class="row">
-          <div>
-            <label for="name" data-i="f_name">الاسم الكريم *</label>
-            <input id="name" name="name" type="text" autocomplete="name" placeholder="مثال: أحمد محمد" required>
+        <div class="form-grid">
+          <div class="field">
+            <label for="pkg" data-i="f_pkg">الباقة</label>
+            <select id="pkg">
+              <option value="basic" data-i="pkg_basic">الأساسية</option>
+              <option value="pro" data-i="pkg_pro">الاحترافية</option>
+              <option value="full" data-i="pkg_full">المتكاملة</option>
+            </select>
           </div>
-          <div>
-            <label for="biz" data-i="f_biz">اسم الشركة أو النشاط التجاري</label>
-            <input id="biz" name="business" type="text" autocomplete="organization" placeholder="مثال: متجر أو شركة...">
+          <div class="field">
+            <label for="name" data-i="f_name">الاسم *</label>
+            <input id="name" type="text" autocomplete="off" placeholder="أحمد محمد" required>
+          </div>
+          <div class="field">
+            <label for="biz" data-i="f_biz">اسم النشاط</label>
+            <input id="biz" type="text" autocomplete="off" placeholder="اسم الشركة">
+          </div>
+          <div class="field">
+            <label for="phone" data-i="f_phone">رقم الواتساب *</label>
+            <input id="phone" type="tel" inputmode="tel" autocomplete="off" dir="ltr" placeholder="+20 10X XXX XXXX" required>
+          </div>
+          <div class="field field-full">
+            <label for="notes" data-i="f_notes">تفاصيل إضافية</label>
+            <textarea id="notes" autocomplete="off" placeholder="اكتب تفاصيل مشروعك..."></textarea>
           </div>
         </div>
 
-        <label for="phone" data-i="f_phone">رقم الهاتف / واتساب *</label>
-        <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" placeholder="+20 10X XXX XXXX" required>
-
-        <label for="notes" data-i="f_notes">تفاصيل إضافية أو ملاحظات حول مشروعك</label>
-        <textarea id="notes" name="notes" placeholder="اكتب أي تفاصيل تساعدنا على فهم أهدافك التسويقية بشكل أفضل..."></textarea>
-
-        <p class="err" id="form-err" role="alert" aria-live="assertive"></p>
-
-        <button class="btn primary" type="submit" data-i="f_submit">إرسال الطلب عبر واتساب</button>
-        <p class="note" data-i="f_note">🔒 بياناتك آمنة تماماً وسيتم توجيهك مباشرة إلى محادثة واتساب الرسمية الخاصة بنا.</p>
+        <p class="err" id="form-err" role="alert"></p>
+        <button class="btn btn-primary btn-submit magnetic" type="submit" data-i="f_submit">
+          <svg width="20" height="20"><use href="#i-wa"/></svg>
+          <span>أرسل الطلب عبر واتساب</span>
+        </button>
+        <p class="form-note" data-i="f_note">🔒 بياناتك آمنة.</p>
       </form>
     </div>
   </section>
-
 </main>
 
-<!-- شريط الطلب السفلي العائم -->
-<div class="order-bar" id="order-bar" hidden role="region" aria-label="ملخص الطلب السريع">
+<!-- Order Bar -->
+<div class="order-bar" id="order-bar" hidden>
   <span id="order-count"></span>
-  <a class="btn primary" id="order-go" href="#quote" data-i="order_go">متابعة الطلب</a>
+  <a class="btn btn-primary" id="order-go" href="#quote" data-i="order_go">متابعة</a>
 </div>
 
-<!-- زر الصعود للأعلى -->
-<button class="back-to-top" id="back-to-top" type="button" aria-label="العودة إلى أعلى الصفحة" title="العودة للأعلى">↑</button>
+<button class="to-top" id="back-to-top" type="button" aria-label="أعلى"><svg width="16" height="16"><use href="#i-chevron" style="transform:rotate(180deg)"/></svg></button>
 
-<!-- الفوتر (Footer) -->
 <footer>
   <div class="wrap">
-    <span>© <span id="year">2026</span> T2 · <span data-i="footer_rights">جميع الحقوق محفوظة</span></span>
-    <a id="footer-wa" href="https://wa.me/201090960743" target="_blank" rel="noopener noreferrer" data-i="footer_contact">تواصل معنا عبر واتساب</a>
+    <span class="foot-mark">T2</span>
+    <span>© <span id="year">2026</span> · <span data-i="footer_rights">جميع الحقوق محفوظة</span></span>
+    <a id="footer-wa" href="https://wa.me/201090960743" target="_blank" rel="noopener">
+      <svg width="16" height="16"><use href="#i-wa"/></svg>
+      <span data-i="footer_contact">واتساب</span>
+    </a>
   </div>
 </footer>
 
-<!-- نافذة عرض الفيديو (Video Modal) -->
-<div class="modal" id="video-modal" hidden role="dialog" aria-modal="true" aria-label="مشغل الفيديو">
-  <div class="player">
-    <button class="close" id="video-close" type="button" aria-label="إغلاق الفيديو">✕</button>
-    <video id="video-player" controls playsinline preload="metadata"></video>
-    <p class="msg" id="video-msg" hidden></p>
+<div class="modal" id="video-modal" hidden>
+  <div class="modal-inner">
+    <button class="modal-close" id="video-close" aria-label="إغلاق"><svg width="18" height="18"><use href="#i-close"/></svg></button>
+    <video id="video-player" controls playsinline></video>
+    <p class="modal-msg" id="video-msg" hidden></p>
   </div>
 </div>
 
-<!-- ملفات الجافاسكريبت الأساسية الخاصة بالموقع -->
 <script src="i18n.js" defer></script>
 <script src="app.js" defer></script>
-
-<!-- سكريبت خفيف لتحسين تجربة المستخدم (Scroll Progress + Reveal Animations + Sticky Header) -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const header = document.getElementById('site-header');
-    const progressBar = document.getElementById('scroll-progress');
-    const backToTop = document.getElementById('back-to-top');
-    const yearEl = document.getElementById('year');
-
-    if (yearEl) {
-      yearEl.textContent = new Date().getFullYear();
-    }
-
-    // تحديث شريط التقدم والهيدر وزر الصعود للأعلى عند التمرير
-    const onScroll = () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-
-      if (progressBar) progressBar.style.width = progress + '%';
-      if (header) header.classList.toggle('scrolled', scrollTop > 20);
-      if (backToTop) backToTop.classList.toggle('show', scrollTop > 450);
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
-    if (backToTop) {
-      backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
-
-    // تحريك العناصر بسلاسة عند الظهور على الشاشة (Intersection Observer)
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
-
-      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-    } else {
-      document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
-    }
-  });
-</script>
 </body>
 </html>
