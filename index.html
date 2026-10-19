@@ -23,15 +23,13 @@
 <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 <canvas id="bg" aria-hidden="true"></canvas>
 
-<!-- =======================================================================
-     بوابة اختيار الدولة التفاعلية ثلاثية الأبعاد (متسنترة 100%)
-     ======================================================================= -->
+<!-- بوابة اختيار الدولة ثلاثية الأبعاد -->
 <div class="country-gate" id="country-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
   <div class="gate-card">
     <div class="gate-header">
       <div class="gate-badge">🚀 T2 DIGITAL & AI AGENCY</div>
       <h2 id="gate-title">اختر دولتك لتجربة مخصصة بلهجتك وهويتك</h2>
-      <p>يتحول الموقع فوراً للهجة بلدك وشخصياتها والمنصات الإعلانية الأنسب لسوقك</p>
+      <p>يتحول الموقع فوراً للهجة بلدك وشخصياتها والستيكرات الخاصة بسوقك</p>
     </div>
 
     <div class="wheel-stage">
@@ -47,13 +45,11 @@
   </div>
 </div>
 
-<!-- =======================================================================
-     الهيدر الرئيسي (مضبوط للموبايل والكمبيوتر بدون أي تداخل)
-     ======================================================================= -->
+<!-- الهيدر الرئيسي -->
 <header class="site-header" id="site-header">
   <div class="wrap header-flex">
     <a class="brand" href="#top" aria-label="T2 الصفحة الرئيسية">
-      <img src="logo.png" alt="T2" width="44" height="44">
+      <img src="logo.png" alt="T2" width="42" height="42">
       <span class="brand-tag">T2 <span>MEDIA</span></span>
     </a>
 
@@ -78,9 +74,8 @@
 
 <main id="main-content">
 
-  <!-- القسم الافتتاحي 3D -->
+  <!-- القسم الافتتاحي 3D مع عرض الصور الكبيرة والستيكرات البارزة في الجنب -->
   <section class="hero" id="top">
-    <!-- خلفية الهوية الخاصة بالدولة (تظهر مثلاً في الإمارات والسعودية) -->
     <div class="hero-country-bg" id="hero-country-bg" aria-hidden="true"></div>
 
     <div class="wrap hero-grid">
@@ -118,19 +113,19 @@
         </div>
       </div>
 
-      <!-- مسرح الـ 3D والملصقات والشخصيات الخاصة بكل دولة -->
+      <!-- مسرح الـ 3D الجانبي الكبير (يعرض الشخصية والستيكرات الكبيرة المرفوعة) -->
       <div class="hero-stage-wrap">
-        <div class="hero-logo">
-          <div class="country-stickers-orbit" id="country-stickers-orbit" aria-hidden="true"></div>
+        <div class="hero-side-stage" id="hero-side-stage">
           <div class="hero-3d" id="hero-3d">
-            <img class="fallback" src="logo.png" alt="شعار T2 ثلاثي الأبعاد" width="380" height="380">
+            <img class="fallback" src="logo.png" alt="شعار T2" width="340" height="340">
           </div>
+          <div class="side-stickers-podium" id="side-stickers-podium"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- شريط استعراض مجسمات وهوية الدولة المختارة -->
+  <!-- شريط استعراض الصور الضخمة وهوية الدولة المختارة -->
   <div class="country-showcase-strip" id="country-showcase-strip" hidden>
     <div class="wrap">
       <div class="showcase-inner" id="showcase-inner"></div>
@@ -232,7 +227,7 @@
   </div>
 </div>
 
-<!-- المستشار الرقمي المرافق للدولة -->
+<!-- المستشار الرقمي المرافق -->
 <div class="floating-companion" id="floating-companion" hidden aria-hidden="true">
   <img id="companion-img" src="" alt="">
 </div>
